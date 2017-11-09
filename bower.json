@@ -1,0 +1,20 @@
+{
+  "name": "wdi-project-3",
+  "description": "group project",
+  "main": "index.js",
+  "authors": [
+    "Students"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.6"
+  }
+}
