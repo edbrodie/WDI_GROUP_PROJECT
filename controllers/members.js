@@ -1,7 +1,7 @@
-const Student = require('../models/member');
+const Member = require('../models/member');
 
 function showRoute(req, res, next) {
-  Student
+  Member
     .findById(req.params.id)
     .exec()
     .then((member) => {

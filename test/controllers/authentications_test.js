@@ -25,9 +25,9 @@ describe('Authentication testing', function() {
           }
         })
         .end((err, res) => {
-          // expect(res.status).to.eq(201);
-          // expect(res.body).to.be.a('object');
-          // expect(res.body.message).to.eq('Thanks for registering.');
+          expect(res.status).to.eq(201);
+          expect(res.body).to.be.a('object');
+          expect(res.body.message).to.eq('Thanks for registering.');
           expect(res.body.token).to.be.a('string');
           done();
         });
@@ -91,7 +91,7 @@ describe('Authentication testing', function() {
     });
   });
 
-  describe('POST /api/login', function() {
+  xdescribe('POST /api/login', function() {
 
     beforeEach(done => {
       api
