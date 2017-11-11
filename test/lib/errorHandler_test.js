@@ -8,8 +8,5 @@ describe('ErrorHandler', function() {
     expect(errorHandler).to.be.a('function');
     done();
   });
-
-
-
-  
+    
 });

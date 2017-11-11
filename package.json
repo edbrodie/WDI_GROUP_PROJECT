@@ -1,7 +1,7 @@
 {
   "name": "wdi-project-3",
   "version": "1.0.0",
-  "description": "group project",
+  "description": "wdi-project-3",
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install && gulp deploy",
@@ -51,6 +51,7 @@
     }
   },
   "dependencies": {
+    "angular-ui-router": "^0.4.3",
     "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
