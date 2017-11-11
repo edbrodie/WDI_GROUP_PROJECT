@@ -25,9 +25,6 @@ memberSchema
   .path('email')
   .validate(validateEmail);
 
-// memberSchema
-//   .path('name')
-//   .validate(validateName);
 
 memberSchema.methods.validatePassword = validatePassword;
 
