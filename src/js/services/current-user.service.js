@@ -1,29 +1,39 @@
 // angular
-//   .module('angularAuthentication')
+//   .module('wdi-project-3')
 //   .service('currentUserService', currentUserService);
 //
 // currentUserService.$inject = [
 //   '$auth',
-//   '$rootScope',
-//   'User'
+//   'Member',
+//   '$rootScope'
 // ];
+//
 // function currentUserService(
 //   $auth,
-//   $rootScope,
-//   User) {
+//   Member,
+//   $rootScope
+// ){
 //   const self = this;
 //
 //   self.getUser = () => {
 //     const decoded = $auth.getPayload();
+//
 //     if (decoded) {
-//       User
+//       Member
 //         .get({ id: decoded.userId })
 //         .$promise
-//         .then(data => {
-//           self.currentUser = data;
+//         .then(user => {
+//
+//           self.currentUser = user;
 //           $rootScope.$broadcast('loggedIn');
 //         });
 //     }
+//   };
+//
+//   self.removeUser = () => {
+//     self.currentUser = null;
+//     $auth.logout();
+//     $rootScope.$broadcast('loggedOut');
 //   };
 //
 //   self.getUser();
