@@ -8,7 +8,7 @@ function authenticationsRegister(req, res){
     .then(member => {
 
       const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr'});
-
+      console.log(member);
       return res.status(201).json({
         message: `Welcome ${member.username}!`,
         token,
