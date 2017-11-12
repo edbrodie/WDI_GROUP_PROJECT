@@ -7,11 +7,13 @@ const expressJWT              = require('express-jwt');
 const customResponses         = require('./lib/customResponses');
 const errorHandler            = require('./lib/errorHandler');
 const app                     = express();
+const cors = require('cors');
 const enviroment              = app.get('env');
 const mongoose                = require('mongoose');
 mongoose.Promise              = require('bluebird');
 mongoose.connect(db[enviroment], { useMongoClient: true });
 
+app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
