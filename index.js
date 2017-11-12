@@ -7,19 +7,14 @@ const expressJWT              = require('express-jwt');
 const customResponses         = require('./lib/customResponses');
 const errorHandler            = require('./lib/errorHandler');
 const app                     = express();
-const enviroment              = app.get('env');
+const environment             = app.get('env');
 const mongoose                = require('mongoose');
 mongoose.Promise              = require('bluebird');
-mongoose.connect(db[enviroment], { useMongoClient: true });
+mongoose.connect(db[environment], { useMongoClient: true });
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 78be1af2480b96262a9c4662f5e3ddd361743e12
 app.use(express.static(`${__dirname}/public`));
 
 app.use('/api', expressJWT({ secret: secret })
