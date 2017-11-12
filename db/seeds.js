@@ -42,12 +42,12 @@ Member
         price: { type: String, trim: true, required: true }
       },{
         createdBy: members [1],
-        bandName: { type: String, trim: true, required: true },
+        bandName: 'Alt J',
         image: { type: String, trim: true, required: true },
-        location: { type: String, trim: true, required: true },
+        location: 'https://goo.gl/6tXfVt',
         price: { type: String, trim: true, required: true }
       }]);
   })
-  .then((events) => console.log(`${events.length} Cool events near you!`))
+  .then((events) => console.log(`${events.length} Events added.`))
   .catch((err) => console.log(err))
   .finally(() => mongoose.connection.close());
