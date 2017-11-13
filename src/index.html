@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html ng-app="wdi-project-3">
-  <head>
-    <meta charset="utf-8">
-    <title>Gig App</title>
-    <base href="/" />
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body >
-    <h1>Gig App</h1>
-    <main ui-view></main>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Gig App</title>
+  <base href="/" />
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body >
+  <div ng-controller="CollapseDemoCtrl">
+  	<nav class="navbar navbar-default" role="navigation">
+  		<div class="navbar-header">
+  			<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+  				<span class="sr-only">Toggle navigation</span>
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  			</button>
+  			<a class="navbar-brand" href="#">Gig app</a>
+  		</div>
+  		<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+  			<ul class="nav navbar-nav">
+  				<li><a href="#">Register</a></li>
+  				<li><a href="#">Login</a></li>
+  				<li><a href="#">Logout</a></li>
+  			</ul>
+  		</div>
+  	</nav>
+
+  </div>
+  <h1>Gig App</h1>
+  <main ui-view></main>
+</body>
 </html>
