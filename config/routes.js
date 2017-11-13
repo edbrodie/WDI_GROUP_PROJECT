@@ -4,6 +4,7 @@ const authentications   = require('../controllers/authentications');
 const secureRoute       = require('../lib/secureRoute');
 const members           = require('../controllers/members');
 const events            = require('../controllers/events');
+const proxies           = require('../controllers/proxies');
 
 
 router.route('/register')
@@ -26,7 +27,8 @@ router.route('/events/:id')
   .patch(events.update)
   .delete(events.delete);
 
-
+router.route('/getEventData')
+  .get(proxies.event);
 
 
 router.all('/*', (req, res) => res.notFound());
