@@ -13,7 +13,7 @@ function EventsShowCtrl(Event, $stateParams) {
   //     .remove({ id: event._id })
   //     .$promise
   //     .then(() => {
-  //       $state.go('evnetsIndex');
+  //       $state.go('eventsIndex');
   //     });
   // };
 }
