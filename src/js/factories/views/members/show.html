@@ -1,0 +1,7 @@
+<h1>{{ vm.member.name }}</h1>
+<img src="{{ vm.member.image }}" width="800px">
+<br>
+
+
+<a ui-sref="membersEdit({ id: vm.member.id })">Edit</a>
+<a href="#" ng-click="vm.openModal()">Delete</a>
