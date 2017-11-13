@@ -19,7 +19,6 @@ function Router(
       url: '/',
       templateUrl: '/js/views/home.html'
     })
-
     .state('register', {
       url: '/register',
       templateUrl: 'js/views/authentications/register.html',
@@ -29,7 +28,18 @@ function Router(
       url: '/login',
       templateUrl: 'js/views/authentications/login.html',
       controller: 'loginController as vm'
+    })
+    .state('eventsIndex', {
+      url: '/events',
+      templateUrl: '/js/views/events/index.html',
+      controller: 'EventsIndexCtrl as vm'
+    })
+    .state('eventsShow', {
+      url: '/events/:id',
+      templateUrl: '/js/views/events/show.html',
+      controller: 'EventsShowCtrl as vm'
     });
+
 
   $urlRouterProvider.otherwise('/');
 }
