@@ -27,6 +27,12 @@ router.route('/events/:id')
   .patch(events.update)
   .delete(events.delete);
 
+router.route('/events/:id/comments')
+  .post(events.createComment);
+
+router.route('/events/:id/comments/:commentId')
+  .delete(events.deleteComment);
+
 router.route('/getEventData')
   .get(proxies.event);
 
