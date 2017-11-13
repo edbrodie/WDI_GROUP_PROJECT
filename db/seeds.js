@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-const { dbUri } = require('../config/environment');
+const { db } = require('../config/environment');
+const app = require('express')();
+const environment = app.get('env');
 
-mongoose.connect(dbUri, { useMongoClient: true });
+mongoose.connect(db[environment], { useMongoClient: true });
 
 const Member = require('../models/member');
 const Event = require('../models/event');
@@ -31,7 +33,7 @@ Member
     console.log(`${members.length} new members added`);
     return Event
       .create([{
-        createdBy: members [0],
+        createdBy: members[0],
         bandName: 'Alt J',
         image: 'http://ksassets.timeincuk.net/wp/uploads/sites/55/2016/07/alt-J-Live-At-Red-Rocks-01-1.jpg',
         location: 'https://goo.gl/u62MUA',
@@ -39,7 +41,7 @@ Member
         Description: 'Alt-J (stylised as alt-J) are an English indie rock band formed in 2007 in Leeds, by Gwil Sainsbury (guitar/bass), Joe Newman (guitar/lead vocals), Thom Sonny Green (drums) and Gus Unger-Hamilton (keyboards/vocals).The band\'s debut album An Awesome Wave was released in May 2012 in Europe, and in September 2012 in the United States, and won the 2012 British Mercury Prize. Gwil Sainsbury amicably departed the band in early 2014. Their second album, This Is All Yours, was released on 22 September 2014 and went straight to UK number one. As a replacement for Sainsbury, Cameron Knight became a supporting member for alt-J\'s live shows, playing guitar, bass and sampler. In 2017, the band released their third studio album, Relaxer, and are currently playing as a trio.',
         price: '£45'
       },{
-        createdBy: members [0],
+        createdBy: members[0],
         bandName: 'Kings of Leon',
         image: 'http://mybuyticket.info/wp-content/uploads/2017/05/81106-tap-94037.jpg',
         location: 'https://goo.gl/vqHtQE',
@@ -48,7 +50,7 @@ Member
         price: '£105'
       },
       {
-        createdBy: members [0],
+        createdBy: members[0],
         bandName: 'Enya',
         image: 'http://leostavern.com/lt01/wp-content/uploads/2016/05/Eithne.jpg',
         location: 'https://goo.gl/xBeqjC',
@@ -57,7 +59,7 @@ Member
         price: '£22'
       },
       {
-        createdBy: members [0],
+        createdBy: members[0],
         bandName: 'Scratch Perverts',
         image: 'https://www.residentadvisor.net/images/profiles/scratchperverts.jpg',
         location: 'https://goo.gl/Uvxovb',
@@ -66,7 +68,7 @@ Member
         price: '£45'
       },
       {
-        createdBy: members [0],
+        createdBy: members[0],
         bandName: 'Rick Astley',
         image: 'https://img.maximummedia.ie/joe_co_uk/eyJkYXRhIjoie1widXJsXCI6XCJodHRwOlxcXC9cXFwvbWVkaWEtam9lY291ay5tYXhpbXVtbWVkaWEuaWUuczMuYW1hem9uYXdzLmNvbVxcXC93cC1jb250ZW50XFxcL3VwbG9hZHNcXFwvMjAxNlxcXC8wNlxcXC8yMDEwMjIwMVxcXC9SaWNrQXN0bGV5LnBuZ1wiLFwid2lkdGhcIjo2NDcsXCJoZWlnaHRcIjozNDAsXCJkZWZhdWx0XCI6XCJodHRwczpcXFwvXFxcL3d3dy5qb2UuY28udWtcXFwvYXNzZXRzXFxcL2ltYWdlc1xcXC9qb2Vjb3VrXFxcL25vLWltYWdlLnBuZz92PTRcIn0iLCJoYXNoIjoiY2MwNmI0ODU2YTUzM2E5MTczMjk4ZDc4ZDcyZmU3OGQxMDYwZTEwZiJ9/rickastley.png',
         location: 'https://goo.gl/evWvVg',
@@ -74,7 +76,7 @@ Member
         description: 'Richard Paul "Rick" Astley (born 6 February 1966) is an English singer, songwriter and radio personality. His 1987 song "Never Gonna Give You Up" was a No. 1 hit single in 25 countries and won the 1988 Brit Award for Best British Single. By the time of his retirement in 1993, Astley had sold approximately 40 million records worldwide.Astley made a comeback in 2007, becoming an Internet phenomenon when the music video for "Never Gonna Give You Up" became integral to the meme known as "rickrolling". Astley was voted "Best Act Ever" by Internet users at the MTV Europe Music Awards 2008, and his 2016 album 50 debuted in the UK at No. 1.',
         price: '£75'
       },{
-        createdBy: members [1],
+        createdBy: members[1],
         bandName: 'Vengaboys',
         image: 'https://i.ytimg.com/vi/vjlttHcMTtw/maxresdefault.jpg',
         location: 'https://goo.gl/tSzZLa',
