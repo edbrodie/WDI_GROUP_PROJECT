@@ -28,7 +28,7 @@ Member
     passwordConfirmation: 'password'
   }])
   .then((members) => {
-    console.log(`${members.length} new memebers added`);
+    console.log(`${members.length} new members added`);
     return Event
       .create([{
         createdBy: members [0],
