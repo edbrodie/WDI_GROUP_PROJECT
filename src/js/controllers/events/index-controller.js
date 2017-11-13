@@ -2,17 +2,9 @@ angular
   .module('wdi-project-3')
   .controller('EventsIndexCtrl', EventsIndexCtrl);
 
-EventsIndexCtrl.$inject = ['$http', 'Event'];
+EventsIndexCtrl.$inject = ['Event'];
 
-function EventsIndexCtrl($http, Event) {
+function EventsIndexCtrl(Event) {
   const vm = this;
   vm.events = Event.query();
-  // console.log('Hi');
-
-  Event
-    .getTicketmasterEvents()
-    .$promise
-    .then(data => {
-      console.log(data._embedded.events);
-    });
 }

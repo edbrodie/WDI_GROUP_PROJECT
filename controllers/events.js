@@ -38,10 +38,45 @@ function eventsDelete(req, res) {
     .catch(() => res.status(500).json({message: 'Something went wrong.'}));
 }
 
+function createComment(req, res, next) {
+
+  req.body.createdBy = req.user;
+
+  Event
+    .findById(req.params.id)
+    .exec()
+    .then((event) => {
+      if(!event) return res.notFound();
+      req.body.createdBy = req.member;
+      event.comments.push(req.body);
+      return event.save();
+    })
+    .then(event => res.status(200).json(event))
+    .catch(next);
+}
+
+function deleteComment(req, res, next) {
+  Event
+    .findById(req.params.id)
+    .exec()
+    .then((event) => {
+      if(!event) return res.notFound();
+      const comment = event.comments.id(req.params.commentId);
+      comment.remove();
+
+      return event.save();
+    })
+    .then(event => res.status(200).json(event))
+    .catch(next);
+}
+
+
 module.exports = {
   index: eventsIndex,
   create: eventsCreate,
   show: eventsShow,
   update: eventsUpdate,
-  delete: eventsDelete
+  delete: eventsDelete,
+  createComment: createComment,
+  deleteComment: deleteComment
 };

@@ -6,7 +6,6 @@ function showRoute(req, res, next) {
     .exec()
     .then((member) => {
       if(!member) return res.notFound();
-
       res.json(member);
     })
     .catch(next);

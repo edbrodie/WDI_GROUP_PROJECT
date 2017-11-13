@@ -16,13 +16,11 @@ describe('Authentication testing', function() {
         .post('/api/register')
         .set('Accept', 'application/json')
         .send({
-          member: {
-            name: 'test',
-            email: 'test@t.com',
-            username: 'test',
-            password: 'password',
-            passwordConfirmation: 'password'
-          }
+          name: 'test',
+          email: 'test@t.com',
+          username: 'test',
+          password: 'password',
+          passwordConfirmation: 'password'
         })
         .end((err, res) => {
           expect(res.status).to.eq(201);
