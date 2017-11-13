@@ -16,9 +16,9 @@ function loginController(
 
   function login() {
     $auth
-      .login(vm.user)
+      .login(vm.member)
       .then(() => {
-        $state.go('/register');
+        $state.go('/events');
       });
   }
 }
