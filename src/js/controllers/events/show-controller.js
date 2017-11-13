@@ -22,28 +22,40 @@ function EventsShowCtrl(Event, $stateParams) {
 
 
 
-  vm.delete = deleteComment;
-  deleteComment();
+  // vm.delete = deleteComment;
+  // deleteComment();
 
 
 
-  function deleteComment(comment) {
-    Event
-      .removeComment({id: $stateParams._id, commentId: comment})
-      .$promise
-      .then((data) => {
-        console.log(data);
-      });
-
-  }
-
-  // vm.comment
-  // vm.delete = event => {
+  // function deleteComment(comment) {
   //   Event
-  //     .remove({ id: event._id })
+  //     .removeComment({id: $stateParams._id, commentId: comment})
   //     .$promise
-  //     .then(() => {
-  //       $state.go('eventsIndex');
+  //     .then((data) => {
+  //       console.log(data);
   //     });
-  // };
+  //
+  // }
+
+
+  // function deleteComment(req, res) {
+  //   Event
+  //     .findById(req.params.id)
+  //     .exec()
+  //     .then(bar => {
+  //       if(!bar) return res.status(404).json({ message: 'No bar found!'});
+  //       const comment = bar.comments.find(obj => obj.id);
+  //       comment.remove();
+  //       bar.save();
+  //     })
+  //     .then(bar => res.status(200).json(bar))
+  //     .catch(err => res.status(500).json(err));
+  // }
+
+
+
+
+
+
+
 }
