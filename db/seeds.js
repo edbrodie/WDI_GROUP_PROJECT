@@ -30,14 +30,14 @@
 //     return Event
 //       .create([{
 //         createdBy: members [0],
-//         bandName: { type: String, trim: true, required: true },
-//         image: { type: String, trim: true, required: true },
-//         location: { type: String, trim: true, required: true },
-//         price: { type: String, trim: true, required: true }
+//         bandName: 'Alt J',
+//         image: 'http://ksassets.timeincuk.net/wp/uploads/sites/55/2016/07/alt-J-Live-At-Red-Rocks-01-1.jpg',
+//         location: 'https://goo.gl/u62MUA',
+//         price: '£45'
 //       },{
 //         createdBy: members [0],
 //         bandName: { type: String, trim: true, required: true },
-//         image: { type: String, trim: true, required: true },
+//         image: 'http://mybuyticket.info/wp-content/uploads/2017/05/81106-tap-94037.jpg',
 //         location: { type: String, trim: true, required: true },
 //         price: { type: String, trim: true, required: true }
 //       },{
