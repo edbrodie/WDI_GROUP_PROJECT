@@ -4,14 +4,14 @@ angular
 
 currentUserService.$inject = [
   '$auth',
-  'Member',
-  '$rootScope'
+  '$rootScope',
+  'Member'
 ];
 
 function currentUserService(
   $auth,
-  Member,
-  $rootScope
+  $rootScope,
+  Member
 ){
   const self = this;
 
@@ -22,9 +22,9 @@ function currentUserService(
       Member
         .get({ id: decoded.userId })
         .$promise
-        .then(user => {
+        .then(data => {
 
-          self.currentUser = user;
+          self.currentUser = data;
           $rootScope.$broadcast('loggedIn');
         });
     }
