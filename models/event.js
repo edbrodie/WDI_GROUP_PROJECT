@@ -14,11 +14,13 @@ commentSchema.methods.belongsTo = function commentsBelongsTo(member) {
 
 
 const eventSchema = new mongoose.Schema({
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'Member' },
   bandName: { type: String, trim: true },
   image: { type: String, trim: true },
   location: { type: String, trim: true },
+  locationName: { type: String, trim: true },
+  description: { type: String, trim: true },
   price: { type: String, trim: true },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'Member' },
   comments: [ commentSchema ]
 });
 
