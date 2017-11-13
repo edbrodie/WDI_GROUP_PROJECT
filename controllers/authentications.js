@@ -7,15 +7,14 @@ function authenticationsRegister(req, res){
     .create(req.body)
     .then(member => {
 
-      const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr'});
-      console.log(member);
+      const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr' });
       return res.status(201).json({
-        message: `Welcome ${member.username}!`,
+        message: `Hi ${member.username}!`,
         token,
         member
       });
     })
-    .catch(() => res.status(500).json({ message: 'Something went wrong.'}));
+    .catch(() => res.status(500).json({ message: 'Something went wrong.' }));
 }
 
 

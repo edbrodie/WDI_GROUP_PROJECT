@@ -21,7 +21,6 @@ function registerController(
       .signup(vm.member)
       .then(() => $auth.login(vm.member))
       .then(() => {
-        console.log('hi gang!');
         currentUserService.getUser();
         $state.go('membersIndex');
       });
