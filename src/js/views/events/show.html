@@ -2,24 +2,23 @@
 
 <h2>Comments</h2>
 
-<form ng-submit="eventsShow.update()">
+{{ vm.comment }}
+
+<form ng-submit="vm.createComment()">
   <div class="form-group">
     <label for="comment">Comment</label>
-    <input type="text" class="form-control" name="comment" id="comment">
+    <input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
   </div>
-
-  <button role="button" class="btn btn-primary" ui-sref="birdsShow({ id: birdsEdit.bird.id })">Cancel</button>
   <button class="btn btn-success">POST</button>
-
 </form>
 
 
-<h4>{{ vm.event.createdBy }}</h4>
+<ul>
+  <li ng-repeat="comment in vm.event.comments">
+    <p>{{ comment.content }}</p>
+    <p>Comment by {{ comment.createdBy.username }}</p>
+    <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
+  </li>
+</ul>
 
-<google-map center="{ lat: 51.507602, lng: -0.127816 }"></google-map>
-
-<h4>{{ vm.event.location }}</h4>
-
-
-<h4>{{ vm.event.bandName }}</h4>
-<h4>{{ vm.event.bandName }}</h4>
+{{ vm.event.comments }}
