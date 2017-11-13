@@ -2,7 +2,7 @@
 <ul>
   <li ng-repeat="event in vm.events track by $index">
     <h3><a ui-sref="eventsShow({ id: event._id })">{{ event.bandName }}</a></h3>
-    <img height="175px" width="300px"ng-src="{{ event.image }}" alt="{{ event.name }}'s image.'">
+    <img height="175px" width="300px" ng-src="{{ event.image }}" alt="{{ event.name }}'s image">
     <p>{{ event.bandName }}</p>
     <p>{{ event.location }}</p>
     <p>{{ event.locationName }}</p>
