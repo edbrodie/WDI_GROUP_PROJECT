@@ -1,1 +1,14 @@
 <h1>Show Page</h1>
+
+<h2>Comments</h2>
+
+<form ng-submit="eventsShow.update()">
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <input type="text" class="form-control" name="comment" id="comment">
+  </div>
+
+  <button role="button" class="btn btn-primary" ui-sref="birdsShow({ id: birdsEdit.bird.id })">Cancel</button>
+  <button class="btn btn-success">POST</button>
+
+</form>

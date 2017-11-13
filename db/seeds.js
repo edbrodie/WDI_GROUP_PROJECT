@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-const { dbUri } = require('../config/environment');
+const { db } = require('../config/environment');
 
-mongoose.connect(dbUri, { useMongoClient: true });
+mongoose.connect(db, { useMongoClient: true });
 
 const Member = require('../models/member');
 const Event = require('../models/event');
@@ -15,12 +15,14 @@ Event.collection.drop();
 Member
   .create([{
     username: 'EddyB',
+    name: 'Ed',
     email: 'ed@ed.com',
     password: 'password',
     passwordConfirmation: 'password'
   } ,
   {
     username: 'tom',
+    name: 'Tommy',
     email: 'tom@tom.com',
     password: 'password',
     passwordConfirmation: 'password'
