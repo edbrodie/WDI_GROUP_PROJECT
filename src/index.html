@@ -19,19 +19,13 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="#">Gig app</a>
+  			<a class="navbar-brand" ui-sref="home">Gig app</a>
   		</div>
   		<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
   			<ul class="nav navbar-nav">
-          <li class="nav-item" ng-if="!main.member">
-            <a class="nav-link" ui-sref="register">Register</a>
-          </li>
-          <li class="nav-item" ng-if="!main.member">
-            <a class="nav-link" ui-sref="login">Login</a>
-          </li>
-          <li class="nav-item" ng-if="main.member">
-            <a class="nav-link" href="#" ng-click="main.logout()">Logout</a>
-          </li>
+  				<li><a ui-sref="register">Register</a></li>
+  				<li><a ui-sref="login">Login</a></li>
+  				<li><a ui-sref="#">Logout</a></li>
   			</ul>
   		</div>
   	</nav>
