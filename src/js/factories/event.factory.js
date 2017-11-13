@@ -6,7 +6,8 @@ Event.$inject = ['API', '$resource'];
 
 function Event(API, $resource) {
   return $resource(`${API}/events/:id`, { id: '@_id'}, {
-    update: { method: 'PUT' }
+    update: { method: 'PUT' },
+    getTicketmasterEvents: { url: `${API}/getEventData`, method: 'GET'}
   });
 
 }
