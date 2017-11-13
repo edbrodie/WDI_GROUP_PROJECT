@@ -4,7 +4,7 @@ const authentications   = require('../controllers/authentications');
 const secureRoute       = require('../lib/secureRoute');
 const members           = require('../controllers/members');
 const events            = require('../controllers/events');
-
+const proxies           = require('../controllers/proxies');
 
 router.route('/register')
   .post(authentications.register);
@@ -25,6 +25,9 @@ router.route('/events/:id')
   .put(events.update)
   .patch(events.update)
   .delete(events.delete);
+
+router.route('/getEventData')
+  .get(proxies.event);
 
 
 
