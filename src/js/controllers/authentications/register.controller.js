@@ -10,7 +10,8 @@ registerController.$inject = [
 function registerController(
   $state,
   $auth,
-  currentUserService) {
+  currentUserService
+) {
   const vm = this;
 
   vm.submitForm = register;

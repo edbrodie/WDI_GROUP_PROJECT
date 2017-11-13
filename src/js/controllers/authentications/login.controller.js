@@ -4,11 +4,13 @@ angular
 
 loginController.$inject = [
   '$auth',
-  '$state'
+  '$state',
+  'currentUserService'
 ];
 function loginController(
   $auth,
-  $state
+  $state,
+  currentUserService
 ) {
   const vm = this;
 
@@ -18,7 +20,8 @@ function loginController(
     $auth
       .login(vm.member)
       .then(() => {
-        $state.go('/events');
+        currentUserService.getUser();
+        $state.go('register');
       });
   }
 }
