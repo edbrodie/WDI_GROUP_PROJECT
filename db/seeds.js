@@ -14,14 +14,16 @@ Event.collection.drop();
 //Add Member models here
 Member
   .create([{
-    username: 'EddyB',
+    name: 'EddyB',
     email: 'ed@ed.com',
+    username: 'ed123',
     password: 'password',
     passwordConfirmation: 'password'
   } ,
   {
-    username: 'tom',
+    name: 'tom',
     email: 'tom@tom.com',
+    username: 'tom123',
     password: 'password',
     passwordConfirmation: 'password'
   }])

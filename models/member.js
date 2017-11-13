@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt');
 const validator = require('validator');
 
 const memberSchema = mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   username: { type: String, unique: true, required: true },
-  passwordHash: { type: String, required: true }
+  password: { type: String, required: true }
 });
 
 memberSchema
@@ -42,7 +42,7 @@ memberSchema.set('toJSON', {
   }
 });
 
-module.exports = mongoose.model('Member', memberSchema);
+
 
 function setPassword(value){
   this._password    = value;
@@ -78,3 +78,5 @@ function validateEmail(email) {
 function validatePassword(password){
   return bcrypt.compareSync(password, this.passwordHash);
 }
+
+module.exports = mongoose.model('Member', memberSchema);
