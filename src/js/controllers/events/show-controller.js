@@ -20,6 +20,23 @@ function EventsShowCtrl(Event, $stateParams) {
       });
   }
 
+
+
+  vm.delete = deleteComment;
+  deleteComment();
+
+
+
+  function deleteComment(comment) {
+    Event
+      .removeComment({id: $stateParams._id, commentId: comment})
+      .$promise
+      .then((data) => {
+        console.log(data);
+      });
+
+  }
+
   // vm.comment
   // vm.delete = event => {
   //   Event

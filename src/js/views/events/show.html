@@ -17,7 +17,7 @@
   <li ng-repeat="comment in vm.event.comments">
     <p>{{ comment.content }}</p>
     <p>Comment by {{ comment.createdBy.username }}</p>
-    <button class="btn btn-danger"name="delete">DELETE</button>
+    <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
   </li>
 </ul>
 
