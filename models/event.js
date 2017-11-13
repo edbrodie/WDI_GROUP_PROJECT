@@ -19,6 +19,7 @@ const eventSchema = new mongoose.Schema({
   image: { type: String, trim: true },
   location: { type: String, trim: true },
   locationName: { type: String, trim: true },
+  latlon: { type: String, trim: true },
   description: { type: String, trim: true },
   price: { type: String, trim: true },
   comments: [ commentSchema ]

@@ -1,9 +1,16 @@
-<h1>Show Page</h1>
+<h1>{{ vm.event.bandName }} @ {{ vm.event.locationName }}</h1>
+<img height="290px" width="500px" ng-src="{{ vm.event.image }}" alt="{{ vm.event.name }}'s image">
+
+
+<p>{{ vm.event.description}}</p>
+<ng-map zoom="16" center="{{ vm.event.latlon}}">
+    <marker position="{{ vm.event.latlon }}"
+      title="You are here"
+      animation="Animation.BOUNCE"
+      centered="true"></marker>
+  </ng-map>
 
 <h2>Comments</h2>
-
-{{ vm.comment }}
-
 <form ng-submit="vm.createComment()">
   <div class="form-group">
     <label for="comment">Comment</label>
@@ -11,7 +18,7 @@
   </div>
   <button class="btn btn-success">POST</button>
 </form>
-
+{{ vm.comment }}
 
 <ul>
   <li ng-repeat="comment in vm.event.comments">
