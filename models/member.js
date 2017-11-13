@@ -42,7 +42,7 @@ memberSchema.set('toJSON', {
   }
 });
 
-module.exports = mongoose.model('Member', memberSchema);
+
 
 function setPassword(value){
   this._password    = value;
@@ -78,3 +78,5 @@ function validateEmail(email) {
 function validatePassword(password){
   return bcrypt.compareSync(password, this.passwordHash);
 }
+
+module.exports = mongoose.model('Member', memberSchema);
