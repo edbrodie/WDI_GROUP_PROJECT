@@ -10,7 +10,7 @@
   <!-- endinject -->
 </head>
 <body >
-  <div ng-controller="CollapseDemoCtrl">
+  <div ng-controller="MainCtrl">
   	<nav class="navbar navbar-default" role="navigation">
   		<div class="navbar-header">
   			<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
@@ -19,13 +19,13 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="#">Gig app</a>
+  			<a class="navbar-brand" ui-sref="home">Gig app</a>
   		</div>
   		<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
   			<ul class="nav navbar-nav">
-  				<li><a href="#">Register</a></li>
-  				<li><a href="#">Login</a></li>
-  				<li><a href="#">Logout</a></li>
+  				<li><a ui-sref="register">Register</a></li>
+  				<li><a ui-sref="login">Login</a></li>
+  				<li><a ui-sref="#">Logout</a></li>
   			</ul>
   		</div>
   	</nav>
