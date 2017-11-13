@@ -10,7 +10,7 @@
   <!-- endinject -->
 </head>
 <body >
-  <div ng-controller="CollapseDemoCtrl">
+  <div ng-controller="MainCtrl">
   	<nav class="navbar navbar-default" role="navigation">
   		<div class="navbar-header">
   			<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
@@ -23,9 +23,15 @@
   		</div>
   		<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
   			<ul class="nav navbar-nav">
-  				<li><a href="#">Register</a></li>
-  				<li><a href="#">Login</a></li>
-  				<li><a href="#">Logout</a></li>
+          <li class="nav-item" ng-if="!main.member">
+            <a class="nav-link" ui-sref="register">Register</a>
+          </li>
+          <li class="nav-item" ng-if="!main.member">
+            <a class="nav-link" ui-sref="login">Login</a>
+          </li>
+          <li class="nav-item" ng-if="main.member">
+            <a class="nav-link" href="#" ng-click="main.logout()">Logout</a>
+          </li>
   			</ul>
   		</div>
   	</nav>
