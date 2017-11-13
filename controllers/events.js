@@ -11,7 +11,7 @@ function eventsIndex(req, res) {
 function eventsShow(req, res) {
   Event
     .findById(req.params.id)
-    .populate('createdBy')
+    .populate('comments.createdBy')
     .exec()
     .then(event => res.status(200).json(event))
     .catch(() => res.status(500).json({message: 'Something went wrong.'}));
@@ -41,13 +41,15 @@ function eventsDelete(req, res) {
 
 function createComment(req, res, next) {
 
-  req.body.createdBy = req.user.userId;
+  req.body.createdBy = req.member;
 
   Event
     .findById(req.params.id)
+    .populate('comments.createdBy')
     .exec()
     .then(event => {
       if(!event) return res.notFound();
+      console.log('this is the current user', req.member);
       event.comments.push(req.body);
       return event.save();
     })

@@ -28,7 +28,7 @@ router.route('/events/:id')
   .delete(events.delete);
 
 router.route('/events/:id/comments')
-  .post(events.createComment);
+  .post(secureRoute, events.createComment);
 
 router.route('/events/:id/comments/:commentId')
   .delete(events.deleteComment);
