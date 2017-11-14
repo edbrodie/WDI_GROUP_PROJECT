@@ -2,12 +2,12 @@ angular
   .module('wdi-project-3')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['Event', '$stateParams'];
-
-function EventsShowCtrl(Event, $stateParams) {
+EventsShowCtrl.$inject = ['Event', '$stateParams', 'Group'];
+function EventsShowCtrl(Event, $stateParams, Group) {
   const vm = this;
-  vm.createComment = createComment;
+  // vm.createComment = createComment;
 
+  // getting event data here
   Event
     .findTicketmasterEventsById({ id: $stateParams.id })
     .$promise
@@ -17,17 +17,26 @@ function EventsShowCtrl(Event, $stateParams) {
     });
 
 
+  // get groups with event id.
+  Group
+    .findGroupsWithEventId({ eventId: $stateParams.id })
+    .$promise
+    .then(data => {
+      console.log('groups for event', data);
+      vm.groups = data;
+    });
 
-  function createComment() {
-    Event
-      .addComment($stateParams, vm.comment)
-      .$promise
-      .then(data => {
-        console.log('hi');
-        vm.comment = null;
-        vm.event.comments = data.comments;
-      });
-  }
+
+  // function createComment() {
+  //   Event
+  //     .addComment($stateParams, vm.comment)
+  //     .$promise
+  //     .then(data => {
+  //       console.log('hi');
+  //       vm.comment = null;
+  //       vm.event.comments = data.comments;
+  //     });
+  // }
 
 
 

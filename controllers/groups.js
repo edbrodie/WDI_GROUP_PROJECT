@@ -2,7 +2,7 @@ const Group = require('../models/Group');
 
 function groupsIndex(req, res) {
   Group
-    .find()
+    .find({ eventId: req.params.eventId })
     .exec()
     .then(groups => res.status(200).json(groups))
     .catch(() => res.status(500).json({ message: 'Something went wrong with the server'}));
@@ -18,10 +18,13 @@ function groupsShow(req, res) {
 }
 
 function groupsCreate(req, res) {
+  req.body.createdBy = req.user.userId;
+  req.body.attendees = [req.user.userId];
+
   Group
     .create(req.body)
     .then(group => res.status(201).json(group))
-    .catch(() => res.status(500).json({message: 'Something went wrong.'}));
+    .catch((err) => console.log(err));
 }
 
 function groupsUpdate(req, res) {
