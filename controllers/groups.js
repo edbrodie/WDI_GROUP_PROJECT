@@ -27,10 +27,25 @@ function groupsCreate(req, res) {
     .catch((err) => console.log(err));
 }
 
+// function groupsJoin(req, res) {
+//   Group
+//     .findById(req.params.id)
+//     .exec()
+//     .then(req.body.attendees.push(req.user.userId))
+//     .then(group => res.status(201).json(group))
+//     .catch((err) => console.log(err));
+//   console.log(req.params.id);
+// }
+//
+
 function groupsUpdate(req, res) {
   Group
     .findByIdAndUpdate(req.params.id, req.body, {new: true})
     .exec()
+
+    //push member into array of attendees
+    .then(req.body.attendees.push(req.user.userId))
+
     .then(group => res.status(200).json(group))
     .catch(() => res.status(500).json({message: 'Something went wrong.'}));
 }
@@ -79,6 +94,7 @@ function deleteComment(req, res, next) {
 module.exports = {
   index: groupsIndex,
   create: groupsCreate,
+  // join: groupsJoin,
   show: groupsShow,
   update: groupsUpdate,
   delete: groupsDelete,
