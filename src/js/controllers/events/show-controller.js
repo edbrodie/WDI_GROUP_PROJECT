@@ -2,9 +2,9 @@ angular
   .module('wdi-project-3')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['Event', '$stateParams', '$http'];
+EventsShowCtrl.$inject = ['Event', '$stateParams'];
 
-function EventsShowCtrl(Event, $stateParams, $http) {
+function EventsShowCtrl(Event, $stateParams) {
   const vm = this;
   vm.createComment = createComment;
 

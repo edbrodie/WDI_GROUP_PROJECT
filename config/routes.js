@@ -5,7 +5,7 @@ const secureRoute       = require('../lib/secureRoute');
 const Users           = require('../controllers/Users');
 const events            = require('../controllers/events');
 const proxies           = require('../controllers/proxies');
-
+const groups            = require('../controllers/groups');
 
 router.route('/register')
   .post(authentications.register);
@@ -26,6 +26,16 @@ router.route('/events/:id')
   .put(events.update)
   .patch(events.update)
   .delete(events.delete);
+
+router.route('/groups')
+  .get(groups.index)
+  .post(groups.create);
+
+router.route('/groups/:id')
+  .get(groups.show)
+  .put(groups.update)
+  .patch(groups.update)
+  .delete(groups.delete);
 
 router.route('/events/:id/comments')
   .post(secureRoute, events.createComment);

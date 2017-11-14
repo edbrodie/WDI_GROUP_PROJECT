@@ -31,10 +31,4 @@ function MainCtrl(
     $state.go('home');
   });
 
-  // vm.isNavCollapsed = true;
-  //
-  // $transitions.onSuccess({}, () => {
-  //   vm.isNavCollapsed = true;
-  // });
-
 }
