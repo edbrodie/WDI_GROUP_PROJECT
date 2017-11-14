@@ -28,7 +28,6 @@ router.route('/events/:id')
   .delete(events.delete);
 
 router.route('/groups')
-  .get(groups.index)
   .post(groups.create);
 
 router.route('/groups/:id')
@@ -37,11 +36,17 @@ router.route('/groups/:id')
   .patch(groups.update)
   .delete(groups.delete);
 
-router.route('/groups/:id/comments')
+router.route('/groups/find/:eventId')
+  .get(groups.index);
+
+router.route('/groups/find/:eventId/comments')
   .post(secureRoute, events.createComment);
 
-router.route('/groups/:id/comments/:commentId')
+router.route('/groups/find/:eventId/:commentsId')
   .delete(events.deleteComment);
+
+// router.route('/events/:id/comments')
+//   .post(secureRoute, events.createComment);
 
 router.route('/getEventData')
   .get(proxies.event);

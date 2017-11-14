@@ -11,6 +11,16 @@
       centered="true"></marker>
   </ng-map>
 
+
+<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
+
+<h2>Groups</h2>
+<ul ng-repeat="group in vm.groups">
+  <li>{{ group.name }}</li>
+</ul>
+
+
+
 <h2>Comments</h2>
 <form ng-submit="vm.createComment()">
   <div class="form-group">
