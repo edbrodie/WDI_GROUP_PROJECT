@@ -17,14 +17,5 @@ function EventsIndexCtrl($scope, Event) {
       vm.events = data._embedded.events;
     });
 
-  // $scope
-  //   .goToTickets = function() {
-  //     console.log('hi');
-  //     vm.url = vm.events.url;
-  //   };
-
-// function goToTickets() {
-//     console.log('hi');
-// }
 
 }

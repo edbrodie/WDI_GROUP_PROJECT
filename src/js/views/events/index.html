@@ -2,15 +2,11 @@
 
 
 <ul>
-<<<<<<< HEAD
   <li ng-repeat="event in vm.events" ui-sref="eventsShow({id: event.id})">{{ event.name }}</li>
 </ul>
 
-
-
-<!-- <ul>
+<ul>
   <li ng-repeat="event in vm.events track by $index">
-=======
 
     <p>{{ event.name }}</p>
     <p>{{ event._embedded.venues[0].name }}</p>
@@ -24,11 +20,11 @@
   <li ng-repeat="event in vm.events track by $index" class="col-md-6">
     <h3><a ui-sref="eventsShow({ id: event._id })">{{ event.bandName }}</a></h3>
     <img height="175px" width="300px" ng-src="{{ event.image }}" alt="{{ event.name }}'s image">
->>>>>>> 3d3188334b03be3792bb991c7e40b0a9efcd1318
+
 
     <!-- <p>{{ event.locationName }}</p>
     <p>{{ event.description }}</p>
     <p>{{ event.price }}</p> -->
 
   </li>
-</ul> -->
+</ul>

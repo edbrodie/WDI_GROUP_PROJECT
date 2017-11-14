@@ -20,11 +20,8 @@ function EventsShowCtrl(Event, $stateParams, $http) {
       });
   }
 
-
-
   vm.delete = deleteComment;
   deleteComment();
-
 
 
   function deleteComment(comment) {
@@ -37,29 +34,4 @@ function EventsShowCtrl(Event, $stateParams, $http) {
 
   }
 
-  // vm.comment
-  // vm.delete = event => {
-  //   Event
-  //     .remove({ id: event._id })
-  //     .$promise
-  //     .then(() => {
-  //       $state.go('eventsIndex');
-  //     });
-  // };
 }
-
-
-
-
-
-
-
-
-// vm.delete = event => {
-//   Event
-//     .remove({ id: event._id })
-//     .$promise
-//     .then(() => {
-//       $state.go('evnetsIndex');
-//     });
-// };
