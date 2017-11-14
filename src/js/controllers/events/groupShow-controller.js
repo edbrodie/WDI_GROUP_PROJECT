@@ -2,13 +2,13 @@ angular
   .module('wdi-project-3')
   .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-EventsShowCtrl.$inject = ['Member', '$stateParams'];
+GroupsShowCtrl.$inject = ['Group', '$stateParams'];
 
-function EventsShowCtrl(Event, $stateParams) {
+function GroupsShowCtrl(Group, $stateParams) {
   const vm = this;
   vm.createComment = createComment;
 
-  Event
+  Group
     .findTicketmasterEventsById({ id: $stateParams.id })
     .$promise
     .then(response => {
