@@ -30,8 +30,6 @@ function EventsIndexCtrl($scope, Event) {
     // console.log(counter);
   };
 
-
-
   function like() {
     console.log('hi');
     // let counter = 0;

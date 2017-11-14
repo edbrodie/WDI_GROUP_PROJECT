@@ -2,6 +2,9 @@ angular
   .module('wdi-project-3')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
+
+
+
 EventsShowCtrl.$inject = ['Event', '$stateParams'];
 
 function EventsShowCtrl(Event, $stateParams) {
