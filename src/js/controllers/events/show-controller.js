@@ -72,9 +72,4 @@ function EventsShowCtrl(Event, $stateParams, Group) {
   // }
 
 
-
-
-
-
-
 }

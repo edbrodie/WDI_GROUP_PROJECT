@@ -2,9 +2,12 @@ angular
   .module('wdi-project-3')
   .controller('EventsIndexCtrl', EventsIndexCtrl);
 
-EventsIndexCtrl.$inject = ['Event'];
+EventsIndexCtrl.$inject = ['$scope', 'Event'];
 
-function EventsIndexCtrl(Event) {
+
+let counter = 0;
+
+function EventsIndexCtrl($scope, Event) {
   const vm = this;
   vm.events = Event.query();
 
@@ -15,5 +18,25 @@ function EventsIndexCtrl(Event) {
       vm.events = data;
       console.log(data);
     });
+
+
+  $scope.like = function() {
+    console.log('like');
+    $scope.likeCount += 1;
+    console.log(likeCount);
+
+
+    // counter = counter++;
+    // console.log(counter);
+  };
+
+
+
+  function like() {
+    console.log('hi');
+    // let counter = 0;
+    // counter = counter++;
+  }
+
 
 }
