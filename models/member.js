@@ -2,33 +2,33 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 
-const memberSchema = mongoose.Schema({
+const UserSchema = mongoose.Schema({
   name: { type: String, unique: true},
   email: { type: String, unique: true},
   username: { type: String, unique: true},
   passwordHash: { type: String, required: true }
 });
 
-memberSchema
+UserSchema
   .virtual('password')
   .set(setPassword);
 
-memberSchema
+UserSchema
   .virtual('passwordConfirmation')
   .set(setPasswordConfirmation);
 
-memberSchema
+UserSchema
   .path('passwordHash')
   .validate(validatePasswordHash);
 
-memberSchema
+UserSchema
   .path('email')
   .validate(validateEmail);
 
 
-memberSchema.methods.validatePassword = validatePassword;
+UserSchema.methods.validatePassword = validatePassword;
 
-memberSchema.set('toJSON', {
+UserSchema.set('toJSON', {
   virtuals: true,
   getters: true,
   setters: true,
@@ -79,4 +79,4 @@ function validatePassword(password){
   return bcrypt.compareSync(password, this.passwordHash);
 }
 
-module.exports = mongoose.model('Member', memberSchema);
+module.exports = mongoose.model('User', UserSchema);

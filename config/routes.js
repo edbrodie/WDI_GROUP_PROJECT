@@ -2,7 +2,7 @@ const express           = require('express');
 const router            = express.Router();
 const authentications   = require('../controllers/authentications');
 const secureRoute       = require('../lib/secureRoute');
-const members           = require('../controllers/members');
+const Users           = require('../controllers/Users');
 const events            = require('../controllers/events');
 const proxies           = require('../controllers/proxies');
 
@@ -13,9 +13,9 @@ router.route('/register')
 router.route('/login')
   .post(authentications.login);
 
-router.route('/members/:id')
+router.route('/Users/:id')
   .all(secureRoute)
-  .get(members.show);
+  .get(Users.show);
 
 router.route('/events')
   .get(events.index)
