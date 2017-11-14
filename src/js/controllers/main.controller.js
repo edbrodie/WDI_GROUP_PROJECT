@@ -26,18 +26,12 @@ function MainCtrl(
   $rootScope.$on('loggedIn', () => {
     console.log('fired mate!');
     vm.member = currentUserService.currentUser;
-    console.log(vm.member);
+    console.log(vm.member.name);
   });
 
   $rootScope.$on('loggedOut', () => {
     vm.member = null;
     $state.go('home');
   });
-
-  // vm.isNavCollapsed = true;
-  //
-  // $transitions.onSuccess({}, () => {
-  //   vm.isNavCollapsed = true;
-  // });
 
 }
