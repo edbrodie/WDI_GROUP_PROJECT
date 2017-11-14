@@ -1,12 +1,5 @@
 <h1>Events</h1>
 
-
-<!-- <ul>
-  <li ng-repeat="event in vm.events" ui-sref="eventsShow({id: event.id})">{{ event.name }}</li>
-</ul> -->
-
-
-
 <ul>
   <li ng-repeat="event in vm.events track by $index">
     <h3><a ui-sref="eventsShow({ id: event.id })">{{ event.name }}</a></h3>

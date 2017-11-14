@@ -15,7 +15,6 @@ function MainCtrl(
   $state
 ) {
   const vm = this;
-
   vm.logout = logout;
 
   function logout() {
@@ -24,9 +23,7 @@ function MainCtrl(
   }
 
   $rootScope.$on('loggedIn', () => {
-    console.log('fired mate!');
     vm.member = currentUserService.currentUser;
-    console.log(vm.member);
   });
 
   $rootScope.$on('loggedOut', () => {
