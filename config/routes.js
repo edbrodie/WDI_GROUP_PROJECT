@@ -46,6 +46,9 @@ router.route('/events/:id/comments/:commentId')
 router.route('/getEventData')
   .get(proxies.event);
 
+router.route('/showEventData/:id')
+  .get(proxies.show);
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;

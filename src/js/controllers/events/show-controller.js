@@ -6,15 +6,24 @@ EventsShowCtrl.$inject = ['Event', '$stateParams'];
 
 function EventsShowCtrl(Event, $stateParams) {
   const vm = this;
-  vm.event = Event.get($stateParams);
-
   vm.createComment = createComment;
+
+  Event
+    .findTicketmasterEventsById({ id: $stateParams.id })
+    .$promise
+    .then(response => {
+      vm.event = response;
+      console.log('this is the response', vm.event);
+    });
+
+
 
   function createComment() {
     Event
       .addComment($stateParams, vm.comment)
       .$promise
       .then(data => {
+        console.log('hi');
         vm.comment = null;
         vm.event.comments = data.comments;
       });

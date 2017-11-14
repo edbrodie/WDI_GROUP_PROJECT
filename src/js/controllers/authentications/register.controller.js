@@ -22,7 +22,7 @@ function registerController(
       .then(() => $auth.login(vm.member))
       .then(() => {
         currentUserService.getUser();
-        $state.go('login');
+        $state.go('eventsIndex');
       });
   }
 }
