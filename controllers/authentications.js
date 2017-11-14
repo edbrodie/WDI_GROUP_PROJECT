@@ -1,17 +1,17 @@
-const User = require('../models/user');
+const Member = require('../models/member');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
 
 function authenticationsRegister(req, res){
-  User
+  Member
     .create(req.body)
-    .then(User => {
+    .then(member => {
 
-      const token = jwt.sign({ userId: User.id }, secret, { expiresIn: '1hr' });
+      const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr' });
       return res.status(201).json({
-        message: `Hi ${User.username}!`,
+        message: `Hi ${member.username}!`,
         token,
-        User
+        member
       });
     })
     .catch(() => res.status(500).json({ message: 'Something went wrong.' }));
@@ -19,21 +19,21 @@ function authenticationsRegister(req, res){
 
 
 function authenticationsLogin(req, res){
-  User
+  Member
     .findOne({ email: req.body.email })
     .exec()
-    .then(User => {
-      if (!User || !User.validatePassword(req.body.password)) {
+    .then(member => {
+      if (!member || !member.validatePassword(req.body.password)) {
         return res.status(401).json({ message: 'Unauthorized.' });
       }
 
 
-      const token = jwt.sign({ userId: User.id }, secret, { expiresIn: '1hr' });
+      const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr' });
 
       return res.status(200).json({
         message: 'Welcome back.',
         token,
-        User
+        member
       });
 
     })

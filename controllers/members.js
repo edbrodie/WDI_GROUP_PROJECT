@@ -1,12 +1,12 @@
-const User = require('../models/User');
+const Member = require('../models/member');
 
 function showRoute(req, res, next) {
-  User
+  Member
     .findById(req.params.id)
     .exec()
-    .then((User) => {
-      if(!User) return res.notFound();
-      res.json(User);
+    .then((member) => {
+      if(!member) return res.notFound();
+      res.json(member);
     })
     .catch(next);
 }
