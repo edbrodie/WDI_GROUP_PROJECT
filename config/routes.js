@@ -13,7 +13,7 @@ router.route('/register')
 router.route('/login')
   .post(authentications.login);
 
-router.route('/Users/:id')
+router.route('/users/:id')
   .all(secureRoute)
   .get(Users.show);
 
