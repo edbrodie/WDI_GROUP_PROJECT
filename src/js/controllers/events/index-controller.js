@@ -6,13 +6,14 @@ EventsIndexCtrl.$inject = ['Event'];
 
 function EventsIndexCtrl(Event) {
   const vm = this;
-  vm.events = Event.query();
+  // vm.events = Event.query();
 
   Event
     .getTicketmasterEvents()
     .$promise
     .then((data) => {
-      console.log(data);
+      console.log(data._embedded.events);
+      vm.events = data._embedded.events;
     });
 
 }

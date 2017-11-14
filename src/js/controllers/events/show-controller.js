@@ -2,9 +2,9 @@ angular
   .module('wdi-project-3')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['Event', '$stateParams'];
+EventsShowCtrl.$inject = ['Event', '$stateParams', '$http'];
 
-function EventsShowCtrl(Event, $stateParams) {
+function EventsShowCtrl(Event, $stateParams, $http) {
   const vm = this;
   vm.event = Event.get($stateParams);
 
