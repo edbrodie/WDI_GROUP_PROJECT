@@ -1,4 +1,6 @@
-<h1>{{ vm.event.bandName }} @ {{ vm.event.locationName }}</h1>
+{ 1 + 1 }
+
+<h1>{{ vm.event.name }} @ {{ vm.event.locationName }}</h1>
 <img height="290px" width="500px" ng-src="{{ vm.event.image }}" alt="{{ vm.event.name }}'s image">
 
 
@@ -21,11 +23,9 @@
 {{ vm.comment }}
 
 <ul>
-  <li ng-repeat="comment in vm.event.comments">
+  <li ng-repeat="comment in vm.event.comments | orderBy:'-'">
     <p>{{ comment.content }}</p>
     <p>Comment by {{ comment.createdBy.username }}</p>
     <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
   </li>
 </ul>
-
-{{ vm.event.comments }}
