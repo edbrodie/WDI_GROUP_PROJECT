@@ -4,6 +4,9 @@ angular
 
 EventsIndexCtrl.$inject = ['$scope', 'Event'];
 
+
+let counter = 0;
+
 function EventsIndexCtrl($scope, Event) {
   const vm = this;
   // vm.events = Event.query();
@@ -15,7 +18,28 @@ function EventsIndexCtrl($scope, Event) {
       console.log(data._embedded.events);
       console.log(data);
       vm.events = data._embedded.events;
+
+      // like();
     });
+
+
+  $scope.like = function() {
+    console.log('like');
+    $scope.likeCount += 1;
+    console.log(likeCount);
+
+
+    // counter = counter++;
+    // console.log(counter);
+  };
+
+
+
+  function like() {
+    console.log('hi');
+    // let counter = 0;
+    // counter = counter++;
+  }
 
 
 }

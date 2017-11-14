@@ -54,9 +54,4 @@ function EventsShowCtrl(Event, $stateParams, $http) {
   // }
 
 
-
-
-
-
-
 }

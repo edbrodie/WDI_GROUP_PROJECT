@@ -37,7 +37,6 @@ router.route('/getEventData')
   .get(proxies.event);
 
 
-
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;
