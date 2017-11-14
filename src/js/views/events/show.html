@@ -1,5 +1,5 @@
 
-<h1>{{ vm.event.name }} @ {{ vm.event.locationName }}</h1>
+<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <img height="290px" width="500px" ng-src="{{ vm.event.image }}" alt="{{ vm.event.name }}'s image">
 
 
@@ -10,6 +10,16 @@
       animation="Animation.BOUNCE"
       centered="true"></marker>
   </ng-map>
+
+
+<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
+
+<h2>Groups</h2>
+<ul ng-repeat="group in vm.groups">
+  <li>{{ group.name }}  <button ui-sref="groupShow" ng-submit="vm.submit(vm.member)">Join group</button></li>
+</ul>
+
+
 
 <h2>Comments</h2>
 <form ng-submit="vm.createComment()">

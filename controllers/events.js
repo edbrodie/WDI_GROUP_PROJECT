@@ -41,7 +41,7 @@ function eventsDelete(req, res) {
 
 function createComment(req, res, next) {
 
-  req.body.createdBy = req.member;
+  req.body.createdBy = req.User;
 
   Event
     .findById(req.params.id)
@@ -49,7 +49,7 @@ function createComment(req, res, next) {
     .exec()
     .then(event => {
       if(!event) return res.notFound();
-      console.log('this is the current user', req.member);
+      console.log('this is the current user', req.User);
       event.comments.push(req.body);
       return event.save();
     })
