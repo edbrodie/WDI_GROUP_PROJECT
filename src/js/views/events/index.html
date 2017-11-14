@@ -1,13 +1,32 @@
 <h1>Events</h1>
+
+<!-- <ul>
+  <li ng-repeat="event in vm.events">{{ event.name }}</li>
+</ul> -->
+
+<img></img>
+
 <ul>
   <li ng-repeat="event in vm.events track by $index">
-    <h3><a ui-sref="eventsShow({ id: event._id })">{{ event.bandName }}</a></h3>
-    <img height="175px" width="300px"ng-src="{{ event.image }}" alt="{{ event.name }}'s image.'">
-    <p>{{ event.bandName }}</p>
+    <!-- <h3><a ui-sref="eventsShow({ id: event._id })">{{ event.bandName }}</a></h3> -->
+    <img height="175px" width="300px" ng-src="{{ event.images[0].url }}" alt="{{ event.name }}'s image.'">
+
+    <p>{{ event.name }}</p>
+    <p>{{ event._embedded.venues[0].name }}</p>
+    <p>{{ event.dates.start.localDate }}</p>
+    <p>{{ event.dates.start.localTime }}</p>
+    <!-- <button>buy tickets</button><p>{{ event.url }}</p> -->
+    <!-- <button><a ui-href="{{ event.url }}">buy tickets</a></button> -->
+    <!-- <button ng-click="goToTickets({ vm.url })">buy tickets</button>
+    <h3><a ui-sref="goToTickets({ event.url })">{{ event.bandName }}</a></h3> -->
+
+
+
+    <!-- <p>{{ event.bandName }}</p>
     <p>{{ event.location }}</p>
     <p>{{ event.locationName }}</p>
     <p>{{ event.description }}</p>
-    <p>{{ event.price }}</p>
+    <p>{{ event.price }}</p> -->
 
   </li>
 </ul>
