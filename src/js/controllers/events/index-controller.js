@@ -9,17 +9,14 @@ let counter = 0;
 
 function EventsIndexCtrl($scope, Event) {
   const vm = this;
-  // vm.events = Event.query();
+  vm.events = Event.query();
 
   Event
     .getTicketmasterEvents()
     .$promise
-    .then((data) => {
-      console.log(data._embedded.events);
+    .then(data => {
+      vm.events = data;
       console.log(data);
-      vm.events = data._embedded.events;
-
-      // like();
     });
 
 
