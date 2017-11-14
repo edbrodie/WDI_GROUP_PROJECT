@@ -4,5 +4,6 @@ angular
     'ngResource',
     'ui.bootstrap',
     'ngAnimate',
-    'satellizer'
+    'satellizer',
+    'ngMap'
   ]);
