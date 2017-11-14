@@ -37,10 +37,10 @@ router.route('/groups/:id')
   .patch(groups.update)
   .delete(groups.delete);
 
-router.route('/events/:id/comments')
+router.route('/groups/:id/comments')
   .post(secureRoute, events.createComment);
 
-router.route('/events/:id/comments/:commentId')
+router.route('/groups/:id/comments/:commentId')
   .delete(events.deleteComment);
 
 router.route('/getEventData')

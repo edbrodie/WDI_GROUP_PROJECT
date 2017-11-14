@@ -24,13 +24,13 @@
   		</div>
   		<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
   			<ul class="nav navbar-nav">
-          <li class="nav-item" ng-if="!main.User">
+          <li class="nav-item" ng-if="!main.member">
             <a class="nav-link" ui-sref="register">Register</a>
           </li>
-          <li class="nav-item" ng-if="!main.User">
+          <li class="nav-item" ng-if="!main.member">
             <a class="nav-link" ui-sref="login">Login</a>
           </li>
-          <li class="nav-item" ng-if="main.User">
+          <li class="nav-item" ng-if="main.member">
             <a class="nav-link" href="#" ng-click="main.logout()">Logout</a>
           </li>
   			</ul>
