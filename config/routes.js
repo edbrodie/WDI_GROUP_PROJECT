@@ -39,11 +39,14 @@ router.route('/groups/:id')
 router.route('/groups/find/:eventId')
   .get(groups.index);
 
-router.route('/events/:id/comments')
+router.route('/groups/find/:eventId/comments')
   .post(secureRoute, events.createComment);
 
-router.route('/events/:id/comments/:commentId')
+router.route('/groups/find/:eventId/:commentsId')
   .delete(events.deleteComment);
+
+// router.route('/events/:id/comments')
+//   .post(secureRoute, events.createComment);
 
 router.route('/getEventData')
   .get(proxies.event);

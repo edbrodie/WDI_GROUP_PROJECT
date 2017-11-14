@@ -42,38 +42,38 @@ function groupsDelete(req, res) {
     .catch(() => res.status(500).json({message: 'Something went wrong.'}));
 }
 
-// function createComment(req, res, next) {
-//
-//   req.body.createdBy = req.member;
+function createComment(req, res, next) {
 
-//   Group
-//     .findById(req.params.id)
-//     .populate('comments.createdBy')
-//     .exec()
-//     .then(Group => {
-//       if(!Group) return res.notFound();
-//       console.log('this is the current user', req.member);
-//       Group.comments.push(req.body);
-//       return Group.save();
-//     })
-//     .then(Group => res.status(200).json(Group))
-//     .catch(next);
-// }
-//
-// function deleteComment(req, res, next) {
-//   Group
-//     .findById(req.params.id)
-//     .exec()
-//     .then((Group) => {
-//       if(!Group) return res.notFound();
-//       const comment = Group.comments.id(req.params.commentId);
-//       comment.remove();
-//
-//       return Group.save();
-//     })
-//     .then(Group => res.status(200).json(Group))
-//     .catch(next);
-// }
+  req.body.createdBy = req.member;
+
+  Group
+    .findById(req.params.id)
+    .populate('comments.createdBy')
+    .exec()
+    .then(Group => {
+      if(!Group) return res.notFound();
+      console.log('this is the current user', req.member);
+      Group.comments.push(req.body);
+      return Group.save();
+    })
+    .then(Group => res.status(200).json(Group))
+    .catch(next);
+}
+
+function deleteComment(req, res, next) {
+  Group
+    .findById(req.params.id)
+    .exec()
+    .then((Group) => {
+      if(!Group) return res.notFound();
+      const comment = Group.comments.id(req.params.commentId);
+      comment.remove();
+
+      return Group.save();
+    })
+    .then(Group => res.status(200).json(Group))
+    .catch(next);
+}
 
 
 module.exports = {
@@ -81,7 +81,7 @@ module.exports = {
   create: groupsCreate,
   show: groupsShow,
   update: groupsUpdate,
-  delete: groupsDelete
-  // createComment: createComment,
-  // deleteComment: deleteComment
+  delete: groupsDelete,
+  createComment: createComment,
+  deleteComment: deleteComment
 };

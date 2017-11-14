@@ -9,8 +9,8 @@ function Event(API, $resource) {
     update: { method: 'PUT' },
     getTicketmasterEvents: { url: `${API}/getEventData`, method: 'GET', isArray: true },
     findTicketmasterEventsById: { url: `${API}/showEventData/:id`, method: 'GET' },
-    addComment: { url: `${API}/events/:id/comments`, method: 'POST' },
-    removeComment: { url: `${API}/events/:id/comments/:commentId`, method: 'DELETE' }
+    addComment: { url: `${API}/members/:id/comments`, method: 'POST' },
+    removeComment: { url: `${API}/members/:id/comments/:commentId`, method: 'DELETE' }
   });
 
 }
