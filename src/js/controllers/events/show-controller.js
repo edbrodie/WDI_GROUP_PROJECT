@@ -6,11 +6,10 @@ EventsShowCtrl.$inject = ['Event', '$stateParams', '$http'];
 
 function EventsShowCtrl(Event, $stateParams, $http) {
   const vm = this;
-  vm.event = Event.get($stateParams);
   vm.createComment = createComment;
 
   Event
-    .findTicketmasterEventsById()
+    .findTicketmasterEventsById({ id: $stateParams.id })
     .$promise
     .then(response => {
       vm.event = response;
