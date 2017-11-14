@@ -21,12 +21,12 @@ function EventsShowCtrl(Event, $stateParams, $http) {
   }
 
 
-
+  // 
   // vm.delete = deleteComment;
   // deleteComment();
-
-
-
+  //
+  //
+  //
   // function deleteComment($stateParams, vm.comment) {
   //   Event
   //     .removeComment({id: $stateParams._id, commentId: comment})
@@ -34,11 +34,11 @@ function EventsShowCtrl(Event, $stateParams, $http) {
   //     .then((data) => {
   //       console.log(data);
   //     });
-
+  //
   //
   // }
-
-
+  //
+  //
   // function deleteComment(req, res) {
   //   Event
   //     .findById(req.$stateParams.id)
@@ -52,9 +52,9 @@ function EventsShowCtrl(Event, $stateParams, $http) {
   //     .then(event => res.status(200).json(event))
   //     .catch(err => res.status(500).json(err));
   // }
-
-
-
+  //
+  //
+  //
 
 
 
