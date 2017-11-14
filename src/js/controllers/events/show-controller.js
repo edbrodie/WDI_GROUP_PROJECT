@@ -63,9 +63,4 @@ function EventsShowCtrl(Event, $stateParams) {
   // }
 
 
-
-
-
-
-
 }
