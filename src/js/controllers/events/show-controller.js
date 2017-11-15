@@ -15,9 +15,14 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
     .then(response => {
       vm.event = response;
       console.log('this is the response', vm.event);
-
+      console.log(vm.event.name);
+      const artist = vm.event.name;
+      console.log(artist);
     });
 
+
+
+  //make a request to spotify
   $http({
     method: 'GET',
     url: 'https://api.spotify.com/v1/search',
@@ -27,13 +32,13 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
     }
   }).then(response => {
     vm.tracks = response.data.tracks.items;
-    console.log(vm.tracks)
+    // console.log(vm.tracks);
   }, err => {
     console.error(err);
   });
 
   vm.getTrackSrc = (uri) => {
-    return `https://open.spotify.com/embed?uri=${uri}`
+    return `https://open.spotify.com/embed?uri=${uri}`;
   };
 
   // get groups with event id.
@@ -46,7 +51,7 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
     });
 
 
-  
+
   // function createComment() {
   //   Event
   //     .addComment($stateParams, vm.comment)
