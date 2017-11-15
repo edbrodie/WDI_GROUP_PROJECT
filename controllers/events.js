@@ -58,13 +58,15 @@ function createComment(req, res, next) {
 }
 
 function deleteComment(req, res, next) {
+    console.log(req.params.id)
   Event
     .findById(req.params.id)
     .exec()
     .then((event) => {
       if(!event) return res.notFound();
-      const comment = event.comments.id(req.params.commentId);
+      const comment = event.comments.id(req.params.id);
       comment.remove();
+
 
       return event.save();
     })
