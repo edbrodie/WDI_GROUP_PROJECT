@@ -39,6 +39,14 @@ router.route('/groups/:id')
 router.route('/groups/find/:eventId')
   .get(groups.index);
 
+// //created by David and Wilson
+// router.route('/groups/find/:eventId/:groupId')
+//   .get(groups.show)
+//   .put(groups.update)
+//   .patch(groups.update)
+//   .delete(groups.delete);
+// //new block
+
 router.route('/groups/find/:eventId/comments')
   .post(secureRoute, events.createComment);
 

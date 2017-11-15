@@ -1,20 +1,22 @@
+<h1>Group show page</h1>
+{{vm.group}}
 
+<google-map></google-map>
+
+<!--
 <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
 <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 
-{{ vm.event._embedded.venues[0].location.latitude }}
-{{ vm.event._embedded.venues[0].location.longitude }}
+
 <p>{{ vm.event.description}}</p>
+<ng-map zoom="16" center="lat: {{ vm.event._embedded.venues[0].location.latitude }}, lng: {{ vm.event._embedded.venues[0].location.longitude }}">
 
-<google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
-
-<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
-
-<h2>Groups</h2>
-<ul ng-repeat="group in vm.groups">
-  <li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
-</ul>
+    <marker position="lat: {{ vm.event._embedded.venues[0].location.latitude }}, lng: {{ vm.event._embedded.venues[0].location.longitude }}"
+      title="You are here"
+      animation="Animation.BOUNCE"
+      centered="true"></marker>
+  </ng-map>
 
 
 
@@ -34,4 +36,4 @@
     <p>Comment by {{ comment.createdBy.username }}</p>
     <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
   </li>
-</ul>
+</ul> -->

@@ -11,7 +11,7 @@ function groupsIndex(req, res) {
 function groupsShow(req, res) {
   Group
     .findById(req.params.id)
-    .populate('comments.createdBy')
+    .populate('comments.createdBy attendees createdBy')
     .exec()
     .then(group => res.status(200).json(group))
     .catch(() => res.status(500).json({message: 'Something went wrong.'}));
