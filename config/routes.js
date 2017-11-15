@@ -48,10 +48,10 @@ router.route('/groups/find/:eventId')
 // //new block
 
 router.route('/groups/find/:eventId/comments')
-  .post(secureRoute, events.createComment);
+  .post(secureRoute, groups.createComment);
 
 router.route('/groups/find/:eventId/:commentsId')
-  .delete(events.deleteComment);
+  .delete(groups.deleteComment);
 
 // router.route('/events/:id/comments')
 //   .post(secureRoute, events.createComment);

@@ -1,10 +1,8 @@
 <h1>Group show page</h1>
 {{vm.group}}
 
-<google-map></google-map>
 
-<!--
-<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+<!-- <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
 <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 
@@ -16,7 +14,7 @@
       title="You are here"
       animation="Animation.BOUNCE"
       centered="true"></marker>
-  </ng-map>
+  </ng-map> -->
 
 
 
@@ -36,4 +34,4 @@
     <p>Comment by {{ comment.createdBy.username }}</p>
     <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
   </li>
-</ul> -->
+</ul>
