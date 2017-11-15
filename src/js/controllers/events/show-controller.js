@@ -32,7 +32,7 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
     }
   }).then(response => {
     vm.tracks = response.data.tracks.items;
-    // console.log(vm.tracks);
+    console.log(vm.tracks);
   }, err => {
     console.error(err);
   });
