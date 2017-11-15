@@ -28,12 +28,7 @@ function EventsShowCtrl(Event, $stateParams, Group) {
     });
 
 
-  vm.submitForm = joinGroup;
-
-  function joinGroup() {
-
-  }
-
+  
   // function createComment() {
   //   Event
   //     .addComment($stateParams, vm.comment)

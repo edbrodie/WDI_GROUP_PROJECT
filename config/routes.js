@@ -36,14 +36,26 @@ router.route('/groups/:id')
   .patch(groups.update)
   .delete(groups.delete);
 
+router.route('/groups/:id/comments')
+  .post(groups.createComment);
+
+router.route('/groups/:id/join')
+  .put(groups.join);
+
 router.route('/groups/find/:eventId')
   .get(groups.index);
 
-router.route('/groups/find/:eventId/comments')
-  .post(secureRoute, events.createComment);
+// //created by David and Wilson
+// router.route('/groups/find/:eventId/:groupId')
+//   .get(groups.show)
+//   .put(groups.update)
+//   .patch(groups.update)
+//   .delete(groups.delete);
+// //new block
+
 
 router.route('/groups/find/:eventId/:commentsId')
-  .delete(events.deleteComment);
+  .delete(groups.deleteComment);
 
 // router.route('/events/:id/comments')
 //   .post(secureRoute, events.createComment);
