@@ -47,7 +47,7 @@ function Router(
     .state('groupsShow', {
       url: '/groups/find/:eventId',
       templateUrl: '/js/views/groups/groupshow.html',
-      controller: 'GroupsNewCtrl as vm'
+      controller: 'GroupsShowCtrl as vm'
     });
 
 
