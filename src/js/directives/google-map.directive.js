@@ -4,10 +4,7 @@ angular
 
 googleMap.$inject = ['$window', '$timeout'];
 
-let infowindow = null;
-let map = null;
-let markers = [];
-let locations = null;
+
 
 function googleMap($window, $timeout) {
   return {
@@ -25,28 +22,13 @@ function googleMap($window, $timeout) {
           lng: parseFloat(scope.center.lng)
         };
 
-        map = new $window.google.maps.Map(element[0], {
-          zoom: 14,
+        new $window.google.maps.Map(element[0], {
+          zoom: 16,
           center: latLng
         });
 
         // create marker with latLng values
 
-        // const marker = new google.maps.Marker({
-        //   position: latLng,
-        //   map: map,
-        //   icon: 'images/dot.svg'
-        // });
-
-        // function addMarker(location) {
-        //   const marker = new google.maps.Marker({
-        //     position: latLng,
-        //     map: map,
-        //     icon: 'images/dot.svg'
-        //   });
-        //
-        //   markers.push(marker);
-        // }
 
 
 
