@@ -40,7 +40,7 @@ router.route('/groups/:id')
 router.route('/groups/:id/comments')
   .post(groups.createComment);
 
-router.route('/groups/:id/comments/:commentsId')
+router.route('/groups/:id/comments/:commentId')
   .delete(groups.deleteComment);
 
 router.route('/groups/:id/join')

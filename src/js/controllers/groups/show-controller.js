@@ -9,8 +9,6 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService) {
   vm.createComment = createComment;
   vm.checkIfAttending = checkIfAttending;
 
-
-
   Group
     .get($stateParams)
     .$promise
@@ -59,14 +57,16 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService) {
   }
 
   vm.delete = deleteComment;
-  deleteComment();
 
-  function deleteComment(comment) {
+  // deleteComment();
+
+  function deleteComment(commentId) {
     Group
-      .removeComment({id: $stateParams.id, commentId: comment})
+      .removeComment({id: vm.group._id, commentId: commentId})
       .$promise
       .then((data) => {
         vm.comment = null;
+        vm.group = Group.get($stateParams);
         console.log(data);
       });
 

@@ -21,13 +21,15 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
   $http({
     method: 'GET',
     url: 'https://api.spotify.com/v1/search',
+    headers: {
+      'Authorization': 'Bearer BQDpUrB2ZrlnA6wbkcD5eoJ_oenENQvpX6drCdp1-qL6gno7gqg70lORADMTcgjXGDoLcx1Qv9hVnIP6A8vHdSQyu1fJ0i-SxRYzxAjO2y6PzugrZQuvQ94BZkKhqBMmHtOC3vSNfpnTnBujbeJ9xkDc'
+    },
     params: {
       q: 'Madonna',
       type: 'track'
     }
   }).then(response => {
     vm.tracks = response.data.tracks.items;
-    console.log(vm.tracks);
   }, err => {
     console.error(err);
   });
