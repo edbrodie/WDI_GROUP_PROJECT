@@ -1,16 +1,27 @@
-{ 1 + 1 }
 
-<h1>{{ vm.event.name }} @ {{ vm.event.locationName }}</h1>
-<img height="290px" width="500px" ng-src="{{ vm.event.image }}" alt="{{ vm.event.name }}'s image">
+<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+<h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
+<img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 
 
 <p>{{ vm.event.description}}</p>
-<ng-map zoom="16" center="{{ vm.event.latlon}}">
-    <marker position="{{ vm.event.latlon }}"
+<ng-map zoom="16" center="lat: {{ vm.event._embedded.venues[0].location.latitude }}, lng: {{ vm.event._embedded.venues[0].location.longitude }}">
+<!-- <ng-map zoom="16" center="[lat: 51.539453, lng: -0.05834484]"> -->
+    <marker position="lat: {{ vm.event._embedded.venues[0].location.latitude }}, lng: {{ vm.event._embedded.venues[0].location.longitude }}"
       title="You are here"
       animation="Animation.BOUNCE"
       centered="true"></marker>
   </ng-map>
+
+
+<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
+
+<h2>Groups</h2>
+<ul ng-repeat="group in vm.groups">
+  <li>{{ group.name }}  <button ui-sref="groupShow" ng-submit="vm.submit(vm.member)">Join group</button></li>
+</ul>
+
+
 
 <h2>Comments</h2>
 <form ng-submit="vm.createComment()">

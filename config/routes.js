@@ -5,7 +5,7 @@ const secureRoute       = require('../lib/secureRoute');
 const members           = require('../controllers/members');
 const events            = require('../controllers/events');
 const proxies           = require('../controllers/proxies');
-
+const groups            = require('../controllers/groups');
 
 router.route('/register')
   .post(authentications.register);
@@ -27,14 +27,32 @@ router.route('/events/:id')
   .patch(events.update)
   .delete(events.delete);
 
-router.route('/events/:id/comments')
+router.route('/groups')
+  .post(groups.create);
+
+router.route('/groups/:id')
+  .get(groups.show)
+  .put(groups.update)
+  .patch(groups.update)
+  .delete(groups.delete);
+
+router.route('/groups/find/:eventId')
+  .get(groups.index);
+
+router.route('/groups/find/:eventId/comments')
   .post(secureRoute, events.createComment);
 
-router.route('/events/:id/comments/:commentId')
+router.route('/groups/find/:eventId/:commentsId')
   .delete(events.deleteComment);
+
+// router.route('/events/:id/comments')
+//   .post(secureRoute, events.createComment);
 
 router.route('/getEventData')
   .get(proxies.event);
+
+router.route('/showEventData/:id')
+  .get(proxies.show);
 
 router.all('/*', (req, res) => res.notFound());
 

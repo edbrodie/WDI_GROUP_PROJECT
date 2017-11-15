@@ -1,26 +1,24 @@
 angular
   .module('wdi-project-3')
-  .controller('EventsShowCtrl', EventsShowCtrl);
+  .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-EventsShowCtrl.$inject = ['Event', '$stateParams', 'Group'];
+GroupsShowCtrl.$inject = ['Group', '$stateParams'];
 
-function EventsShowCtrl(Event, $stateParams, Group) {
+function GroupsShowCtrl(Group, $stateParams) {
   const vm = this;
-  // vm.createComment = createComment;
+  vm.createComment = createComment;
 
-  // getting event data here
-  Event
-    .findTicketmasterEventsById({ id: $stateParams.id })
-    .$promise
-    .then(response => {
-      vm.event = response;
-      console.log('this is the response', vm.event);
-    });
-
+  // Group
+  //   .findGroupsWithEventId({ id: $stateParams.id })
+  //   .$promise
+  //   .then(response => {
+  //     vm.group = response;
+  //     console.log('this is the response', vm.group);
+  //   });
 
   // get groups with event id.
   Group
-    .findGroupsWithEventId({ eventId: $stateParams.id })
+    .findGroupsWithEventId({ groupId: $stateParams.id })
     .$promise
     .then(data => {
       console.log('groups for event', data);
@@ -28,30 +26,24 @@ function EventsShowCtrl(Event, $stateParams, Group) {
     });
 
 
-  vm.submitForm = joinGroup;
-
-  function joinGroup() {
-
+  function createComment() {
+    Group
+      .addComment($stateParams, vm.comment)
+      .$promise
+      .then(data => {
+        console.log('hi');
+        vm.comment = null;
+        vm.event.comments = data.comments;
+      });
   }
 
-  // function createComment() {
-  //   Event
-  //     .addComment($stateParams, vm.comment)
-  //     .$promise
-  //     .then(data => {
-  //       console.log('hi');
-  //       vm.comment = null;
-  //       vm.event.comments = data.comments;
-  //     });
-  // }
 
 
-  //
   // vm.delete = deleteComment;
   // deleteComment();
-  //
-  //
-  //
+
+
+
   // function deleteComment($stateParams, vm.comment) {
   //   Event
   //     .removeComment({id: $stateParams._id, commentId: comment})
@@ -59,11 +51,11 @@ function EventsShowCtrl(Event, $stateParams, Group) {
   //     .then((data) => {
   //       console.log(data);
   //     });
-  //
+
   //
   // }
-  //
-  //
+
+
   // function deleteComment(req, res) {
   //   Event
   //     .findById(req.$stateParams.id)
@@ -78,6 +70,5 @@ function EventsShowCtrl(Event, $stateParams, Group) {
   //     .catch(err => res.status(500).json(err));
   // }
 
-}
 
-// setTimeout(EventsShowCtrl, 2000);
+}
