@@ -61,10 +61,17 @@ function groupsJoin(req, res) {
 
   // 2) once group is passed back from query, add current user id from the token into the array of attendees
     .then(group => {
-      group.attendees.push(req.user.userId);
-      group.save();
-      return res.status(200).json(group);
-    });
+
+      if (group.attendees.indexOf(req.user.userId) === -1) {
+        group.attendees.push(req.user.userId);
+        group.save();
+        return res.status(200).json(group);
+      } else {
+        return res.status(500).json({message: 'User already attending this group'});
+      }
+    })
+    .catch(() => res.status(500).json({message: 'Something went wrong.'}));
+
 }
 
 function createComment(req, res, next) {

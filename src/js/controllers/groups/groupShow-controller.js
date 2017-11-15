@@ -26,6 +26,19 @@ function GroupsShowCtrl(Group, $stateParams) {
     });
 
 
+  vm.handleClick = joinGroup;
+
+  function joinGroup() {
+    Group
+      .joinGroup({ groupId: $stateParams.id })
+      .$promise
+      .then(data => {
+        console.log('groups for event', data);
+        // vm.groups = data;
+      });
+  }
+
+
   function createComment() {
     Group
       .addComment($stateParams, vm.comment)
