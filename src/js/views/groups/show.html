@@ -1,5 +1,10 @@
 <h1>Group show page</h1>
 
+{{ vm.group.attendees }}
+{{ main.member }}
+
+<button ng-hide="vm.toggleJoinButton" ng-click="vm.handleClick(user.userId)">Join group</button>
+
 
 <h2>Comments</h2>
 <form ng-submit="vm.createComment()">
@@ -14,6 +19,6 @@
   <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
     <p>{{ comment.content }}</p>
     <p>Comment by {{ vm.group.createdBy.name }}</p>
-    <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
+    <button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
   </li>
 </ul>
