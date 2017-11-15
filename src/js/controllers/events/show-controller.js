@@ -2,9 +2,9 @@ angular
   .module('wdi-project-3')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['Event', '$stateParams', 'Group'];
+EventsShowCtrl.$inject = ['Event', '$stateParams', 'Group', '$http'];
 
-function EventsShowCtrl(Event, $stateParams, Group) {
+function EventsShowCtrl(Event, $stateParams, Group, $http) {
   const vm = this;
   // vm.createComment = createComment;
 
@@ -15,25 +15,26 @@ function EventsShowCtrl(Event, $stateParams, Group) {
     .then(response => {
       vm.event = response;
       console.log('this is the response', vm.event);
+
     });
 
+  $http({
+    method: 'GET',
+    url: 'https://api.spotify.com/v1/search',
+    params: {
+      q: 'Madonna',
+      type: 'track'
+    }
+  }).then(response => {
+    vm.tracks = response.data.tracks.items;
+    console.log(vm.tracks)
+  }, err => {
+    console.error(err);
+  });
 
-  //************spotify*********************
-  //Get the spotify songs by the artist -> vm.event.name = artist name
-  // Song
-  //   .get({ id: $stateParams.id })//would this need to be artist name instead of stateParams
-  //   .$promise
-  //   .then(response => {
-  //     vm.songs = response;
-  //     console.log('this is the response', vm.songs);
-  //   });
-
-
-
-
-
-
-
+  vm.getTrackSrc = (uri) => {
+    return `https://open.spotify.com/embed?uri=${uri}`
+  };
 
   // get groups with event id.
   Group

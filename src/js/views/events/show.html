@@ -3,11 +3,11 @@
 <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
 <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 
-
-<!-- <iframe src="https://open.spotify.com/embed?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai"
-        frameborder="0" allowtransparency="true"></iframe> -->
-
-<button ng-click="authenticate('spotify')">Sign in with Spotify</button>
+<ul>
+  <li ng-repeat="track in vm.tracks track by $index">
+    <iframe ng-src="{{ vm.getTrackSrc(track.uri) }}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+  </li>
+</ul>
 
 <p>{{ vm.event.description}}</p>
 <ng-map zoom="16" center="lat: {{ vm.event._embedded.venues[0].location.latitude }}, lng: {{ vm.event._embedded.venues[0].location.longitude }}">

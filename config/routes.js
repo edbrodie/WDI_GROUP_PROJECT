@@ -58,7 +58,6 @@ router.route('/showEventData/:id')
 router.route('/oauth/spotify')
   .post(oauth.spotify);
 
-
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;

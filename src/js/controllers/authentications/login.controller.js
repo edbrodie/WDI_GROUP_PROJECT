@@ -5,11 +5,13 @@ angular
 loginController.$inject = [
   '$auth',
   '$state',
+  '$window',
   'currentUserService'
 ];
 function loginController(
   $auth,
   $state,
+  $window,
   currentUserService
 ) {
   const vm = this;
@@ -24,4 +26,17 @@ function loginController(
         $state.go('eventsIndex');
       });
   }
+
+  vm.authenticate = (provider) => {
+    $auth
+      .authenticate(provider)
+      .then(response => {
+        $window.localStorage.setItem('spotifyToken', response.data.spotifyToken);
+        currentUserService.getUser();
+        $state.go('eventsIndex');
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  };
 }
