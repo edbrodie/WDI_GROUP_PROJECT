@@ -11,12 +11,12 @@ function GroupsShowCtrl(Group, $stateParams) {
 
   function createComment() {
     Group
-      .addComment($stateParams, vm.comment)
+      .addComment({id: $stateParams.id}, vm.comment)
       .$promise
-      .then(data => {
-        console.log('hi');
+      .then(() => {
         vm.comment = null;
-        vm.event.comments = data.comments;
+        vm.group = Group.get($stateParams);
+        // vm.event.comments = data.comments;
       });
   }
 

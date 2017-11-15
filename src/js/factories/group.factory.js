@@ -9,7 +9,7 @@ function Group(API, $resource) {
     findTicketmasterEventsById: { url: `${API}/showEventData/:id`, method: 'GET' },
     findGroupsWithEventId: { method: 'GET', url: `${API}/groups/find/:eventId`, isArray: true },
     joinGroup: { method: 'PUT', url: `${API}/groups/:id/join` },
-    addComment: { url: `${API}/groups/find/:eventId/comments`, method: 'POST' },
-    removeComment: { url: `${API}/groups/find/:eventId/comments/:commentId`, method: 'DELETE' }
+    addComment: { url: `${API}/groups/:id/comments`, method: 'POST' },
+    removeComment: { url: `${API}/groups/:id/comments/:commentId`, method: 'DELETE' }
   });
 }

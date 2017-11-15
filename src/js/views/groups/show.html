@@ -1,6 +1,4 @@
 <h1>Group show page</h1>
-{{vm.group}}
-
 
 <!-- <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
@@ -22,16 +20,16 @@
 <form ng-submit="vm.createComment()">
   <div class="form-group">
     <label for="comment">Comment</label>
-    <input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
+    <input ng-model="vm.comment.content" type="text" class="form-control" name="content" id="comment">
   </div>
   <button class="btn btn-success">POST</button>
 </form>
-{{ vm.comment }}
+{{ vm.group }}
 
 <ul>
-  <li ng-repeat="comment in vm.event.comments | orderBy:'-'">
+  <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
     <p>{{ comment.content }}</p>
-    <p>Comment by {{ comment.createdBy.username }}</p>
+    <p>Comment by {{ vm.group.createdBy.name }}</p>
     <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
   </li>
 </ul>

@@ -26,10 +26,9 @@
   </div>
   <button class="btn btn-success">POST</button>
 </form>
-{{ vm.comment }}
 
 <ul>
-  <li ng-repeat="comment in vm.event.comments | orderBy:'-'">
+  <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
     <p>{{ comment.content }}</p>
     <p>Comment by {{ comment.createdBy.username }}</p>
     <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>

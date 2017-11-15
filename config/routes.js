@@ -33,9 +33,11 @@ router.route('/groups')
 router.route('/groups/:id')
   .get(groups.show)
   .put(groups.update)
-
   .patch(groups.update)
   .delete(groups.delete);
+
+router.route('/groups/:id/comments')
+  .post(groups.createComment);
 
 router.route('/groups/:id/join')
   .put(groups.join);
@@ -51,8 +53,6 @@ router.route('/groups/find/:eventId')
 //   .delete(groups.delete);
 // //new block
 
-router.route('/groups/find/:eventId/comments')
-  .post(secureRoute, groups.createComment);
 
 router.route('/groups/find/:eventId/:commentsId')
   .delete(groups.deleteComment);
