@@ -8,18 +8,26 @@ function GroupsShowCtrl(Group, $stateParams) {
   const vm = this;
   vm.createComment = createComment;
 
+  // Group
+  //   .findGroupsWithEventId({ id: $stateParams.id })
+  //   .$promise
+  //   .then(response => {
+  //     vm.group = response;
+  //     console.log('this is the response', vm.group);
+  //   });
+
+  // get groups with event id.
   Group
-    .findTicketmasterEventsById({ id: $stateParams.id })
+    .findGroupsWithEventId({ groupId: $stateParams.id })
     .$promise
-    .then(response => {
-      vm.event = response;
-      console.log('this is the response', vm.event);
+    .then(data => {
+      console.log('groups for event', data);
+      vm.groups = data;
     });
 
 
-
   function createComment() {
-    Event
+    Group
       .addComment($stateParams, vm.comment)
       .$promise
       .then(data => {

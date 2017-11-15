@@ -3,6 +3,7 @@ angular
   .controller('EventsShowCtrl', EventsShowCtrl);
 
 EventsShowCtrl.$inject = ['Event', '$stateParams', 'Group'];
+
 function EventsShowCtrl(Event, $stateParams, Group) {
   const vm = this;
   // vm.createComment = createComment;
@@ -30,7 +31,7 @@ function EventsShowCtrl(Event, $stateParams, Group) {
   vm.submitForm = joinGroup;
 
   function joinGroup() {
-  
+
   }
 
   // function createComment() {
@@ -77,5 +78,6 @@ function EventsShowCtrl(Event, $stateParams, Group) {
   //     .catch(err => res.status(500).json(err));
   // }
 
-
 }
+
+// setTimeout(EventsShowCtrl, 2000);
