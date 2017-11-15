@@ -6,6 +6,7 @@ const members           = require('../controllers/members');
 const events            = require('../controllers/events');
 const proxies           = require('../controllers/proxies');
 const groups            = require('../controllers/groups');
+const oauth             = require('../controllers/oauth');
 
 router.route('/register')
   .post(authentications.register);
@@ -53,6 +54,9 @@ router.route('/getEventData')
 
 router.route('/showEventData/:id')
   .get(proxies.show);
+
+router.route('/oauth/spotify')
+  .post(oauth.spotify);
 
 router.all('/*', (req, res) => res.notFound());
 

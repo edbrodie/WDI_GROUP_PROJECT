@@ -27,7 +27,6 @@ function authenticationsLogin(req, res){
         return res.status(401).json({ message: 'Unauthorized.' });
       }
 
-
       const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr' });
 
       return res.status(200).json({

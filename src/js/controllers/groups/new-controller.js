@@ -19,7 +19,7 @@ function GroupsNewCtrl($stateParams, Group, $state) {
       .$promise
       .then(group => {
         console.log('group successfully created', group);
-        $state.go('groupsShow', { id: $stateParams.id, Group });
+        $state.go('groupsShow', { id: $stateParams._id });
       });
   }
 }
