@@ -3,6 +3,10 @@
 <img height="290px" width="500px" ng-src="{{ vm.event.image }}" alt="{{ vm.event.name }}'s image">
 
 
+<!-- <iframe src="https://open.spotify.com/embed?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai"
+        frameborder="0" allowtransparency="true"></iframe> -->
+
+
 <p>{{ vm.event.description}}</p>
 <ng-map zoom="16" center="{{ vm.event.latlon}}">
     <marker position="{{ vm.event.latlon }}"

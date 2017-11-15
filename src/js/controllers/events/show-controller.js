@@ -17,6 +17,23 @@ function EventsShowCtrl(Event, $stateParams, Group) {
     });
 
 
+  //************spotify*********************
+  //Get the spotify songs by the artist -> vm.event.name = artist name
+  // Song
+  //   .get({ id: $stateParams.id })//would this need to be artist name instead of stateParams
+  //   .$promise
+  //   .then(response => {
+  //     vm.songs = response;
+  //     console.log('this is the response', vm.songs);
+  //   });
+
+
+
+
+
+
+
+
   // get groups with event id.
   Group
     .findGroupsWithEventId({ eventId: $stateParams.id })
