@@ -30,7 +30,7 @@ function GroupsShowCtrl(Group, $stateParams) {
       .$promise
       .then(data => {
         console.log('joined group', data);
-        // vm.groups = data;
+        vm.joinedgroup = data;
       });
   }
 
