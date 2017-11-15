@@ -3,8 +3,8 @@
 <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
 <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 
-{{ vm.event._embedded.venues[0].location.latitude }}
-{{ vm.event._embedded.venues[0].location.longitude }}
+<!-- {{ vm.event._embedded.venues[0].location.latitude }}
+{{ vm.event._embedded.venues[0].location.longitude }} -->
 <p>{{ vm.event.description}}</p>
 
 <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>

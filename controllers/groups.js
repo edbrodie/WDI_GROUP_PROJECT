@@ -98,7 +98,6 @@ function deleteComment(req, res, next) {
       if(!Group) return res.notFound();
       const comment = Group.comments.id(req.params.commentId);
       comment.remove();
-
       return Group.save();
     })
     .then(Group => res.status(200).json(Group))

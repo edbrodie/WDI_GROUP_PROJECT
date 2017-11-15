@@ -2,9 +2,9 @@ angular
   .module('wdi-project-3')
   .controller('GroupsNewCtrl', GroupsNewCtrl);
 
-GroupsNewCtrl.$inject = ['$stateParams', 'Group'];
+GroupsNewCtrl.$inject = ['$stateParams', 'Group', '$state'];
 
-function GroupsNewCtrl($stateParams, Group) {
+function GroupsNewCtrl($stateParams, Group, $state) {
   const vm = this;
 
   vm.submitForm = createGroup;
@@ -19,6 +19,7 @@ function GroupsNewCtrl($stateParams, Group) {
       .$promise
       .then(group => {
         console.log('group successfully created', group);
+        $state.go('groupsShow', { id: $stateParams.id, Group });
       });
   }
 }

@@ -32,19 +32,20 @@ function GroupsShowCtrl(Group, $stateParams) {
       });
   }
 
-  // vm.delete = deleteComment;
-  // deleteComment();
+  vm.delete = deleteComment;
+  deleteComment();
 
-  // function deleteComment($stateParams, vm.comment) {
-  //   Event
-  //     .removeComment({id: $stateParams._id, commentId: comment})
-  //     .$promise
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
+  function deleteComment(comment) {
+    Group
+      .removeComment({id: $stateParams.id, commentId: comment})
+      .$promise
+      .then((data) => {
+        vm.comment = null;
+        console.log(data);
+      });
 
-  //
-  // }
+
+  }
 
 
 }
