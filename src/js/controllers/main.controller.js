@@ -6,20 +6,23 @@ MainCtrl.$inject = [
   '$rootScope',
   '$transitions',
   'currentUserService',
-  '$state'];
+  '$state',
+  '$window'
+];
 
 function MainCtrl(
   $rootScope,
   $transitions,
   currentUserService,
-  $state
+  $state,
+  $window
 ) {
   const vm = this;
   vm.logout = logout;
 
   function logout() {
     currentUserService.removeUser();
-
+    $window.localStorage.clear();
   }
 
   $rootScope.$on('loggedIn', () => {

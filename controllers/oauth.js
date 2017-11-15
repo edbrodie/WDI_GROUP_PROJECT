@@ -1,20 +1,16 @@
-
 const rp = require('request-promise');
 const oauth = require('../config/oauth');
-const User = require('../models/user');
+const { secret } = require('../config/environment');
+const Member = require('../models/member');
 const jwt = require('jsonwebtoken');
-// const { secret } = require('../config/environment');
 
+function spotifyAuth(req, res, next) {
+  spotifyLogin(req, res, next)
+    .then(result => res.status(200).json(result))
+    .catch(next);
+}
 
-
-
-// SPOTIFY_SECRET
-// app.post('/auth/spotify',
-
-
-
-
-function spotifyAuth(req, res) {
+function spotifyLogin(req, res, next) {
   var tokenUrl = 'https://accounts.spotify.com/api/token';
   var userUrl = 'https://api.spotify.com/v1/me';
 
@@ -25,70 +21,81 @@ function spotifyAuth(req, res) {
   };
 
   var headers = {
-    Authorization: 'Basic ' + new Buffer(req.body.clientId + ':' + config.SPOTIFY_SECRET).toString('base64')
+    Authorization: 'Basic ' + new Buffer(req.body.clientId + ':' + oauth.SPOTIFY_SECRET).toString('base64')
   };
 
-  request.post(tokenUrl, { json: true, form: params, headers: headers }, function(err, response, body) {
-    if (body.error) {
-      return res.status(400).send({ message: body.error_description });
-    }
+  return new Promise((resolve, reject) => {
+    rp({
+      method: 'post',
+      uri: tokenUrl,
+      json: true,
+      form: params,
+      headers: headers
+    })
+      .then(body => {
+        req.spotifyToken = body.access_token;
 
-    request.get(userUrl, {json: true, headers: {Authorization: 'Bearer ' + body.access_token} }, function(err, response, profile){
-      // Step 3a. Link user accounts.
-      if (req.header('Authorization')) {
-        User.findOne({ spotify: profile.id }, function(err, existingUser) {
-          if (existingUser) {
-            return res.status(409).send({ message: 'There is already a Spotify account that belongs to you' });
+        return rp({
+          method: 'GET',
+          uri: userUrl,
+          json: true,
+          headers: {
+            Authorization: 'Bearer ' + body.access_token
           }
-          var token = req.header('Authorization').split(' ')[1];
-          var payload = jwt.decode(token, config.TOKEN_SECRET);
-          User.findById(payload.sub, function(err, user) {
-            if (!user) {
-              return res.status(400).send({ message: 'User not found' });
-            }
-            user.spotify = profile.id;
-            user.email = user.email || profile.email;
-            user.picture = profile.images.length > 0 ? profile.images[0].url : '';
-            user.displayName = user.displayName || profile.displayName || profile.id;
-
-            user.save(function() {
-              var token = createJWT(user);
-              res.send({ token: token });
-            });
-          });
         });
-      } else {
-        // Step 3b. Create a new user account or return an existing one.
-        User.findOne({ spotify: profile.id }, function(err, existingUser) {
-          if (existingUser) {
-            return res.send({ token: createJWT(existingUser) });
-          }
-          var user = new User();
-          user.spotify = profile.id;
-          user.email = profile.email;
-          user.picture = profile.images.length > 0 ? profile.images[0].url : '';
-          user.displayName = profile.displayName || profile.id;
+      })
+      .then(profile => {
+        req.profile = profile;
+        return Member
+          .findOne({ spotify: profile.id })
+          .exec();
+      })
+      .then(member => {
+        // If you have already registered... Then log the person in.
+        if (member) {
+          const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr' });
 
-          user.save(function(err) {
-            var token = createJWT(user);
-            res.send({ token: token });
+          return resolve({
+            message: 'Welcome back.',
+            spotifyToken: req.spotifyToken,
+            token,
+            member
           });
+        }
+
+        return Member
+          .findOne({
+            email: req.profile.email
+          })
+          .exec();
+      })
+      .then(member => {
+        if (!member) {
+          // If not, make a user
+          member = new Member();
+        }
+
+        member.spotify = req.profile.id;
+        member.email = req.profile.email;
+        // member.picture = profile.images.length > 0 ? profile.images[0].url : '';
+        member.username = req.profile.displayName || req.profile.id;
+
+        return member.save();
+      })
+      .then(member => {
+        const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr' });
+
+        return resolve({
+          message: 'Welcome back.',
+          spotifyToken: req.spotifyToken,
+          token,
+          member
         });
-      }
-    });
+      })
+      .catch(reject);
   });
-
-  function createJWT(user) {
-    var payload = {
-      sub: user._id,
-      iat: moment().unix(),
-      exp: moment().add(14, 'days').unix()
-    };
-    return jwt.encode(payload, config.TOKEN_SECRET);
-  }
 }
 
-
 module.exports = {
-  spotifyAuth: spotifyAuth
+  spotify: spotifyAuth
 };

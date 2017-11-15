@@ -1,6 +1,3 @@
 module.exports = {
-  SPOTIFY_SECRET: '............'
-
-  // secret: process.env.SECRET || 'wdi-project-3',
-
+  SPOTIFY_SECRET: process.env.SPOTIFY_SECRET
 };
