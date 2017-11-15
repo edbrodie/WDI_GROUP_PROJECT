@@ -42,10 +42,6 @@ function groupsUpdate(req, res) {
   Group
     .findByIdAndUpdate(req.params.id, req.body, {new: true})
     .exec()
-
-    //push member into array of attendees
-    .then(req.body.attendees.push(req.user.userId))
-
     .then(group => res.status(200).json(group))
     .catch(() => res.status(500).json({message: 'Something went wrong.'}));
 }
@@ -57,6 +53,27 @@ function groupsDelete(req, res) {
     .catch(() => res.status(500).json({message: 'Something went wrong.'}));
 }
 
+function groupsJoin(req, res) {
+
+  // 1) find group by id from req.params
+  Group
+    .findById(req.params.id)
+
+  // 2) once group is passed back from query, add current user id from the token into the array of attendees
+    .then(group => {
+
+      if (group.attendees.indexOf(req.user.userId) === -1) {
+        group.attendees.push(req.user.userId);
+        group.save();
+        return res.status(200).json(group);
+      } else {
+        return res.status(500).json({message: 'User already attending this group'});
+      }
+    })
+    .catch(() => res.status(500).json({message: 'Something went wrong.'}));
+
+}
+
 function createComment(req, res, next) {
 
   req.body.createdBy = req.member;
@@ -65,13 +82,13 @@ function createComment(req, res, next) {
     .findById(req.params.id)
     .populate('comments.createdBy')
     .exec()
-    .then(Group => {
-      if(!Group) return res.notFound();
+    .then(group => {
+      if(!group) return res.notFound();
       console.log('this is the current user', req.member);
-      Group.comments.push(req.body);
-      return Group.save();
+      group.comments.push(req.body);
+      return group.save();
     })
-    .then(Group => res.status(200).json(Group))
+    .then(group => res.status(200).json(group))
     .catch(next);
 }
 
@@ -94,7 +111,7 @@ function deleteComment(req, res, next) {
 module.exports = {
   index: groupsIndex,
   create: groupsCreate,
-  // join: groupsJoin,
+  join: groupsJoin,
   show: groupsShow,
   update: groupsUpdate,
   delete: groupsDelete,

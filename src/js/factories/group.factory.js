@@ -8,7 +8,7 @@ function Group(API, $resource) {
     update: { method: 'PUT' },
     findTicketmasterEventsById: { url: `${API}/showEventData/:id`, method: 'GET' },
     findGroupsWithEventId: { method: 'GET', url: `${API}/groups/find/:eventId`, isArray: true },
-    findMembersWithGroupId: { method: 'GET', url: `${API}/groups/find/:eventId/:groupId`},
+    joinGroup: { method: 'PUT', url: `${API}/groups/:id/join` },
     addComment: { url: `${API}/groups/find/:eventId/comments`, method: 'POST' },
     removeComment: { url: `${API}/groups/find/:eventId/comments/:commentId`, method: 'DELETE' }
   });
