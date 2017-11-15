@@ -58,20 +58,18 @@ function groupsJoin(req, res) {
 }
 
 function createComment(req, res, next) {
-
-  req.body.createdBy = req.member;
+  req.body.createdBy = req.user.userId;
 
   Group
     .findById(req.params.id)
-    .populate('comments.createdBy')
     .exec()
     .then(group => {
       if(!group) return res.notFound();
-      console.log('this is the current user', req.member);
+      console.log('this is the current group', req.group);
       group.comments.push(req.body);
       return group.save();
     })
-    .then(group => res.status(200).json(group))
+    .then(group => res.status(201).json(group))
     .catch(next);
 }
 

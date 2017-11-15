@@ -11,12 +11,12 @@ function GroupsShowCtrl(Group, $stateParams) {
 
   function createComment() {
     Group
-      .addComment($stateParams, vm.comment)
+      .addComment({id: $stateParams.id}, vm.comment)
       .$promise
-      .then(data => {
-        console.log('hi');
+      .then(() => {
         vm.comment = null;
-        vm.event.comments = data.comments;
+        vm.group = Group.get($stateParams);
+        // vm.event.comments = data.comments;
       });
   }
 
@@ -33,6 +33,20 @@ function GroupsShowCtrl(Group, $stateParams) {
         vm.joinedgroup = data;
       });
   }
+
+  // vm.delete = deleteComment;
+  // deleteComment();
+
+  // function deleteComment($stateParams, vm.comment) {
+  //   Event
+  //     .removeComment({id: $stateParams._id, commentId: comment})
+  //     .$promise
+  //     .then((data) => {
+  //       console.log(data);
+  //     });
+
+  //
+  // }
 
 
 }

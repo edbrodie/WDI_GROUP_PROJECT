@@ -36,6 +36,9 @@ router.route('/groups/:id')
   .patch(groups.update)
   .delete(groups.delete);
 
+router.route('/groups/:id/comments')
+  .post(groups.createComment);
+
 router.route('/groups/:id/join')
   .put(groups.join);
 
@@ -46,7 +49,7 @@ router.route('/groups/find/:eventId/comments')
   .post(secureRoute, events.createComment);
 
 router.route('/groups/find/:eventId/:commentsId')
-  .delete(events.deleteComment);
+  .delete(groups.deleteComment);
 
 router.route('/getEventData')
   .get(proxies.event);
