@@ -7,6 +7,7 @@
 <!-- <iframe src="https://open.spotify.com/embed?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai"
         frameborder="0" allowtransparency="true"></iframe> -->
 
+<button ng-click="authenticate('spotify')">Sign in with Spotify</button>
 
 <p>{{ vm.event.description}}</p>
 <ng-map zoom="16" center="lat: {{ vm.event._embedded.venues[0].location.latitude }}, lng: {{ vm.event._embedded.venues[0].location.longitude }}">
