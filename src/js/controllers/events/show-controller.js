@@ -46,12 +46,7 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
     });
 
 
-  vm.submitForm = joinGroup;
-
-  function joinGroup() {
-
-  }
-
+  
   // function createComment() {
   //   Event
   //     .addComment($stateParams, vm.comment)

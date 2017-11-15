@@ -10,20 +10,17 @@
 </ul>
 
 <p>{{ vm.event.description}}</p>
-<ng-map zoom="16" center="lat: {{ vm.event._embedded.venues[0].location.latitude }}, lng: {{ vm.event._embedded.venues[0].location.longitude }}">
-<!-- <ng-map zoom="16" center="[lat: 51.539453, lng: -0.05834484]"> -->
-    <marker position="lat: {{ vm.event._embedded.venues[0].location.latitude }}, lng: {{ vm.event._embedded.venues[0].location.longitude }}"
-      title="You are here"
-      animation="Animation.BOUNCE"
-      centered="true"></marker>
-  </ng-map>
 
+{{ vm.event._embedded.venues[0].location.latitude }}
+{{ vm.event._embedded.venues[0].location.longitude }}
+
+<google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
 
 <button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
 
 <h2>Groups</h2>
 <ul ng-repeat="group in vm.groups">
-  <li>{{ group.name }}  <button ui-sref="groupShow" ng-submit="vm.submit(vm.member)">Join group</button></li>
+  <li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
 </ul>
 
 
@@ -36,10 +33,9 @@
   </div>
   <button class="btn btn-success">POST</button>
 </form>
-{{ vm.comment }}
 
 <ul>
-  <li ng-repeat="comment in vm.event.comments | orderBy:'-'">
+  <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
     <p>{{ comment.content }}</p>
     <p>Comment by {{ comment.createdBy.username }}</p>
     <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
