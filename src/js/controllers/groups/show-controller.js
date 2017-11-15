@@ -2,38 +2,12 @@ angular
   .module('wdi-project-3')
   .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['Group', '$stateParams', 'Event'];
+GroupsShowCtrl.$inject = ['Group', '$stateParams'];
 
-function GroupsShowCtrl(Group, $stateParams, Event) {
+function GroupsShowCtrl(Group, $stateParams) {
   const vm = this;
   vm.createComment = createComment;
-
   vm.group = Group.get($stateParams);
-
-  // Group
-  //   .findGroupsWithEventId({ id: $stateParams.id })
-  //   .$promise
-  //   .then(response => {
-  //     vm.group = response;
-  //     console.log('this is the response', vm.group);
-  //   });
-  // Event
-  //   .findTicketmasterEventsById({ id: $stateParams.id })
-  //   .$promise
-  //   .then(response => {
-  //     vm.event = response;
-  //     console.log('this is the response', vm.event);
-  //   });
-
-  // get groups with event id.
-  // Group
-  //   .findMembersWithGroupId({ groupId: $stateParams.id })
-  //   .$promise
-  //   .then(data => {
-  //     console.log('groups for event', data);
-  //   });
-
-
 
   function createComment() {
     Group
@@ -46,38 +20,17 @@ function GroupsShowCtrl(Group, $stateParams, Event) {
       });
   }
 
+  vm.handleClick = joinGroup;
 
-
-  // vm.delete = deleteComment;
-  // deleteComment();
-
-
-
-  // function deleteComment($stateParams, vm.comment) {
-  //   Event
-  //     .removeComment({id: $stateParams._id, commentId: comment})
-  //     .$promise
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-
-  //
-  // }
-
-
-  // function deleteComment(req, res) {
-  //   Event
-  //     .findById(req.$stateParams.id)
-  //     .exec()
-  //     .then(event => {
-  //       if(!event) return res.status(404).json({ message: 'No comment found!'});
-  //       const comment = event.comments.find(obj => obj.id);
-  //       comment.remove();
-  //       event.save();
-  //     })
-  //     .then(event => res.status(200).json(event))
-  //     .catch(err => res.status(500).json(err));
-  // }
+  function joinGroup() {
+    Group
+      .joinGroup({ groupId: $stateParams.id })
+      .$promise
+      .then(data => {
+        console.log('groups for event', data);
+        // vm.groups = data;
+      });
+  }
 
 
 }
