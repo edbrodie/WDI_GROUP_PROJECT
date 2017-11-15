@@ -23,12 +23,14 @@ function GroupsShowCtrl(Group, $stateParams) {
   vm.handleClick = joinGroup;
 
   function joinGroup() {
+    console.log('clicked!');
+
     Group
       .joinGroup({ groupId: $stateParams.id })
       .$promise
       .then(data => {
-        console.log('groups for event', data);
-        // vm.groups = data;
+        console.log('joined group', data);
+        vm.joinedgroup = data;
       });
   }
 
