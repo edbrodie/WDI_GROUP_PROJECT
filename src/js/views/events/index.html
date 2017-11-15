@@ -1,7 +1,7 @@
 <h1>Events</h1>
 
 <!-- <ul>
-  <li ng-repeat="event in vm.events" ui-sref="eventsShow({id: event.id})">{{ event.name }}</li>
+<li ng-repeat="event in vm.events" ui-sref="eventsShow({id: event.id})">{{ event.name }}</li>
 </ul> -->
 
 
@@ -15,17 +15,17 @@
     <p>{{ event.dates.start.localTime }}</p>
     <button type="button" ng-click="count = count + 1" ng-init="count=0">Like event</button>
     <p>{{count}}</p>
-
-    <!-- <button>buy tickets</button><p>{{ event.url }}</p> -->
-    <!-- <button><a ui-href="{{ event.url }}">buy tickets</a></button> -->
-    <!-- <button ng-click="goToTickets({ vm.url })">buy tickets</button>
-
-    <h3><a ui-sref="goToTickets({ event.url })">{{ event.bandName }}</a></h3> -->
-
-
-   <!-- <p>{{ event.locationName }}</p>
-    <p>{{ event.description }}</p>
-    <p>{{ event.price }}</p> -->
-
- </li>
+  </li>
 </ul>
+
+
+<!-- <button>buy tickets</button><p>{{ event.url }}</p> -->
+<!-- <button><a ui-href="{{ event.url }}">buy tickets</a></button> -->
+<!-- <button ng-click="goToTickets({ vm.url })">buy tickets</button>
+
+<h3><a ui-sref="goToTickets({ event.url })">{{ event.bandName }}</a></h3> -->
+
+
+<!-- <p>{{ event.locationName }}</p>
+<p>{{ event.description }}</p>
+<p>{{ event.price }}</p> -->
