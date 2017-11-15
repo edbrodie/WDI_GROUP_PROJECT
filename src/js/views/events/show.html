@@ -1,23 +1,9 @@
 
-<h1>{{ vm.event.name }} @ {{ vm.event.locationName }}</h1>
-<img height="290px" width="500px" ng-src="{{ vm.event.image }}" alt="{{ vm.event.name }}'s image">
-
+<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <button ng-click="authenticate('spotify')">Sign in with Spotify</button>
 
-
-
-<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
-
 <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
 
-<img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-
-
-
-
-
-<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
-<h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
 <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 
 <ul>
@@ -28,20 +14,6 @@
 
 <p>{{ vm.event.description}}</p>
 
-
-
-
-
-
-
-
-
-
-
-
-{{ vm.event._embedded.venues[0].location.latitude }}
-{{ vm.event._embedded.venues[0].location.longitude }}
-
 <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
 
 <button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
@@ -50,8 +22,6 @@
 <ul ng-repeat="group in vm.groups">
   <li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
 </ul>
-
-
 
 <h2>Comments</h2>
 <form ng-submit="vm.createComment()">
@@ -66,6 +36,6 @@
   <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
     <p>{{ comment.content }}</p>
     <p>Comment by {{ comment.createdBy.username }}</p>
-    <button ng-click="vm.delete(comment)" class="btn btn-danger"name="delete" >DELETE</button>
+    <button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
   </li>
 </ul>
