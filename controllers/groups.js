@@ -27,17 +27,6 @@ function groupsCreate(req, res) {
     .catch((err) => console.log(err));
 }
 
-// function groupsJoin(req, res) {
-//   Group
-//     .findById(req.params.id)
-//     .exec()
-//     .then(req.body.attendees.push(req.user.userId))
-//     .then(group => res.status(201).json(group))
-//     .catch((err) => console.log(err));
-//   console.log(req.params.id);
-// }
-//
-
 function groupsUpdate(req, res) {
   Group
     .findByIdAndUpdate(req.params.id, req.body, {new: true})
@@ -54,14 +43,9 @@ function groupsDelete(req, res) {
 }
 
 function groupsJoin(req, res) {
-
-  // 1) find group by id from req.params
   Group
     .findById(req.params.id)
-
-  // 2) once group is passed back from query, add current user id from the token into the array of attendees
     .then(group => {
-
       if (group.attendees.indexOf(req.user.userId) === -1) {
         group.attendees.push(req.user.userId);
         group.save();
@@ -70,8 +54,7 @@ function groupsJoin(req, res) {
         return res.status(500).json({message: 'User already attending this group'});
       }
     })
-    .catch(() => res.status(500).json({message: 'Something went wrong.'}));
-
+    .catch(() => res.status(500).json({message: 'Something went very wrong.'}));
 }
 
 function createComment(req, res, next) {
