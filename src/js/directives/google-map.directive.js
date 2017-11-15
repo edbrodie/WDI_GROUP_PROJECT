@@ -3,6 +3,7 @@ angular
   .directive('googleMap', googleMap);
 
 googleMap.$inject = ['$window', '$timeout'];
+
 function googleMap($window, $timeout) {
   return {
     restrict: 'E',
@@ -22,6 +23,13 @@ function googleMap($window, $timeout) {
         new $window.google.maps.Map(element[0], {
           zoom: 14,
           center: latLng
+        });
+
+        // create marker with latLng values
+        const marker = new google.maps.Marker({
+          position: latLng,
+          map: map,
+          icon: 'images/dot.svg'
         });
       }
     }
