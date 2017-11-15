@@ -6,7 +6,8 @@ const memberSchema = mongoose.Schema({
   name: { type: String, unique: true},
   email: { type: String, unique: true},
   username: { type: String, unique: true},
-  passwordHash: { type: String, required: true }
+  passwordHash: { type: String },
+  githubId: { type: Number }
 });
 
 memberSchema
@@ -42,6 +43,7 @@ memberSchema.set('toJSON', {
   }
 });
 
+// if(!this.password && !this.githubId)
 
 
 function setPassword(value){
