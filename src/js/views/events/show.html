@@ -1,11 +1,46 @@
 
+<h1>{{ vm.event.name }} @ {{ vm.event.locationName }}</h1>
+<img height="290px" width="500px" ng-src="{{ vm.event.image }}" alt="{{ vm.event.name }}'s image">
+
+<button ng-click="authenticate('spotify')">Sign in with Spotify</button>
+
+
+
+<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+
+<h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
+
+<img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+
+
+
+
+
 <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
 <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 
+<ul>
+  <li ng-repeat="track in vm.tracks track by $index">
+    <iframe ng-src="{{ vm.getTrackSrc(track.uri) }}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+  </li>
+</ul>
+
+<p>{{ vm.event.description}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
 {{ vm.event._embedded.venues[0].location.latitude }}
 {{ vm.event._embedded.venues[0].location.longitude }}
-<p>{{ vm.event.description}}</p>
 
 <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
 

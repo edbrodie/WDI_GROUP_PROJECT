@@ -3,10 +3,11 @@ const bcrypt = require('bcrypt');
 const validator = require('validator');
 
 const memberSchema = mongoose.Schema({
-  name: { type: String, unique: true},
-  email: { type: String, unique: true},
-  username: { type: String, unique: true},
-  passwordHash: { type: String, required: true }
+  name: { type: String, trim: true, unique: true},
+  email: { type: String, trim: true, unique: true},
+  username: { type: String, trim: true, unique: true},
+  passwordHash: { type: String, trim: true },
+  spotify: { type: String, trim: true, unique: true }
 });
 
 memberSchema
@@ -42,6 +43,7 @@ memberSchema.set('toJSON', {
   }
 });
 
+// if(!this.password && !this.githubId)
 
 
 function setPassword(value){

@@ -6,6 +6,7 @@ const members           = require('../controllers/members');
 const events            = require('../controllers/events');
 const proxies           = require('../controllers/proxies');
 const groups            = require('../controllers/groups');
+const oauth             = require('../controllers/oauth');
 
 router.route('/register')
   .post(authentications.register);
@@ -45,26 +46,20 @@ router.route('/groups/:id/join')
 router.route('/groups/find/:eventId')
   .get(groups.index);
 
-// //created by David and Wilson
-// router.route('/groups/find/:eventId/:groupId')
-//   .get(groups.show)
-//   .put(groups.update)
-//   .patch(groups.update)
-//   .delete(groups.delete);
-// //new block
-
+router.route('/groups/find/:eventId/comments')
+  .post(secureRoute, events.createComment);
 
 router.route('/groups/find/:eventId/:commentsId')
   .delete(groups.deleteComment);
-
-// router.route('/events/:id/comments')
-//   .post(secureRoute, events.createComment);
 
 router.route('/getEventData')
   .get(proxies.event);
 
 router.route('/showEventData/:id')
   .get(proxies.show);
+
+router.route('/oauth/spotify')
+  .post(oauth.spotify);
 
 router.all('/*', (req, res) => res.notFound());
 

@@ -5,5 +5,6 @@ angular
     'ui.bootstrap',
     'ngAnimate',
     'satellizer',
-    'ngMap'
+    'ngMap',
+    'spotify'
   ]);
