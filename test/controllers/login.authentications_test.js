@@ -37,9 +37,26 @@ describe('Login authentication testing', function() {
         })
         .end((err, res) => {
           expect(res.status).to.eq(201);
-          expect(res.body).to.be.a('object');
+          // expect(res.body).to.be.a('object');
           expect(res.body.message).to.eq('Welcome back.');
           expect(res.body.token).to.be.a('string');
+          done();
+        });
+    });
+
+    it('login details should return an object', function(done) {
+      api
+        .post('/api/login')
+        .set('Accept', 'application/json')
+        .send({
+          email: 'test@t.com',
+          password: 'password'
+        })
+        .end((err, res) => {
+          // expect(res.status).to.eq(201);
+          expect(res.body).to.be.a('object');
+          // expect(res.body.message).to.eq('Welcome back.');
+          // expect(res.body.token).to.be.a('string');
           done();
         });
     });
