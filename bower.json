@@ -23,6 +23,7 @@
     "angular-animate": "^1.6.6",
     "satellizer": "^0.15.5",
     "ngmap": "^1.18.4",
-    "angular-spotify": "^1.5.1"
+    "angular-spotify": "^1.5.1",
+    "angular-bulma": "^0.5.2"
   }
 }
