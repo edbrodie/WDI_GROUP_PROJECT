@@ -1,9 +1,14 @@
 
 <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
-<button ng-click="authenticate('spotify')">Sign in with Spotify</button>
+<!-- <button ng-click="authenticate('spotify')">Sign in with Spotify</button> -->
 
-<h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
-<img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+<div ng-show="vm.event">
+  <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
+  <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+</div>
+
+<img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+
 
 <ul>
   <li ng-repeat="track in vm.tracks track by $index">
