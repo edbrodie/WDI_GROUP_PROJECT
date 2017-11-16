@@ -7,9 +7,9 @@
 //   height: 100%;
 // }
 
-@import "new.group";
-@import "eventindex";
-@import "comments";
+// @import "new.group";
+// @import "eventindex";
+// @import "comments";
 
 body {
   font-family: 'Asap Condensed', sans-serif;
@@ -26,73 +26,73 @@ button, input {
   display: inline-block;
 }
 
-.cardImage {
-  margin: 10px;
-  width: 90%;
-  height: 100px;
-  overflow: hidden
-}
-
-.reg {
-  margin: 15% 0;
-}
-
-.log {
-  margin: 6.5% 0;
-}
-
-.like {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  background-color: green;
-  color: #dddddd;
-}
-
-.headers {
-  margin-top: 0px;
-  color: #dddddd;
-  padding: 0 10px;
-}
-
-.card {
-  width: 300px;
-}
-
-.showCard {
-  width: 100%;
-  background-color: white;
-}
-
-.cardFloat {
-  float: left;
-  padding: 10px;
-}
-
-.cardContent {
-  height: 210px;
-  padding: 5%;
-}
-
-.padMe {
-  padding: 0 10px;
-}
-
-.cardText {
-  line-height: 11px;
-}
-
-.avatar {
-  padding: 10px;
-}
-
-#heroimage {
-  background: url('https://i.imgur.com/rgpeyMd.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.indexcard {
-  width: 30;
-}
+// .cardImage {
+//   margin: 10px;
+//   width: 90%;
+//   height: 100px;
+//   overflow: hidden
+// }
+//
+// .reg {
+//   margin: 15% 0;
+// }
+//
+// .log {
+//   margin: 6.5% 0;
+// }
+//
+// .like {
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   padding: 10px;
+//   background-color: green;
+//   color: #dddddd;
+// }
+//
+// .headers {
+//   margin-top: 0px;
+//   color: #dddddd;
+//   padding: 0 10px;
+// }
+//
+// .card {
+//   width: 300px;
+// }
+//
+// .showCard {
+//   width: 100%;
+//   background-color: white;
+// }
+//
+// .cardFloat {
+//   float: left;
+//   padding: 10px;
+// }
+//
+// .cardContent {
+//   height: 210px;
+//   padding: 5%;
+// }
+//
+// .padMe {
+//   padding: 0 10px;
+// }
+//
+// .cardText {
+//   line-height: 11px;
+// }
+//
+// .avatar {
+//   padding: 10px;
+// }
+//
+// #heroimage {
+//   background: url('https://i.imgur.com/rgpeyMd.jpg');
+//   background-size: cover;
+//   background-attachment: fixed;
+// }
+//
+// .indexcard {
+//   width: 30;
+// }
