@@ -9,15 +9,19 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService) {
   vm.createComment = createComment;
   vm.checkIfAttending = checkIfAttending;
 
-  Group
-    .get($stateParams)
-    .$promise
-    .then(response => {
-      vm.group = response;
-      vm.user = currentUserService.currentUser;
+  function getGroup() {
+    Group
+      .get({id: $stateParams.id})
+      .$promise
+      .then(response => {
+        vm.group = response;
+        vm.user = currentUserService.currentUser;
 
-      vm.toggleJoinButton = checkIfAttending();
-    });
+        vm.toggleJoinButton = checkIfAttending();
+      });
+  }
+
+  getGroup();
 
   function createComment() {
     Group
@@ -60,13 +64,14 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService) {
 
   // deleteComment();
 
-  function deleteComment(commentId) {
+  function deleteComment(comment) {
     Group
-      .removeComment({id: vm.group._id, commentId: commentId})
+      .removeComment({id: vm.group._id, commentId: comment._id})
       .$promise
       .then((data) => {
         vm.comment = null;
-        vm.group = Group.get($stateParams);
+        getGroup();
+        // vm.group = Group.get($stateParams);
         console.log(data);
       });
 
