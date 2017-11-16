@@ -3,3 +3,36 @@
   width: 100%;
   display: inline-block;
 }
+
+input
+{
+    background: transparent;
+    border: none;
+}
+
+.avatar {
+  padding: 10px;
+}
+#heroimage{
+  background:url('https://i.imgur.com/rgpeyMd.jpg') center center;
+  background-size:cover;
+  height:810px;
+}
+
+button
+{
+    background: transparent;
+    border: none;
+}
+//
+// body {
+//     background: url("./background.jpg");
+// }
+//
+// html {
+//     background: url('background.jpg') no-repeat center center fixed;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+// }

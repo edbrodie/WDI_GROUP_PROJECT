@@ -22,18 +22,18 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
     method: 'GET',
     url: 'https://api.spotify.com/v1/search',
     params: {
-      q: 'Madonna',
+      q: 'alt-J',
       type: 'track'
     }
   }).then(response => {
     vm.tracks = response.data.tracks.items;
-    console.log(vm.tracks)
+    console.log(vm.tracks);
   }, err => {
     console.error(err);
   });
 
   vm.getTrackSrc = (uri) => {
-    return `https://open.spotify.com/embed?uri=${uri}`
+    return `https://open.spotify.com/embed?uri=${uri}`;
   };
 
   // get groups with event id.
@@ -46,7 +46,7 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
     });
 
 
-  
+
   // function createComment() {
   //   Event
   //     .addComment($stateParams, vm.comment)
