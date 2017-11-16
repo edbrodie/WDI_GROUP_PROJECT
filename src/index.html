@@ -2,6 +2,7 @@
 <html ng-app="wdi-project-3">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gig App</title>
   <base href="/" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
@@ -14,7 +15,16 @@
 </head>
 <body id="heroimage" ng-controller="MainCtrl as main">
   <div ng-controller="MainCtrl">
-  	<nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" ui-sref="eventsIndex">Gig app</a>
+          <a class="navbar-item" ui-sref="register">Register</a>
+          <a class="navbar-item" ui-sref="login">Login</a>
+          <a class="navbar-item" href="#" ng-click="main.logout()">Logout</a>
+        </div>
+      </nav>
+
+  	<!-- <nav class="navbar navbar-default" role="navigation">
   		<div class="navbar-header">
   			<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
   				<span class="sr-only">Toggle navigation</span>
@@ -38,8 +48,8 @@
   			</ul>
   		</div>
   	</nav>
-
-  </div>
+  </div> -->
+</div>
   <main class="container" ui-view></main>
 </body>
 </html>

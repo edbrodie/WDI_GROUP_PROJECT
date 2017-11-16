@@ -1,3 +1,29 @@
+<div class="eventsshow columns is-multiline">
+  <div class="eventsname column is-12 is-primary">
+    Event name
+  </div>
+  <div class="column is-6">
+    Event pic
+  </div>
+  <div class="column is-multiline is-6">
+    <div class="column is-12">
+      description
+    </div>
+    <div class="column is-12">
+      groups
+    </div>
+  </div>
+  <div class="column is 6">
+    map
+  </div>
+  <div class="column is 6">
+    spotfiy
+  </div>
+</div>
+
+
+
+
 
 <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <!-- <button ng-click="authenticate('spotify')">Sign in with Spotify</button> -->
@@ -10,22 +36,33 @@
 <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
 
 
+<<<<<<< HEAD
 <ul>
   <li ng-repeat="track in vm.tracks track by $index">
     <iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
   </li>
 </ul>
+=======
+  <p>{{ vm.event.description}}</p>
+>>>>>>> 76cf756cc2d49866e8aa9b9ed606d15bbeae1122
 
-<p>{{ vm.event.description}}</p>
+  <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
 
-<google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+  <button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
 
-<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
+  <h2>Groups</h2>
+  <ul ng-repeat="group in vm.groups">
+    <li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
+  </ul>
 
-<h2>Groups</h2>
-<ul ng-repeat="group in vm.groups">
-  <li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
-</ul>
+  <!-- <h2>Comments</h2>
+  <form ng-submit="vm.createComment()">
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
+    </div>
+    <button class="btn btn-success">POST</button>
+  </form>
 
 <h2>Comments</h2>
 <form ng-submit="vm.createComment()">
