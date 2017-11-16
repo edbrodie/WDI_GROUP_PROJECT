@@ -4,8 +4,15 @@
   "description": "wdi-project-3",
   "main": "index.js",
   "scripts": {
+    "precommmit": "lint-staged",
     "postinstall": "bower install && gulp deploy",
     "test": "istanbul cover node_modules/.bin/_mocha"
+  },
+  "lint-staged": {
+    "**/*.{js,json,css}": [
+      "prettier-eslint --single-quote --write",
+      "git add"
+    ]
   },
   "author": "Students",
   "license": "ISC",
