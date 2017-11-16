@@ -1,17 +1,7 @@
-angular
-  .module('wdi-project-3')
-  .config(Router);
+angular.module('wdi-project-3').config(Router);
 
-Router.$inject = [
-  '$stateProvider',
-  '$urlRouterProvider',
-  '$locationProvider'
-];
-function Router(
-  $stateProvider,
-  $urlRouterProvider,
-  $locationProvider
-){
+Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
@@ -49,7 +39,6 @@ function Router(
       templateUrl: '/js/views/groups/show.html',
       controller: 'GroupsShowCtrl as vm'
     });
-
 
   $urlRouterProvider.otherwise('/');
 }

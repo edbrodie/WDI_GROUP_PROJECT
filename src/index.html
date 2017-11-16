@@ -5,55 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gig App</title>
   <base href="/" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOKG8Nx-zih8c_tKS8hYisxlnevauh4GM"></script>
   <link href="https://fonts.googleapis.com/css?family=Asap+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
 </head>
 <body id="heroimage" ng-controller="MainCtrl as main">
-<body ng-controller="MainCtrl as main">
-
-  <div ng-controller="MainCtrl">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+  <body ng-controller="MainCtrl as main">
+    <div ng-controller="MainCtrl">
+      <nav class="navbar _navbar is-transparent" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" ui-sref="eventsIndex">Gig app</a>
-          <a class="navbar-item" ui-sref="register">Register</a>
-          <a class="navbar-item" ui-sref="login">Login</a>
-          <a class="navbar-item" href="#" ng-click="main.logout()">Logout</a>
+          <a class="navbar-item" ui-sref="eventsIndex">LOGO</a>
+          <button class="button navbar-burger" ng-click="main.toggle = !main.toggle" ng-class="{ 'is-active': main.toggle }">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div class="navbar-menu" ng-class="{ 'is-active': main.toggle }">
+          <div class="navbar-end">
+            <a class="navbar-item" ui-sref="register">Register</a>
+            <a class="navbar-item" ui-sref="login">Login</a>
+            <a class="navbar-item" href="#" ng-click="main.logout()">Logout</a>
+          </div>
         </div>
       </nav>
-
-  	<!-- <nav class="navbar navbar-default" role="navigation">
-  		<div class="navbar-header">
-  			<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
-  				<span class="sr-only">Toggle navigation</span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-  			</button>
-  			<a class="navbar-brand" ui-sref="eventsIndex">Gig app</a>
-  		</div>
-  		<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
-  			<ul class="nav navbar-nav">
-          <li class="nav-item" ng-if="!main.member">
-            <a class="nav-link" ui-sref="register">Register</a>
-          </li>
-          <li class="nav-item" ng-if="!main.member">
-            <a class="nav-link" ui-sref="login">Login</a>
-          </li>
-          <li class="nav-item" ng-if="main.member">
-            <a class="nav-link" href="#" ng-click="main.logout()">Logout</a>
-          </li>
-  			</ul>
-  		</div>
-  	</nav>
-  </div> -->
-</div>
-  <main class="container" ui-view></main>
-</body>
-</html>
+    </div>
+    <main class="container" ui-view></main>
+  </body>
+  </html>

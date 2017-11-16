@@ -1,6 +1,4 @@
-angular
-  .module('wdi-project-3')
-  .directive('googleMap', googleMap);
+angular.module('wdi-project-3').directive('googleMap', googleMap);
 
 googleMap.$inject = ['$window', '$timeout'];
 
@@ -8,10 +6,7 @@ let map = null;
 let markers = [];
 let locations = null;
 
-
 function googleMap($window, $timeout) {
-
-
   return {
     restrict: 'E',
     replace: true,
@@ -43,8 +38,6 @@ function googleMap($window, $timeout) {
 
           markers.push(marker);
         }
-
-
       }
     }
   };

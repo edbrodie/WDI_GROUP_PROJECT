@@ -10,22 +10,13 @@ const memberSchema = mongoose.Schema({
   spotify: { type: String, trim: true, unique: true }
 });
 
-memberSchema
-  .virtual('password')
-  .set(setPassword);
+memberSchema.virtual('password').set(setPassword);
 
-memberSchema
-  .virtual('passwordConfirmation')
-  .set(setPasswordConfirmation);
+memberSchema.virtual('passwordConfirmation').set(setPasswordConfirmation);
 
-memberSchema
-  .path('passwordHash')
-  .validate(validatePasswordHash);
+memberSchema.path('passwordHash').validate(validatePasswordHash);
 
-memberSchema
-  .path('email')
-  .validate(validateEmail);
-
+memberSchema.path('email').validate(validateEmail);
 
 memberSchema.methods.validatePassword = validatePassword;
 
@@ -43,11 +34,8 @@ memberSchema.set('toJSON', {
   }
 });
 
-// if(!this.password && !this.githubId)
-
-
-function setPassword(value){
-  this._password    = value;
+function setPassword(value) {
+  this._password = value;
   this.passwordHash = bcrypt.hashSync(value, bcrypt.genSaltSync(8));
 }
 
@@ -77,7 +65,7 @@ function validateEmail(email) {
   }
 }
 
-function validatePassword(password){
+function validatePassword(password) {
   return bcrypt.compareSync(password, this.passwordHash);
 }
 

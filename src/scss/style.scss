@@ -1,4 +1,11 @@
+@import "variables";
+@import "structure";
+@import "cards";
+@import "navbar";
 @import "show.event";
+@import "new.group";
+@import "eventindex";
+@import "comments";
 
 body {
   font-family: 'Asap Condensed', sans-serif;
@@ -28,6 +35,7 @@ h1 {
   margin: 10px;
   width: 90%;
   height: 100px;
+  overflow: hidden
 }
 
 
@@ -56,7 +64,7 @@ h1 {
 }
 
 .card {
-  width: 205px;
+  width: 300px;
 }
 
 .cardFloat {
@@ -88,15 +96,6 @@ h1 {
   height: 2000px;
 }
 
-//
-// body {
-//     background: url("./background.jpg");
-// }
-//
-// html {
-//     background: url('background.jpg') no-repeat center center fixed;
-//     -webkit-background-size: cover;
-//     -moz-background-size: cover;
-//     -o-background-size: cover;
-//     background-size: cover;
-// }
+.indexcard {
+  width: 30;
+}

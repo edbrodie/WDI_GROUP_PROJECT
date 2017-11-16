@@ -3,14 +3,12 @@ require('../spec_helper');
 const Member = require('../../models/member');
 
 describe('Login authentication testing', function() {
-
   beforeEach(done => {
     Member.collection.remove();
     done();
   });
 
   describe('POST /api/login', function() {
-
     beforeEach(done => {
       api
         .post('/api/register')
@@ -92,5 +90,4 @@ describe('Login authentication testing', function() {
         });
     });
   });
-
 });

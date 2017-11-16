@@ -3,14 +3,12 @@ require('../spec_helper');
 const Member = require('../../models/member');
 
 describe('Register authentication testing', function() {
-
   beforeEach(done => {
     Member.collection.remove();
     done();
   });
 
   describe('POST /api/register', function() {
-
     it('should register a user with the correct credentials', function(done) {
       api
         .post('/api/register')
@@ -64,7 +62,9 @@ describe('Register authentication testing', function() {
           done();
         });
     });
-    it('should not register a user with no password confirmation', function(done) {
+    it('should not register a user with no password confirmation', function(
+      done
+    ) {
       api
         .post('/api/register')
         .set('Accept', 'application/json')
@@ -83,5 +83,4 @@ describe('Register authentication testing', function() {
         });
     });
   });
-
 });
