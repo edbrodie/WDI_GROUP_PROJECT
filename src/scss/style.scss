@@ -5,11 +5,14 @@
 @import "show.event";
 @import "new.group";
 @import "comments";
+@import "show.group";
 @import "eventindex";
 @import "welcome";
 
 body {
-  font-family: 'Asap Condensed', sans-serif;
+  // font-family: 'Asap Condensed', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  //  background-image: linear-gradient(#cc2b5e, #cc2b5e);
 }
 
 button, input {
@@ -18,9 +21,14 @@ button, input {
 }
 
 h1 {
+  // font-family: robotto;
+  font-family: 'Montserrat', sans-serif;
   font-size: 36px;
+  font-size: 40px;
   text-align: center;
   display: inline-block;
+  font-weight: bold;
+  color: white;
 }
 
 .google-map {
@@ -29,8 +37,7 @@ h1 {
   margin: 40px auto;
 }
 
-// --------------------------------------------------------------------
-// LOGIN
+
 
 .box {
   .spotify-button {

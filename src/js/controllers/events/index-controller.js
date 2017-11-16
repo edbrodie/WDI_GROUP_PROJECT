@@ -7,7 +7,7 @@ function EventsIndexCtrl($scope, Event) {
 
   $scope.$parent.main.eventsIndex = true;
 
-  $scope.$on('$destroy', function(){
+  $scope.$on('$destroy', function() {
     $scope.$parent.main.eventsIndex = false;
   });
 
