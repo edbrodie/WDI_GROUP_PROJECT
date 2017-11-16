@@ -1,39 +1,36 @@
-<div class="container">
-  <h1 class="eventheader">Choose your event...</h1>
-
-
-<div class="cardFloat" ng-repeat="event in vm.events track by $index">
-
-  <div class="card">
-    <div class="card-image">
-      <figure>
-        <img class="cardImage" ng-src="{{ event.images[0].url }}"  alt="Placeholder image">
-      </figure>
-    </div>
-    <div class="card-content cardContent">
-      <div class="media">
-        <div class="media-content cardText">
-          <a class="subtitle is-5" ui-sref="eventsShow({ id: event.id })"><div class="eventname">{{ event.name | limitTo : 28 : begin}}</div> @ {{ event._embedded.venues[0].name }}</a>
-          <div class="media">
-            <p class="padMe subtitle is-6"> {{ event.dates.start.localDate }}</p>
-            <p class="padMe subtitle is-6"> {{ event.dates.start.localTime }}</p>
+<!-- <div class="container">
+  <h1 class="eventheader">Choose your gig...</h1>
+  <div class="cardFloat" ng-repeat="event in vm.events track by $index">
+    <div class="card" ui-sref="eventsShow({ id: event.id })">
+      <img class="cardImage" ng-src="{{ event.images[0].url }}"  alt="Placeholder image">
+      <div class="card-content cardContent">
+        <div class="media">
+          <div class="media-content cardText">
+            <a class="subtitle is-5"><div class="eventname">{{ event.name | limitTo : 28 : begin}}</div> @ {{ event._embedded.venues[0].name }}</a>
+            <div class="media">
+              <p class="padMe subtitle is-6 date"> {{ event.dates.start.localDate }}</p>
+              <p class="padMe subtitle is-6 time"> {{ event.dates.start.localTime }}</p>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="subtitle is-6 descrip">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a>
-      </br>
     </div>
-    <!-- <div class="like">
+  </div> -->
 
-
-      <button type="button" ng-click="count = count + 1" ng-init="count=0">  <img src="https://i.imgur.com/B8dzn6U.png" width="20px" height="20px"  alt="Placeholder image"></button>
-      <span>{{count}}</span>
-    </div> -->
-
+  <div class="columns is-multiline">
+    <div class="column is-one-third" ui-sref="eventsShow({ id: event.id })" ng-repeat="event in vm.events track by $index">
+      <div class="card _card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{ event.name | limitTo : 28 : begin}}</p>
+              <p class="subtitle is-6">@{{ event._embedded.venues[0].name }}</p>
+            </div>
+          </div>
+          <div class="content">
+            <time datetime="{{ event.dates.start.localDate }}">{{ event.dates.start.localDate }} - {{ event.dates.start.localTime }}</time>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>

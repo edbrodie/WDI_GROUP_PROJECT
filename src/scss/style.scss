@@ -1,3 +1,8 @@
+@import "variables";
+@import "structure";
+@import "cards";
+@import "navbar";
+@import "show.event";
 @import "new.group";
 @import "eventindex";
 @import "comments";
@@ -11,79 +16,86 @@ button, input {
   border: none;
 }
 
-.google-map {
-  height: 300px;
-  width: 100%;
+h1 {
+  font-size: 36px;
+  text-align: center;
   display: inline-block;
 }
 
-.cardImage {
-  margin: 10px;
-  width: 90%;
-  height: 100px;
-  overflow: hidden
-}
+.google-map {
+  height: 70%;
+  width: 70%;
+  margin: 40px auto;
 
-.reg {
-  margin: 15% 0;
-}
 
-.log {
-  margin: 6.5% 0;
 }
-
-.like {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  background-color: green;
-  color: #dddddd;
-}
-
-.headers {
-  margin-top: 0px;
-  color: #dddddd;
-  padding: 0 10px;
-}
-
-.card {
-  width: 300px;
-}
-
-.showCard {
-  width: 100%;
-  background-color: white;
-}
-
-.cardFloat {
-  float: left;
-  padding: 10px;
-}
-
-.cardContent {
-  height: 210px;
-  padding: 5%;
-}
-
-.padMe {
-  padding: 0 10px;
-}
-
-.cardText {
-  line-height: 11px;
-}
-
-.avatar {
-  padding: 10px;
-}
-
-#heroimage {
-  background: url('https://i.imgur.com/rgpeyMd.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.indexcard {
-  width: 30;
-}
+//
+//
+// .cardImage {
+//   margin: 10px;
+//   width: 90%;
+//   height: 100px;
+//   overflow: hidden
+// }
+//
+//
+//
+// .reg {
+//   margin: 15% 0;
+// }
+//
+// .log {
+//   margin: 6.5% 0;
+// }
+//
+// .like {
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   padding: 10px;
+//   background-color: green;
+//   color: #dddddd;
+// }
+//
+// .headers {
+//   margin-top: 0px;
+//   color: #dddddd;
+//   padding: 0 10px;
+// }
+//
+// .card {
+//   width: 300px;
+// }
+//
+// .cardFloat {
+//   float: left;
+//   padding: 10px;
+// }
+//
+// .cardContent {
+//   height: 210px;
+//   padding: 5%;
+// }
+//
+// .padMe {
+//   padding: 0 10px;
+// }
+//
+// .cardText {
+//   line-height: 11px;
+// }
+//
+// .avatar {
+//   padding: 10px;
+// }
+//
+// #heroimage {
+//   background: url('https://i.imgur.com/rgpeyMd.jpg') no-repeat center center fixed;
+//   background-size: cover;
+//   background-attachment: fixed;
+//   height: 2000px;
+// }
+//
+// .indexcard {
+//   width: 30;
+// }

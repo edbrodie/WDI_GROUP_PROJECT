@@ -1,0 +1,20 @@
+._card {
+  background-color: $almost-black;
+  border-bottom: 4px solid $spotify-green;
+  color: $white;
+
+  .title {
+    color: $white;
+    height: 3rem;
+  }
+
+  .subtitle {
+    color: darken($white, 20%);
+  }
+
+  // &.gradient-0 {
+  //   background: #ffb75e; /* fallback for old browsers */
+  //   background: -webkit-linear-gradient(to right, #ffb75e, #ed8f03); /* Chrome 10-25, Safari 5.1-6 */
+  //   background: linear-gradient(to right, #ffb75e, #ed8f03);
+  // }
+}
