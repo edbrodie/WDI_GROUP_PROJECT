@@ -1,9 +1,97 @@
+body {
+  font-family: 'Asap Condensed', sans-serif;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+input
+{
+  background: transparent;
+  border: none;
+}
+
 .google-map {
   height: 300px;
   width: 100%;
   display: inline-block;
 }
-
-.eventsshow {
-  height: 500px;
+.cardImage {
+  margin: 10px;
+  width: 90%;
+  height: 100px;
 }
+
+.reg {
+    margin: 15% 0;
+}
+
+.log {
+  margin: 6.5% 0;
+}
+
+.like{
+  position:absolute;
+  bottom:0;
+  right:0;
+  padding: 10px;
+  background-color: green;
+  color: #dddddd;
+}
+
+.headers {
+  margin-top: 0px;
+  color: #dddddd;
+  padding: 0 10px;
+}
+
+.card {
+  width: 205px;
+}
+
+.showCard {
+  width: 100%;
+  background-color: white;
+}
+
+.cardFloat {
+  float: left;
+  padding: 10px;
+}
+
+.cardContent {
+  height: 210px;
+  padding: 5%;
+}
+.padMe {
+  padding: 0 10px;
+}
+.cardText {
+  line-height: 11px;
+}
+
+.avatar {
+  padding: 10px;
+}
+#heroimage{
+  background:url('https://i.imgur.com/rgpeyMd.jpg');
+  background-size:cover;
+  background-attachment: fixed;
+
+}
+
+
+//
+// body {
+//     background: url("./background.jpg");
+// }
+//
+// html {
+//     background: url('background.jpg') no-repeat center center fixed;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+// }

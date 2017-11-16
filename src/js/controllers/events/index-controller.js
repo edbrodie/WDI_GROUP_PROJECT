@@ -9,7 +9,6 @@ EventsIndexCtrl.$inject = ['$scope', 'Event', '$stateParams'];
 function EventsIndexCtrl($scope, Event, $stateParams) {
   let counter = 0;
   const vm = this;
-  vm.createComment = createComment;
   vm.events = Event.query();
 
   Event
@@ -35,17 +34,6 @@ function EventsIndexCtrl($scope, Event, $stateParams) {
     console.log('hi');
     // let counter = 0;
     // counter = counter++;
-  }
-
-  function createComment() {
-    Event
-      .addComment($stateParams, vm.comment)
-      .$promise
-      .then(data => {
-        console.log('hi');
-        vm.comment = null;
-        vm.event.comments = data.comments;
-      });
   }
 
 
