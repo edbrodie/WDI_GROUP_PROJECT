@@ -1,6 +1,4 @@
-angular
-  .module('wdi-project-3')
-  .controller('GroupsShowCtrl', GroupsShowCtrl);
+angular.module('wdi-project-3').controller('GroupsShowCtrl', GroupsShowCtrl);
 
 GroupsShowCtrl.$inject = ['Group', '$stateParams', 'currentUserService', '$http', 'Event'];
 function GroupsShowCtrl(Group, $stateParams, currentUserService, $http, Event) {
@@ -49,7 +47,11 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService, $http, Event) {
             });
           });
       });
+
+
   }
+
+
 
   vm.getTrackSrc = (uri) => {
     return `https://open.spotify.com/embed?uri=${uri}`;
@@ -59,14 +61,11 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService, $http, Event) {
   getGroup();
 
   function createComment() {
-    Group
-      .addComment({id: $stateParams.id}, vm.comment)
-      .$promise
-      .then(() => {
-        vm.comment = null;
-        vm.group = Group.get($stateParams);
-        // vm.event.comments = data.comments;
-      });
+    Group.addComment({ id: $stateParams.id }, vm.comment).$promise.then(() => {
+      vm.comment = null;
+      vm.group = Group.get($stateParams);
+      // vm.event.comments = data.comments;
+    });
   }
 
   function checkIfAttending() {
@@ -86,31 +85,23 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService, $http, Event) {
   function joinGroup() {
     console.log('clicked!');
 
-    Group
-      .joinGroup({ id: $stateParams.id }, {})
-      .$promise
-      .then(() => {
-        vm.group.attendees.push(vm.user);
-        vm.toggleJoinButton = checkIfAttending();
-      });
+    Group.joinGroup({ id: $stateParams.id }, {}).$promise.then(() => {
+      vm.group.attendees.push(vm.user);
+      vm.toggleJoinButton = checkIfAttending();
+    });
   }
 
   vm.delete = deleteComment;
 
-  // deleteComment();
-
   function deleteComment(comment) {
-    Group
-      .removeComment({id: vm.group._id, commentId: comment._id})
-      .$promise
-      .then((data) => {
-        vm.comment = null;
-        getGroup();
-        // vm.group = Group.get($stateParams);
-        console.log(data);
-      });
-
-
+    Group.removeComment({
+      id: vm.group._id,
+      commentId: comment._id
+    }).$promise.then(data => {
+      vm.comment = null;
+      getGroup();
+      console.log(data);
+    });
   }
 
 }
