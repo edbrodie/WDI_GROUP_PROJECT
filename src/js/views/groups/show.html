@@ -14,31 +14,32 @@
   <!-- SECOND COLMN -->
   <!-- /////////////////////////////////////////////////////////////// -->
   <div class="column is-half">
-    <div class="comments-section">
+    <!-- <div class="comments-section"> -->
 
-      <div class="container is-fluid container-all">
+      <div class="container is-fullhd container-all comments-section">
         <div class="comment-header">
-          <img src="https://cdn2.sonosim.com/wp-content/uploads/2015/10/fa-Users.png" alt="GROUP IMG" class="group-image">
-          <h2 class="group-heading">Group Name - {{vm.group.name}}</h2>
-          <button ng-hide="vm.toggleJoinButton" ng-click="vm.handleClick(user.userId)">Join group</button>
+          <img src="https://d30zbujsp7ao6j.cloudfront.net/wp-content/uploads/2017/07/unnamed.png" alt="GROUP IMG" class="group-image">
+          <h2 class="group-heading">{{vm.group.name}}</h2>
+          <button ng-hide="vm.toggleJoinButton" ng-click="vm.handleClick(user.userId)" class="button is-small is-outlined join-group">Join group</button>
         </div>
 
         <div class="comment-members">
           <h2>Members</h2>
           <ul>
             <li ng-repeat="members in vm.group.attendees">
-              <p class="member-names">{{ members.name }}</p>
+              <img src="https://i.imgur.com/9UPXV7U.png" alt="MEMBER ICON" class="member-icon">
+              <p class="member-names"> {{ members.name }} </p>
             </li>
           </ul>
         </div>
 
 
         <ul>
-          <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
+          <li ng-repeat="comment in vm.group.comments">
             <div class="bubble">
               <p class="comment-content">{{ comment.content }}</p>
               <a ng-click="vm.delete(comment)" class="delete-button" name="delete" href="#">delete</a>
-              <p>@{{ comment.createdBy.username }}</p>
+              <p class="comments-by">@{{ comment.createdBy.username }}</p>
             </div>
           </li>
         </ul>
@@ -54,5 +55,5 @@
       </div>
 
     </div>
-  </div>
+  <!-- </div> -->
 </div>

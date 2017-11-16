@@ -12,20 +12,18 @@ $group-icon: "https://cdn2.sonosim.com/wp-content/uploads/2015/10/fa-Users.png";
 
 .comments-section {
   background-color: white;
-  min-height: 1000px;
+  min-height: 800px;
   display: block;
   position: relative;
+  padding: 18px;
 }
 
-div.container-all {
-  position: relative;
-}
 
 .form-group {
   display: inline-block;
   margin: 0 0 5px 0;
-  // background-color: blue;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 //style
@@ -33,32 +31,42 @@ div.container-all {
   font-size: 30px;
   display: inline-block;
   position: absolute;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .comment-label {
-display: block;
+  display: block;
+  margin-top: 12px;
 }
 
 .comment-members{
-  background-color: yellow;
+  // background-color: yellow;
   margin-bottom: 20px;
+  // margin: 5px 5px 0 10px
 }
 
-// .comment-content {
-//   background-color: pink;
+.member-names {
+  display: inline-block;
+  position: absolute;
+}
+
+// .comments-by{
+//   color: #4a4a4a8c;
 // }
 
 #comment-box {
   background-color: #e4f6e4;
-  height: 30px;
+  min-height: 30px;
   min-width: 85%;
   float: left;
   position: absolute;
   display: block;
   overflow: hidden;
+  word-wrap: break-word;
+  font-size: 20px;
 }
 
+//buttons
 .delete-button {
   float: right;
   color: #ff3838ba;
@@ -68,28 +76,34 @@ display: block;
   float: right;
 }
 
+.join-group {
+  float: right;
+}
+
 //image
 .group-image {
   width: 50px;
   margin: 10px 10px 10px 0;
+}
 
+.member-icon {
+  width: 30px;
+  margin-right: 8px;
 }
 
 // speech bubbles
-
 .comment-content
 {
   position: relative;
   min-width: 80%;
-  height: 35px;
-  padding: 0px;
-  background: #AEBEE5;
+  min-height: 35px;
+  padding: 2px 0 0 5px;
+  background: #aebee570;
   border-radius: 4px;
   margin-bottom: 2px;
-  // white-space: pre-wrap;
-  // float: left;
-  // display: block;
-  // overflow: hidden;
+  margin-top: 4px;
+  word-wrap: break-word;
+  font-size: 20px;
 }
 
 .comment-content:after
@@ -98,15 +112,12 @@ display: block;
   position: absolute;
   border-style: solid;
   border-width: 6px 9px 6px 0;
-  border-color: transparent #AEBEE5;
+  border-color: transparent #aebee570;
   display: block;
   width: 0;
   z-index: 1;
   margin-top: -6px;
   left: -9px;
   top: 73%;
-  // white-space: pre-wrap;
-  // float: left;
-  // display: block;
-  // overflow: hidden;
+
 }
