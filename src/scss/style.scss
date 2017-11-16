@@ -6,6 +6,8 @@
 @import "new.group";
 @import "comments";
 @import "show.group";
+@import "eventindex";
+@import "welcome";
 
 body {
   // font-family: 'Asap Condensed', sans-serif;
@@ -33,19 +35,14 @@ h1 {
   height: 70%;
   width: 70%;
   margin: 40px auto;
-<<<<<<< HEAD
-//
-=======
 }
 
-// --------------------------------------------------------------------
-// LOGIN
+
 
 .box {
   .spotify-button {
     background: $spotify-green !important;
   }
->>>>>>> a2ee201f3a7b15552303ced3c59c47f60b93a8c9
 
   .button {
     width: 100%;
@@ -55,70 +52,3 @@ h1 {
 .button {
   background: $spotify-green !important;
 }
-
-
-
-//
-//
-// .cardImage {
-//   margin: 10px;
-//   width: 90%;
-//   height: 100px;
-//   overflow: hidden
-// }
-//
-//
-//
-// .reg {
-//   margin: 15% 0;
-// }
-//
-// .log {
-//   margin: 6.5% 0;
-// }
-//
-// .like {
-//   position: absolute;
-//   bottom: 0;
-//   right: 0;
-//   padding: 10px;
-//   background-color: green;
-//   color: #dddddd;
-// }
-//
-// .headers {
-//   margin-top: 0px;
-//   color: #dddddd;
-//   padding: 0 10px;
-// }
-//
-// .card {
-//   width: 300px;
-// }
-//
-// .cardFloat {
-//   float: left;
-//   padding: 10px;
-// }
-//
-// .cardContent {
-//   height: 210px;
-//   padding: 5%;
-// }
-//
-// .padMe {
-//   padding: 0 10px;
-// }
-//
-// .cardText {
-//   line-height: 11px;
-// }
-//
-// .avatar {
-//   padding: 10px;
-// }
-//
-//
-// .indexcard {
-//   width: 30;
-// }
