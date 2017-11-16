@@ -4,7 +4,6 @@
 @import "navbar";
 @import "show.event";
 @import "new.group";
-@import "eventindex";
 @import "comments";
 @import "show.group";
 
@@ -34,10 +33,31 @@ h1 {
   height: 70%;
   width: 70%;
   margin: 40px auto;
+<<<<<<< HEAD
 //
-
-
+=======
 }
+
+// --------------------------------------------------------------------
+// LOGIN
+
+.box {
+  .spotify-button {
+    background: $spotify-green !important;
+  }
+>>>>>>> a2ee201f3a7b15552303ced3c59c47f60b93a8c9
+
+  .button {
+    width: 100%;
+  }
+}
+
+.button {
+  background: $spotify-green !important;
+}
+
+
+
 //
 //
 // .cardImage {
@@ -98,12 +118,6 @@ h1 {
 //   padding: 10px;
 // }
 //
-// #heroimage {
-//   background: url('https://i.imgur.com/rgpeyMd.jpg') no-repeat center center fixed;
-//   background-size: cover;
-//   background-attachment: fixed;
-//   height: 2000px;
-// }
 //
 // .indexcard {
 //   width: 30;
