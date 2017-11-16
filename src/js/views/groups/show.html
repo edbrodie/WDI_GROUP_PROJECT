@@ -24,43 +24,34 @@
       <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
     </div>
   </div>
-</div>
-</div>
+
+
 
 
   <!-- SECOND COLMN -->
   <!-- /////////////////////////////////////////////////////////////// -->
   <div class="column is-half">
-    {{ vm.group }}
-    <div class="column is-half">
-      <div class="comments-section">
+    <div class="comments-section">
 
 
-        <h2>Comments Section</h2>
-        <button ng-hide="vm.toggleJoinButton" ng-click="vm.handleClick(user.userId)">Join group</button>
-        <ul>
-          <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
-            <p>{{ comment.content }}</p>
-            <p>Comment by {{ comment.createdBy.username }}</p>
-            <button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
-          </li>
-        </ul>
+      <h2>Comments Section</h2>
+      <button ng-hide="vm.toggleJoinButton" ng-click="vm.handleClick(user.userId)">Join group</button>
+      <ul>
+        <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
+          <p>{{ comment.content }}</p>
+          <p>Comment by {{ comment.createdBy.username }}</p>
+          <button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
+        </li>
+      </ul>
 
-        <form ng-submit="vm.createComment()">
-          <div class="form-group">
-            <label for="comment">Comment</label>
-            <input ng-model="vm.comment.content" type="text" class="form-control" name="content" id="comment">
-          </div>
-          <button class="btn btn-success">POST</button>
-        </form>
-
-        <h2>Comments</h2>
-        <form ng-submit="vm.createComment()">
-          <div class="form-group">
-            <label for="comment">Comment</label>
-            <input ng-model="vm.comment.content" type="text" class="form-control" name="content" id="comment">
-          </div>
+      <form ng-submit="vm.createComment()">
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <input ng-model="vm.comment.content" type="text" class="form-control" name="content" id="comment">
         </div>
-
-      </div>
+        <button class="btn btn-success">POST</button>
+      </form>
+      
     </div>
+  </div>
+</div>
