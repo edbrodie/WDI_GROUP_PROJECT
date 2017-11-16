@@ -1,5 +1,15 @@
-body {
+html {
   background: $black;
+  height: 100%;
+}
+
+body {
+  margin-bottom: 2rem;
+  height: 100%;
+
+  &.top-image {
+    background: url(http://i.picresize.com/images/2017/11/16/wSctO.jpg) no-repeat top center;
+  }
 }
 
 a {

@@ -1,48 +1,41 @@
 
 <div class="container reg has-text-centered">
-
-  <div class="column box is-4 is-offset-4">
-    <div class="">
-
-
-      <h1>  <img src="https://i.imgur.com/w9HNgr8.png" height="60px" width="60px">Register</h1>
-    </div>
+  <div class="column box is-4 is-offset-4 box">
+    <figure class="avatar">
+      <img id="loginLogo" src="https://i.imgur.com/9UPXV7U.png" height="100px" width="100px">
+    </figure>
+    <h3 class="title has-text-grey">Register</h3>
     <form ng-submit="vm.submitForm()">
-      <div class="form-group">
-        <div class="field">
-          <div class="control">
-            <div class="form-group">
-              <input type="text" placeholder="What's your name?" name="name" ng-model="vm.member.name" class="form-control">
-            </div>
-
-
-            <div class="form-group">
-
-              <input type="text" placeholder="Choose a Username" name="username" ng-model="vm.member.username" class="form-control">
-            </div>
-
-            <div class="form-group">
-
-              <input type="text" placeholder="Email please" name="email" ng-model="vm.member.email" class="form-control">
-            </div>
-
-
-            <div class="form-group">
-
-              <input type="password" placeholder="Password" name="password" ng-model="vm.member.password" class="form-control">
-            </div>
-
-            <div class="form-group">
-
-              <input type="password" placeholder="Password again!"  name="passwordConfirmation" ng-model="vm.member.passwordConfirmation" class="form-control">
-            </div>
-
-            <div class="form-group">
-
-              <input type="submit" value="Register" class="btn btn-success">
-            </div>
-          </form>
+      <div class="field">
+        <div class="control">
+          <input type="text" placeholder="What's your name?" name="name" ng-model="vm.member.name" class="input">
         </div>
       </div>
+      <div class="field">
+        <div class="control">
+          <input type="text" placeholder="Choose a Username" name="username" ng-model="vm.member.username" class="input">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <input type="text" placeholder="Email please" name="email" ng-model="vm.member.email" class="input">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <input type="password" placeholder="Password" name="password" ng-model="vm.member.password" class="input">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <input type="password" placeholder="Password again!"  name="passwordConfirmation" ng-model="vm.member.passwordConfirmation" class="input">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <input type="submit" value="Register" class="button is-block is-info is-large">
+        </div>
+      </form>
     </div>
   </div>
+</div>

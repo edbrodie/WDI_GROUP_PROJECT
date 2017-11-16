@@ -4,11 +4,15 @@
 @import "navbar";
 @import "show.event";
 @import "new.group";
-// @import "eventindex";
 @import "comments";
+@import "show.group";
+@import "eventindex";
+@import "welcome";
 
 body {
-  font-family: 'Asap Condensed', sans-serif;
+  // font-family: 'Asap Condensed', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  //  background-image: linear-gradient(#cc2b5e, #cc2b5e);
 }
 
 button, input {
@@ -17,85 +21,34 @@ button, input {
 }
 
 h1 {
+  // font-family: robotto;
+  font-family: 'Montserrat', sans-serif;
   font-size: 36px;
+  font-size: 40px;
   text-align: center;
   display: inline-block;
+  font-weight: bold;
+  color: white;
 }
 
 .google-map {
   height: 70%;
   width: 70%;
   margin: 40px auto;
-
-
 }
-//
-//
-// .cardImage {
-//   margin: 10px;
-//   width: 90%;
-//   height: 100px;
-//   overflow: hidden
-// }
-//
-//
-//
-// .reg {
-//   margin: 15% 0;
-// }
-//
-// .log {
-//   margin: 6.5% 0;
-// }
-//
-// .like {
-//   position: absolute;
-//   bottom: 0;
-//   right: 0;
-//   padding: 10px;
-//   background-color: green;
-//   color: #dddddd;
-// }
-//
-// .headers {
-//   margin-top: 0px;
-//   color: #dddddd;
-//   padding: 0 10px;
-// }
-//
-// .card {
-//   width: 300px;
-// }
-//
-// .cardFloat {
-//   float: left;
-//   padding: 10px;
-// }
-//
-// .cardContent {
-//   height: 210px;
-//   padding: 5%;
-// }
-//
-// .padMe {
-//   padding: 0 10px;
-// }
-//
-// .cardText {
-//   line-height: 11px;
-// }
-//
-// .avatar {
-//   padding: 10px;
-// }
-//
-// #heroimage {
-//   background: url('https://i.imgur.com/rgpeyMd.jpg') no-repeat center center fixed;
-//   background-size: cover;
-//   background-attachment: fixed;
-//   height: 2000px;
-// }
-//
-// .indexcard {
-//   width: 30;
-// }
+
+
+
+.box {
+  .spotify-button {
+    background: $spotify-green !important;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+.button {
+  background: $spotify-green !important;
+}

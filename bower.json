@@ -14,9 +14,15 @@
     "satellizer": "^0.15.5",
     "ngmap": "^1.18.4",
     "angular-spotify": "^1.5.1",
-    "angular-bulma": "^0.5.2"
+    "angular-bulma": "^0.5.2",
+    "font-awesome": "^4.7.0"
   },
   "resolutions": {
     "angular": "~1.6"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": ["css/font-awesome.css", "fonts/*"]
+    }
   }
 }

@@ -1,54 +1,32 @@
-
-
-
 <div>
   <div class="container log has-text-centered">
-    <div class="column is-4 is-offset-4">
-
-      <div class="box">
-        <figure class="avatar">
-
-          <img id="loginLogo" src="https://i.imgur.com/w9HNgr8.png" height="200px" width="200px">
-        </figure>
-        <h3 class="title has-text-grey">Login</h3>
-        <p class="subtitle has-text-grey">Please login to proceed.</p>
-        <form ng-submit="vm.submitForm()">
-          <div class="field">
-            <div class="control">
-              <div class="form-group">
-                <input type="text" name="email" ng-model="vm.member.email" placeholder="Your Email" class="form-control">
-              </div>
-            </div>
+    <div class="column is-4 is-offset-4 box">
+      <figure class="avatar">
+        <img id="loginLogo" src="https://i.imgur.com/9UPXV7U.png" height="100px" width="100px">
+      </figure>
+      <h3 class="title has-text-grey">Login</h3>
+      <p class="subtitle has-text-grey">Please login to proceed.</p>
+      <form ng-submit="vm.submitForm()">
+        <div class="field">
+          <div class="control">
+            <input type="text" name="email" ng-model="vm.member.email" placeholder="Your Email" class="input">
           </div>
-          <div class="field">
-            <div class="control">
-              <div class="form-group">
-                <input type="password" placeholder="Your Password" name="password" ng-model="vm.member.password" class="form-control">
-              </div>
-            </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input type="password" placeholder="Your Password" name="password" ng-model="vm.member.password" class="input">
           </div>
-          <div class="field">
-            <label class="checkbox">
-              <input type="checkbox">
-              Remember me
-            </label>
-          </div>
-          <div class="button is-block is-info is-large">
-            <input type="submit" value="Login">
-          </div>
-        </br>
-          <div class="button is-block is-info is-large">
-            <button ng-click="vm.authenticate('spotify')">Sign in with Spotify</button>
-          </div>
-        </form>
-      </div>
-      <p class="has-text-pink">
-        <a href="../">Sign Up</a> &nbsp;·&nbsp;
-        <a href="../">Forgot Password</a> &nbsp;·&nbsp;
-        <a href="../">Need Help?</a>
-      </p>
+        </div>
+        <input class="button is-block is-info is-large" type="submit" value="Login">
+        <br>
+        <button class="button is-block is-info is-large spotify-button" ng-click="vm.authenticate('spotify')"><i class="icon fa fa-spotify"></i>&nbsp;&nbsp;Sign in with Spotify</button>
+      </form>
     </div>
+    <p class="has-text-pink">
+      <a href="../">Sign Up</a> &nbsp;·&nbsp;
+      <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+      <a href="../">Need Help?</a>
+    </p>
   </div>
 </div>
-
 <script async type="text/javascript" src="../js/bulma.js"></script>
