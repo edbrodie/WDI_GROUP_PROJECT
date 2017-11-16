@@ -2,9 +2,6 @@
   <!-- <h1 class="show-header">Group show page</h1> -->
 
 
-
-
-
   <hr class="hr">
 
   <div class="columns">
@@ -21,18 +18,15 @@
 
         <!-- <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image"> -->
 
-        <div>
-          <ul>
+        <div class="tracks">
+          <ul class="tracks-ul">
             <li ng-repeat="track in vm.tracks track by $index">
               <iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
             </li>
           </ul>
-
-
-
         </div>
 
-        <div class="gMap">
+        <div class="googleMap">
           <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
         </div>
       </div>
