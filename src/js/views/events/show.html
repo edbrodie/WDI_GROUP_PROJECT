@@ -1,127 +1,252 @@
-<div class="eventsshow columns is-multiline">
-  <div class="eventsname column is-12 is-primary">
-    Event name
+
+
+
+
+<div class="showCard">
+
+  <div class="showHeader">
+    <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+
   </div>
-  <div class="column is-6">
-    Event pic
+<div class="">
+  <div class="showBlurb">
+
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+
   </div>
-  <div class="column is-multiline is-6">
-    <div class="column is-12">
-      description
+
+  <div class="showImage">
+    <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+  </div>
+
+
+  <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+
+</div>
+  <div class="groupBar">
+
+    <button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group</button>
+
+  </div>
+  <div class="spotMap">
+
+    <div class="gMap">
+      <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
     </div>
-    <div class="column is-12">
-      groups
-    </div>
+    <aside class="spot">
+
+      <p ng-repeat="track in vm.tracks track by $index">
+      <iframe ng-repeat="track in vm.tracks track by $index" ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </p>
+
+    </aside>
+
   </div>
-  <div class="column is 6">
-    map
-  </div>
-  <div class="column is 6">
-    spotfiy
-  </div>
+
 </div>
 
 
 
 
-
-
-<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
-<!-- <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3> -->
-<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
-<!-- <button ng-click="authenticate('spotify')">Sign in with Spotify</button> -->
+<!--
 <div class="showCard">
-<div ng-show="vm.event">
-  <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
-  <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+<div class="container">
+
+
+<h1 class="showText">{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+<div class="" ng-show="vm.event">
+<img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 </div>
 
 <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
 
 
 
-<img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-
 <ul>
-  <li ng-repeat="track in vm.tracks track by $index">
-    <iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-  </li>
+<li ng-repeat="track in vm.tracks track by $index">
+<iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+</li>
 </ul>
 
-  <p>{{ vm.event.description}}</p>
+<p>{{ vm.event.description}}</p>
 
 
-  <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+<div class="">
 
-  <button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
 
-  <h2>Groups</h2>
-  <ul ng-repeat="group in vm.groups">
-    <li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
-  </ul>
+<google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+</div>
 
-  <!-- <h2>Comments</h2>
-  <form ng-submit="vm.createComment()">
-    <div class="form-group">
-      <label for="comment">Comment</label>
-      <input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
-    </div>
-    <button class="btn btn-success">POST</button>
-  </form>
+<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
+
+<h2>Groups</h2>
+<ul ng-repeat="group in vm.groups">
+<li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
+</ul>
 
 <h2>Comments</h2>
 <form ng-submit="vm.createComment()">
-  <div class="form-group">
-    <label for="comment">Comment</label>
-    <input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
-  </div>
-  <button class="btn btn-success">POST</button>
+<div class="form-group">
+<label for="comment">Comment</label>
+<input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
+</div>
+<button class="btn btn-success">POST</button>
+</form>
+
+<h2>Comments</h2>
+<form ng-submit="vm.createComment()">
+<div class="form-group">
+<label for="comment">Comment</label>
+<input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
+</div>
+<button class="btn btn-success">POST</button>
 </form>
 
 <ul>
-  <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
-    <p>{{ comment.content }}</p>
-    <p>Comment by {{ comment.createdBy.username }}</p>
-    <button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
-  </li>
+<li ng-repeat="comment in vm.group.comments | orderBy:'-'">
+<p>{{ comment.content }}</p>
+<p>Comment by {{ comment.createdBy.username }}</p>
+<button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
+</li>
 </ul>
 </div>
-
-
-
 <h1 class="headers">Events</h1>
 
 <div class="cardFloat" ng-repeat="event in vm.events track by $index">
 
-  <div class="card">
-    <div class="card-image">
-      <figure>
-        <img class="cardImage" ng-src="{{ event.images[0].url }}"  alt="Placeholder image">
-      </figure>
-    </div>
-    <div class="card-content cardContent">
-      <div class="media">
-        <div class="media-content cardText">
-          <a class="subtitle is-5" ui-sref="eventsShow({ id: event.id })">{{ event.name | limitTo : 28 : begin}}... @ {{ event._embedded.venues[0].name }}</a>
-          <div class="media">
-            <p class="padMe subtitle is-6"> &#128197; {{ event.dates.start.localDate }}</p>
-            <p class="padMe subtitle is-6">&#128336; {{ event.dates.start.localTime }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="subtitle is-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a>
-      </br>
-    </div>
-    <div class="like">
 
 
-      <button type="button" ng-click="count = count + 1" ng-init="count=0">  <img src="https://i.imgur.com/B8dzn6U.png" width="20px" height="20px"  alt="Placeholder image"></button>
-      <span>{{count}}</span>
-    </div>
-
-  </div>
+<div class="card">
+<div class="card-image">
+<figure>
+<img class="cardImage" ng-src="{{ event.images[0].url }}"  alt="Placeholder image">
+</figure>
 </div>
+<div class="card-content cardContent">
+<div class="media">
+<div class="media-content cardText">
+<a class="subtitle is-5" ui-sref="eventsShow({ id: event.id })">{{ event.name | limitTo : 28 : begin}}... @ {{ event._embedded.venues[0].name }}</a>
+<div class="media">
+<p class="padMe subtitle is-6"> &#128197; {{ event.dates.start.localDate }}</p>
+<p class="padMe subtitle is-6">&#128336; {{ event.dates.start.localTime }}</p>
+</div>
+</div>
+</div>
+
+<div class="subtitle is-6">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+<a href="#">#css</a> <a href="#">#responsive</a>
+</br>
+</div>
+<div class="like">
+
+
+<button type="button" ng-click="count = count + 1" ng-init="count=0">  <img src="https://i.imgur.com/B8dzn6U.png" width="20px" height="20px"  alt="Placeholder image"></button>
+<span>{{count}}</span>
+</div>
+
+</div>
+</div>
+</div> -->
+
+
+<!--
+
+<div class="showCard">
+<div class="container">
+
+
+<h1 class="showText">{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+<div class="" ng-show="vm.event">
+<img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+</div>
+
+<img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+
+
+
+<ul>
+<li ng-repeat="track in vm.tracks track by $index">
+<iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+</li>
+</ul>
+
+<p>{{ vm.event.description}}</p>
+
+
+<div class="">
+
+
+<google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+</div>
+
+<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
+
+<h2>Groups</h2>
+<ul ng-repeat="group in vm.groups">
+<li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
+</ul>
+
+<h2>Comments</h2>
+<form ng-submit="vm.createComment()">
+<div class="form-group">
+<label for="comment">Comment</label>
+<input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
+</div>
+<button class="btn btn-success">POST</button>
+</form>
+
+<h2>Comments</h2>
+<form ng-submit="vm.createComment()">
+<div class="form-group">
+<label for="comment">Comment</label>
+<input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
+</div>
+<button class="btn btn-success">POST</button>
+</form>
+
+<ul>
+<li ng-repeat="comment in vm.group.comments | orderBy:'-'">
+<p>{{ comment.content }}</p>
+<p>Comment by {{ comment.createdBy.username }}</p>
+<button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
+</li>
+</ul>
+</div>
+<h1 class="headers">Events</h1>
+
+<div class="cardFloat" ng-repeat="event in vm.events track by $index">
+
+<div class="card">
+<div class="card-image">
+<figure>
+<img class="cardImage" ng-src="{{ event.images[0].url }}"  alt="Placeholder image">
+</figure>
+</div>
+<div class="card-content cardContent">
+<div class="media">
+<div class="media-content cardText">
+<a class="subtitle is-5" ui-sref="eventsShow({ id: event.id })">{{ event.name | limitTo : 28 : begin}}... @ {{ event._embedded.venues[0].name }}</a>
+<div class="media">
+<p class="padMe subtitle is-6"> &#128197; {{ event.dates.start.localDate }}</p>
+<p class="padMe subtitle is-6">&#128336; {{ event.dates.start.localTime }}</p>
+</div>
+</div>
+</div>
+
+<div class="subtitle is-6">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+<a href="#">#css</a> <a href="#">#responsive</a>
+</br>
+</div>
+<div class="like">
+
+
+<button type="button" ng-click="count = count + 1" ng-init="count=0">  <img src="https://i.imgur.com/B8dzn6U.png" width="20px" height="20px"  alt="Placeholder image"></button>
+<span>{{count}}</span>
+</div>
+
+</div>
+</div> -->
