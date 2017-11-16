@@ -16,7 +16,7 @@ function EventsIndexCtrl($scope, Event, $stateParams) {
     .$promise
     .then(data => {
       vm.events = data;
-      console.log(data);
+      console.log('*******************', data);
     });
 
 

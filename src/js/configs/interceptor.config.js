@@ -10,6 +10,7 @@ function Interceptor($httpProvider){
         const spotifyToken = window.localStorage.getItem('spotifyToken');
 
         if ((config.url.startsWith('https://api.spotify.com/v1') || config.url.startsWith('https://open.spotify.com/')) && spotifyToken) {
+console.log('***********************')
           delete config.headers.Authorization;
           config.headers.Authorization = `Bearer ${spotifyToken}`;
         }
