@@ -40,17 +40,14 @@ router.route('/groups/:id')
 router.route('/groups/:id/comments')
   .post(groups.createComment);
 
+router.route('/groups/:id/comments/:commentId')
+  .delete(groups.deleteComment);
+
 router.route('/groups/:id/join')
   .put(groups.join);
 
 router.route('/groups/find/:eventId')
   .get(groups.index);
-
-router.route('/groups/find/:eventId/comments')
-  .post(secureRoute, events.createComment);
-
-router.route('/groups/find/:eventId/:commentsId')
-  .delete(groups.deleteComment);
 
 router.route('/getEventData')
   .get(proxies.event);
