@@ -77,14 +77,13 @@ function deleteComment(req, res, next) {
   Group
     .findById(req.params.id)
     .exec()
-    .then((Group) => {
-      if(!Group) return res.notFound();
-      const comment = Group.comments.id(req.params.commentId);
+    .then((group) => {
+      if(!group) return res.notFound();
+      const comment = group.comments.id(req.params.commentId);
       comment.remove();
-
-      return Group.save();
+      return group.save();
     })
-    .then(Group => res.status(200).json(Group))
+    .then(group => res.status(200).json(group))
     .catch(next);
 }
 

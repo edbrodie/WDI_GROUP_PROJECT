@@ -14,7 +14,7 @@ commentSchema.methods.belongsTo = function commentsBelongsTo(member) {
 
 
 const groupSchema = new mongoose.Schema({
-  name: { type: String, trim: true },
+  name: { type: String, trim: true, required: true },
   eventId: { type: String, trim: true },
   attendees: [{ type: mongoose.Schema.ObjectId, ref: 'Member' }],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'Member' },
