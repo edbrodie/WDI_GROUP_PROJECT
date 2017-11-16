@@ -22,7 +22,7 @@ const eventSchema = new mongoose.Schema({
   latlon: { type: String, trim: true },
   description: { type: String, trim: true },
   price: { type: String, trim: true },
-  comments: [ commentSchema ]
+  comments:       [ commentSchema ]
 });
 
 module.exports = mongoose.model('Event', eventSchema);
