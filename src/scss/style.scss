@@ -1,8 +1,12 @@
 @import "eventindex";
 
+.navbar {
+    background-color: transparent;
+  }
 
 body {
   font-family: 'Asap Condensed', sans-serif;
+  text-decoration: none;
 }
 
 button, input {
@@ -14,13 +18,6 @@ button, input {
   height: 300px;
   width: 100%;
   display: inline-block;
-}
-
-.cardImage {
-  margin: 10px;
-  width: 90%;
-  height: 100px;
-  overflow: hidden
 }
 
 .reg {
@@ -46,32 +43,6 @@ button, input {
   padding: 0 10px;
 }
 
-.card {
-  width: 300px;
-}
-
-.showCard {
-  width: 100%;
-  background-color: white;
-}
-
-.cardFloat {
-  float: left;
-  padding: 10px;
-}
-
-.cardContent {
-  height: 210px;
-  padding: 5%;
-}
-
-.padMe {
-  padding: 0 10px;
-}
-
-.cardText {
-  line-height: 11px;
-}
 
 .avatar {
   padding: 10px;
