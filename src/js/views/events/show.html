@@ -1,5 +1,5 @@
 <div class="eventsshow columns is-multiline">
-  <div class="eventsname column is-12">
+  <div class="eventsname column is-12 is-primary">
     Event name
   </div>
   <div class="column is-6">
@@ -20,12 +20,6 @@
     spotfiy
   </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -56,7 +50,7 @@
     <li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
   </ul>
 
-  <h2>Comments</h2>
+  <!-- <h2>Comments</h2>
   <form ng-submit="vm.createComment()">
     <div class="form-group">
       <label for="comment">Comment</label>
@@ -71,4 +65,4 @@
       <p>Comment by {{ comment.createdBy.username }}</p>
       <button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
     </li>
-  </ul>
+  </ul> -->
