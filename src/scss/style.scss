@@ -1,59 +1,72 @@
-@import "eventindex";
+@import "variables";
+@import "structure";
+@import "cards";
+@import "navbar";
 
-.navbar {
-    background-color: transparent;
-  }
-
-body {
-  font-family: 'Asap Condensed', sans-serif;
-  text-decoration: none;
-}
-
-button, input {
-  background: transparent;
-  border: none;
-}
-
-.google-map {
-  height: 300px;
-  width: 100%;
-  display: inline-block;
-}
-
-.reg {
-  margin: 15% 0;
-}
-
-.log {
-  margin: 6.5% 0;
-}
-
-.like {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  background-color: green;
-  color: #dddddd;
-}
-
-.headers {
-  margin-top: 0px;
-  color: #dddddd;
-  padding: 0 10px;
-}
+// html, body {
+//   height: 100%;
+// }
 
 
-.avatar {
-  padding: 10px;
-}
 
-#heroimage {
-  background: url('https://i.imgur.com/rgpeyMd.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-}
 
-.indexcard {
-  width: 30;
-}
+// @import "eventindex";
+
+// .navbar {
+//     background-color: transparent !important;
+//     color: white;
+//   }
+//
+// body {
+//   font-family: 'Asap Condensed', sans-serif;
+//   text-decoration: none;
+// }
+//
+// button, input {
+//   background: transparent;
+//   border: none;
+// }
+//
+// .google-map {
+//   height: 300px;
+//   width: 100%;
+//   display: inline-block;
+// }
+//
+// .reg {
+//   margin: 15% 0;
+// }
+//
+// .log {
+//   margin: 6.5% 0;
+// }
+//
+// .like {
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   padding: 10px;
+//   background-color: green;
+//   color: #dddddd;
+// }
+//
+// .headers {
+//   margin-top: 0px;
+//   color: #dddddd;
+//   padding: 0 10px;
+// }
+//
+//
+// .avatar {
+//   padding: 10px;
+// }
+//
+// #heroimage {
+//   background: url('https://i.imgur.com/rgpeyMd.jpg');
+//   background-size: cover;
+//   background-attachment: fixed;
+// }
+//
+// .indexcard {
+//   width: 30;
+// }

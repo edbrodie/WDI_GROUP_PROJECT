@@ -1,0 +1,36 @@
+._navbar {
+  background: $black;
+  margin-bottom: 3rem;
+
+  a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link.is-active,
+  .navbar-brand .navbar-item, .navbar-tabs .navbar-item {
+    color: $white !important;
+  }
+
+  a:focus {
+    outline: none !important;
+  }
+
+  .navbar-menu {
+    background: transparent;
+
+    .navbar-item, .navbar-link {
+      color: white;
+      &:hover {
+        color: $spotify-green;
+      }
+    }
+  }
+
+  .navbar-item {
+    background: transparent !important;
+  }
+
+  .navbar-brand {
+    .button {
+      background: transparent !important;
+      border: 0;
+      color: $white !important;
+    }
+  }
+}
