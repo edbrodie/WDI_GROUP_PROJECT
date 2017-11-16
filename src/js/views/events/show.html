@@ -1,7 +1,7 @@
 
 <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <!-- <button ng-click="authenticate('spotify')">Sign in with Spotify</button> -->
-
+<div class="showCard">
 <div ng-show="vm.event">
   <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
   <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
@@ -43,3 +43,43 @@
     <button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
   </li>
 </ul>
+</div>
+
+
+
+<h1 class="headers">Events</h1>
+
+<div class="cardFloat" ng-repeat="event in vm.events track by $index">
+
+  <div class="card">
+    <div class="card-image">
+      <figure>
+        <img class="cardImage" ng-src="{{ event.images[0].url }}"  alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content cardContent">
+      <div class="media">
+        <div class="media-content cardText">
+          <a class="subtitle is-5" ui-sref="eventsShow({ id: event.id })">{{ event.name | limitTo : 28 : begin}}... @ {{ event._embedded.venues[0].name }}</a>
+          <div class="media">
+            <p class="padMe subtitle is-6"> &#128197; {{ event.dates.start.localDate }}</p>
+            <p class="padMe subtitle is-6">&#128336; {{ event.dates.start.localTime }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subtitle is-6">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+        <a href="#">#css</a> <a href="#">#responsive</a>
+      </br>
+    </div>
+    <div class="like">
+
+
+      <button type="button" ng-click="count = count + 1" ng-init="count=0">  <img src="https://i.imgur.com/B8dzn6U.png" width="20px" height="20px"  alt="Placeholder image"></button>
+      <span>{{count}}</span>
+    </div>
+
+  </div>
+</div>

@@ -1,29 +1,88 @@
+body {
+  font-family: 'Asap Condensed', sans-serif;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+input
+{
+  background: transparent;
+  border: none;
+}
+
 .google-map {
   height: 300px;
   width: 100%;
   display: inline-block;
 }
+.cardImage {
+  margin: 10px;
+  width: 90%;
+  height: 100px;
+}
 
-input
-{
-    background: transparent;
-    border: none;
+.reg {
+    margin: 15% 0;
+}
+
+.log {
+  margin: 6.5% 0;
+}
+
+.like{
+  position:absolute;
+  bottom:0;
+  right:0;
+  padding: 10px;
+  background-color: green;
+  color: #dddddd;
+}
+
+.headers {
+  margin-top: 0px;
+  color: #dddddd;
+  padding: 0 10px;
+}
+
+.card {
+  width: 205px;
+}
+
+.showCard {
+  width: 100%;
+  background-color: white;
+}
+
+.cardFloat {
+  float: left;
+  padding: 10px;
+}
+
+.cardContent {
+  height: 210px;
+  padding: 5%;
+}
+.padMe {
+  padding: 0 10px;
+}
+.cardText {
+  line-height: 11px;
 }
 
 .avatar {
   padding: 10px;
 }
 #heroimage{
-  background:url('https://i.imgur.com/rgpeyMd.jpg') center center;
+  background:url('https://i.imgur.com/rgpeyMd.jpg');
   background-size:cover;
-  height:810px;
+  background-attachment: fixed;
+
 }
 
-button
-{
-    background: transparent;
-    border: none;
-}
+
 //
 // body {
 //     background: url("./background.jpg");

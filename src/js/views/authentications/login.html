@@ -1,41 +1,30 @@
 
 
 
-<img src="https://imgur.com/a/HVcwS" height="200px" width="200px">
-
 <div>
-  <div class="container has-text-centered">
+  <div class="container log has-text-centered">
     <div class="column is-4 is-offset-4">
 
       <div class="box">
         <figure class="avatar">
 
-          <img src="https://i.imgur.com/w9HNgr8.png" height="200px" width="200px">
+          <img id="loginLogo" src="https://i.imgur.com/w9HNgr8.png" height="200px" width="200px">
         </figure>
         <h3 class="title has-text-grey">Login</h3>
         <p class="subtitle has-text-grey">Please login to proceed.</p>
-
         <form ng-submit="vm.submitForm()">
           <div class="field">
             <div class="control">
               <div class="form-group">
-                <!-- <label for="email">Email</label> -->
                 <input type="text" name="email" ng-model="vm.member.email" placeholder="Your Email" class="form-control">
               </div>
-              <!-- <input class="input is-large" type="email" placeholder="Your Email" autofocus=""> -->
             </div>
           </div>
-
           <div class="field">
             <div class="control">
-
-
               <div class="form-group">
-
                 <input type="password" placeholder="Your Password" name="password" ng-model="vm.member.password" class="form-control">
               </div>
-
-
             </div>
           </div>
           <div class="field">
@@ -44,10 +33,6 @@
               Remember me
             </label>
           </div>
-
-
-
-
           <div class="button is-block is-info is-large">
             <input type="submit" value="Login">
           </div>
