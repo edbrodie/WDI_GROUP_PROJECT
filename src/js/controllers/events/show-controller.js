@@ -13,11 +13,18 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
     .$promise
     .then(response => {
       vm.event = response;
-      console.log(vm.event);
-      const artistName = vm.event.name;
 
+      let artistName = vm.event.name;
+      if (artistName.indexOf(' - ') >= 0) {
+        artistName = artistName.split(' - ')[0].trim();
+      } else if (artistName.indexOf('presents') >= 0) {
+        artistName = artistName.split('presents')[1].trim();
+      } else if (artistName.indexOf(',') >= 0) {
+        artistName = artistName.split(',')[0].trim();
+      } else if (artistName.indexOf('&') >= 0) {
+        artistName = artistName.split('&')[0].trim();
+      }
 
-      
       //make a request to spotify
       $http({
         method: 'GET',

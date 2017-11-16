@@ -22,31 +22,27 @@
 </div>
 
 
-
-
-
-
 <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <!-- <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3> -->
 <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 <!-- <button ng-click="authenticate('spotify')">Sign in with Spotify</button> -->
 <div class="showCard">
-<div ng-show="vm.event">
-  <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
-  <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-</div>
+  <div ng-show="vm.event">
+    <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
+    <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+  </div>
 
-<img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+  <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
 
 
 
-<img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+  <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
 
-<ul>
-  <li ng-repeat="track in vm.tracks track by $index">
-    <iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-  </li>
-</ul>
+  <ul>
+    <li ng-repeat="track in vm.tracks track by $index">
+      <iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </li>
+  </ul>
 
   <p>{{ vm.event.description}}</p>
 

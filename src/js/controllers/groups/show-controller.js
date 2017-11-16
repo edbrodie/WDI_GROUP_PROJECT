@@ -2,9 +2,8 @@ angular
   .module('wdi-project-3')
   .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['Group', '$stateParams', 'currentUserService'];
-
-function GroupsShowCtrl(Group, $stateParams, currentUserService) {
+GroupsShowCtrl.$inject = ['Group', '$stateParams', 'currentUserService', '$http', 'Event'];
+function GroupsShowCtrl(Group, $stateParams, currentUserService, $http, Event) {
   const vm = this;
   vm.createComment = createComment;
   vm.checkIfAttending = checkIfAttending;
@@ -16,10 +15,46 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService) {
       .then(response => {
         vm.group = response;
         vm.user = currentUserService.currentUser;
-
         vm.toggleJoinButton = checkIfAttending();
+
+        Event
+          .findTicketmasterEventsById({ id: vm.group.eventId })
+          .$promise
+          .then(response => {
+            vm.event = response;
+
+            let artistName = vm.event.name;
+            if (artistName.indexOf(' - ') >= 0) {
+              artistName = artistName.split(' - ')[0].trim();
+            } else if (artistName.indexOf('presents') >= 0) {
+              artistName = artistName.split('presents')[1].trim();
+            } else if (artistName.indexOf(',') >= 0) {
+              artistName = artistName.split(',')[0].trim();
+            } else if (artistName.indexOf('&') >= 0) {
+              artistName = artistName.split('&')[0].trim();
+            }
+
+            //make a request to spotify
+            $http({
+              method: 'GET',
+              url: 'https://api.spotify.com/v1/search',
+              params: {
+                q: artistName,
+                type: 'track'
+              }
+            }).then(response => {
+              vm.tracks = response.data.tracks.items.slice(0, 3);
+            }, err => {
+              console.error(err);
+            });
+          });
       });
   }
+
+  vm.getTrackSrc = (uri) => {
+    return `https://open.spotify.com/embed?uri=${uri}`;
+  };
+
 
   getGroup();
 
@@ -77,6 +112,5 @@ function GroupsShowCtrl(Group, $stateParams, currentUserService) {
 
 
   }
-
 
 }

@@ -1,15 +1,45 @@
-<h1>Group show page</h1>
-
-
 <div class="columns">
 
 
   <div class="column is-half">
+    <h1>Group show page</h1>
+
+    <h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+
+    <div class="showCard">
+      <div ng-show="vm.event">
+        <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
+        <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+      </div>
+
+      <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+
+
+
+      <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+
+
+
+
+
+
+
+
+
+    <ul>
+      <li ng-repeat="track in vm.tracks track by $index">
+        <iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+      </li>
+    </ul>
+
+    <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+
     First column
   </div>
 
 
 
+  <!-- /////////////////////////////////////////////////////////////// -->
   <div class="column is-half">
     {{ vm.group }}
 
@@ -17,7 +47,6 @@
     {{ vm.group.comments }}
 
     <button ng-hide="vm.toggleJoinButton" ng-click="vm.handleClick(user.userId)">Join group</button>
-
 
     <h2>Comments</h2>
     <form ng-submit="vm.createComment()">
