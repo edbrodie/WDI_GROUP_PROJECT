@@ -23,44 +23,90 @@ div.container-all {
 
 .form-group {
   display: inline-block;
-  position: fixed;
-  bottom: 50px;
   margin: 0 0 5px 0;
   // background-color: blue;
-  width: 35%;
+  width: 100%;
 }
 
 //style
 .group-heading {
   font-size: 30px;
   display: inline-block;
+  position: absolute;
+  margin-top: 10px;
+}
+
+.comment-label {
+display: block;
 }
 
 .comment-members{
   background-color: yellow;
+  margin-bottom: 20px;
 }
 
-.comment-content {
-  background-color: pink;
-}
+// .comment-content {
+//   background-color: pink;
+// }
 
 #comment-box {
-  background-color: green;
+  background-color: #e4f6e4;
   height: 30px;
-  width: 70%;
+  min-width: 85%;
+  float: left;
+  position: absolute;
+  display: block;
+  overflow: hidden;
 }
 
 .delete-button {
-
+  float: right;
+  color: #ff3838ba;
 }
 
 .post-button {
-  // float: right;
+  float: right;
 }
 
 //image
 .group-image {
   width: 50px;
-  margin: 10px 5px 10px 0;
+  margin: 10px 10px 10px 0;
 
+}
+
+// speech bubbles
+
+.comment-content
+{
+  position: relative;
+  min-width: 80%;
+  height: 35px;
+  padding: 0px;
+  background: #AEBEE5;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  // white-space: pre-wrap;
+  // float: left;
+  // display: block;
+  // overflow: hidden;
+}
+
+.comment-content:after
+{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 6px 9px 6px 0;
+  border-color: transparent #AEBEE5;
+  display: block;
+  width: 0;
+  z-index: 1;
+  margin-top: -6px;
+  left: -9px;
+  top: 73%;
+  // white-space: pre-wrap;
+  // float: left;
+  // display: block;
+  // overflow: hidden;
 }

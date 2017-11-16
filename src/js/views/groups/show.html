@@ -35,17 +35,19 @@
 
         <ul>
           <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
-            <p class="comment-content">{{ comment.content }}</p>
-            <button ng-click="vm.delete(comment)" class="btn button is-danger is-small delete-button" name="delete">DELETE</button>
-            <p>@{{ comment.createdBy.username }}</p>
+            <div class="bubble">
+              <p class="comment-content">{{ comment.content }}</p>
+              <a ng-click="vm.delete(comment)" class="delete-button" name="delete" href="#">delete</a>
+              <p>@{{ comment.createdBy.username }}</p>
+            </div>
           </li>
         </ul>
 
         <form ng-submit="vm.createComment()" class="input-form">
           <div class="form-group">
-            <label for="comment">Comment</label>
+            <label for="comment" class="comment-label">Comment</label>
             <input ng-model="vm.comment.content" type="text" class="form-control" name="content" id="comment-box">
-            <button class="btn is-primary post-button">POST</button>
+            <button class="btn button is-primary is-small post-button">POST</button>
           </div>
         </form>
 
