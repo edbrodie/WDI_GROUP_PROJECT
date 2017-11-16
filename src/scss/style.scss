@@ -6,9 +6,12 @@
 @import "new.group";
 @import "eventindex";
 @import "comments";
+@import "show.group";
 
 body {
-  font-family: 'Asap Condensed', sans-serif;
+  // font-family: 'Asap Condensed', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  //  background-image: linear-gradient(#cc2b5e, #cc2b5e);
 }
 
 button, input {
@@ -17,15 +20,21 @@ button, input {
 }
 
 h1 {
+  // font-family: robotto;
+  font-family: 'Montserrat', sans-serif;
   font-size: 36px;
+  font-size: 40px;
   text-align: center;
   display: inline-block;
+  font-weight: bold;
+  color: white;
 }
 
 .google-map {
   height: 70%;
   width: 70%;
   margin: 40px auto;
+//
 
 
 }

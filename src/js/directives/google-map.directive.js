@@ -32,8 +32,7 @@ function googleMap($window, $timeout) {
         function addMarker() {
           const marker = new google.maps.Marker({
             position: latLng,
-            map: map,
-            icon: 'images/dot.svg'
+            map: map
           });
 
           markers.push(marker);
