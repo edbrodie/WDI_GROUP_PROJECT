@@ -38,23 +38,18 @@
 
 <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
 
-<<<<<<< HEAD
-
 
 
 <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-=======
->>>>>>> 76cf756cc2d49866e8aa9b9ed606d15bbeae1122
 
-<<<<<<< HEAD
 <ul>
   <li ng-repeat="track in vm.tracks track by $index">
     <iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
   </li>
 </ul>
-=======
+
   <p>{{ vm.event.description}}</p>
->>>>>>> 76cf756cc2d49866e8aa9b9ed606d15bbeae1122
+
 
   <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
 
