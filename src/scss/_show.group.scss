@@ -3,9 +3,13 @@
   height: 1100px;
 }
 
-.showCard {
+.showCardTemp {
   width: 100%;
   background-color: $almost-black;
+}
+
+.showCard-group{
+  width: 100%;
 }
 
 .show-header {
@@ -30,11 +34,18 @@
   padding: 10px;
 }
 
-.googleMap {
+.gMapShow {
     width: 100%;
     height: 432px;
     padding: 0;
     margin: 0 auto;
+}
+
+#gmap-group {
+  height: 400px;
+  width: 100%;
+  margin: 20px auto;
+
 }
 
 .tracks {

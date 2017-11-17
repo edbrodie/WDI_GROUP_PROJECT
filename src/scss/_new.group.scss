@@ -1,3 +1,30 @@
+// html {
+//   background: url('https://i.imgur.com/YkChg6N.jpg') no-repeat center center fixed;
+//   background-size: cover;
+//   background-attachment: fixed;
+//   height: 100%;
+// }
+
 .create {
-  font-size: 100px;
+  font-size: 60px;
 }
+
+.groupform {
+  padding: 5px;
+  width: 50%;
+  background-color: white;
+  font-size: 20px;
+  input {
+    width: 100%;
+    border-bottom: 1px solid black;
+    line-height: 30px;
+    font-size: 15px;
+  }
+}
+
+// #heroimage {
+//   background: url('https://i.imgur.com/YkChg6N.jpg') no-repeat center center fixed;
+//   background-size: cover;
+//   background-attachment: fixed;
+//   height: 100%;
+// }

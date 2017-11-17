@@ -9,7 +9,7 @@
     <div class="column is-half inner-left-colmn">
       <h1>{{ vm.event.name }} </h1>
       <h2>@ {{ vm.event._embedded.venues[0].name }}</h2>
-      <div class="showCard">
+      <div class="showCard-group">
         <div ng-show="vm.event">
           <!-- <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3> -->
           <img class="event-image" ng-height="290px" width="100%" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
@@ -26,7 +26,7 @@
           </ul>
         </div>
 
-        <div class="googleMap">
+        <div class="googleMap" id="gmap-group">
           <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
         </div>
       </div>

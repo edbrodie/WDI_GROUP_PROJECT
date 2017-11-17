@@ -1,11 +1,20 @@
-<h1 class="create">Create group</h1>
-
-<form ng-submit="vm.submitForm()">
-  <label for="name">Group Name</label>
-  <input type="text" name="name" ng-model="vm.group.name">
-
-  <label for="image">Image</label>
-  <input type="text" name="image" ng-model="vm.group.image">
-
-  <button class="btn btn-success">Create Group</button>
-</form>
+<div class="container">
+  <h1 class="create">Create your group</h1>
+  <div class="groupform">
+    <form ng-submit="vm.submitForm()">
+      <div class="field">
+        <label class="name">Group Name</label>
+        <div class="control">
+          <input type="text" name="name" ng-model="vm.group.name" placeholder="Whatever you like in here">
+        </div>
+      </div>
+      <div class="field">
+        <label class="name">Picture</label>
+        <div class="control">
+          <input type="text" name="image" ng-model="vm.group.image" placeholder="Image link in here">
+        </div>
+      </div>
+      <button class="button">Create Group</button>
+    </form>
+  </div>
+</div>

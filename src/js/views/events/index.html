@@ -1,6 +1,6 @@
 <div class="columns is-multiline">
   <div class="column is-one-third" ui-sref="eventsShow({ id: event.id })" ng-repeat="event in vm.events track by $index">
-    <div class="card _card">
+    <div class="card _card animated zoomIn">
       <div class="card-content">
         <div class="media">
           <div class="media-content">
@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="content">
-          <time datetime="{{ event.dates.start.localDate }}">{{ event.dates.start.localDate }} - {{ event.dates.start.localTime }}</time>
+          <time datetime="{{ event.dates.start.localDate }}">{{ event.dates.start.localDate }}  {{ event.dates.start.localTime }}</time>
         </div>
       </div>
     </div>
