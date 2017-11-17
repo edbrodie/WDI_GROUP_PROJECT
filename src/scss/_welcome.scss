@@ -2,12 +2,20 @@
 .welcome {
   h1 {
     font-size: 180px;
+    color: black;
+    margin-top: 2.5rem;
+    text-shadow: 5px 5px 9px rgba(255, 255, 255, 0.25);
   }
 }
 
 #heroimage {
-  background: url('https://i.imgur.com/h4XDvVc.jpg') no-repeat center center fixed;
+  background: url('https://i.imgur.com/sAMyBXh.jpg') no-repeat center center fixed;
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
+}
+
+.front-button {
+  width: 140px;
+  margin: 10px;
 }
