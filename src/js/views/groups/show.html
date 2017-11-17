@@ -1,12 +1,5 @@
 <div class="showpage">
-  <!-- <h1 class="show-header">Group show page</h1> -->
-
-
-
-
-
-  <hr class="hr">
-
+  
   <div class="columns">
     <!-- <div class="leftColmn" class="column is-half"> -->
     <div class="column is-half inner-left-colmn">
@@ -40,41 +33,50 @@
 
 
 
-    <!-- SECOND COLMN -->
-    <!-- /////////////////////////////////////////////////////////////// -->
-    <div class="column is-half">
-      {{ vm.group }}
-      <div class="column is-half">
-        <div class="comments-section">
 
+  <!-- SECOND COLMN -->
+  <!-- /////////////////////////////////////////////////////////////// -->
+  <div class="column is-half">
+    <!-- <div class="comments-section"> -->
 
-          <h2>Comments Section</h2>
-          <button ng-hide="vm.toggleJoinButton" ng-click="vm.handleClick(user.userId)">Join group</button>
+      <div class="container is-fullhd container-all comments-section">
+        <div class="comment-header">
+          <img src="https://d30zbujsp7ao6j.cloudfront.net/wp-content/uploads/2017/07/unnamed.png" alt="GROUP IMG" class="group-image">
+          <h2 class="group-heading">{{vm.group.name}}</h2>
+          <button ng-hide="vm.toggleJoinButton" ng-click="vm.handleClick(user.userId)" class="button is-small is-outlined join-group">Join group</button>
+        </div>
+
+        <div class="comment-members">
+          <h2>Members</h2>
           <ul>
-            <li ng-repeat="comment in vm.group.comments | orderBy:'-'">
-              <p>{{ comment.content }}</p>
-              <p>Comment by {{ comment.createdBy.username }}</p>
-              <button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
+            <li ng-repeat="members in vm.group.attendees">
+              <img src="https://i.imgur.com/9UPXV7U.png" alt="MEMBER ICON" class="member-icon">
+              <p class="member-names"> {{ members.name }} </p>
             </li>
           </ul>
-
-          <form ng-submit="vm.createComment()">
-            <div class="form-group">
-              <label for="comment">Comment</label>
-              <input ng-model="vm.comment.content" type="text" class="form-control" name="content" id="comment">
-            </div>
-            <button class="btn btn-success">POST</button>
-          </form>
-
-          <h2>Comments</h2>
-          <form ng-submit="vm.createComment()">
-            <div class="form-group">
-              <label for="comment">Comment</label>
-              <input ng-model="vm.comment.content" type="text" class="form-control" name="content" id="comment">
-            </div>
-          </div>
-
         </div>
+
+
+        <ul>
+          <li ng-repeat="comment in vm.group.comments">
+            <div class="bubble">
+              <p class="comment-content">{{ comment.content }}</p>
+              <a ng-click="vm.delete(comment)" class="delete-button" name="delete" href="#">delete</a>
+              <p class="comments-by">@{{ comment.createdBy.username }}</p>
+            </div>
+          </li>
+        </ul>
+
+        <form ng-submit="vm.createComment()" class="input-form">
+          <div class="form-group">
+            <label for="comment" class="comment-label">Comment</label>
+            <input ng-model="vm.comment.content" type="text" class="form-control" name="content" id="comment-box">
+            <button class="btn button is-primary is-small post-button">POST</button>
+          </div>
+        </form>
+
       </div>
-  </div>
+
+    </div>
+  <!-- </div> -->
 </div>

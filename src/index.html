@@ -8,6 +8,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOKG8Nx-zih8c_tKS8hYisxlnevauh4GM"></script>
   <link href="https://fonts.googleapis.com/css?family=Asap+Condensed" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
+  <link rel="stylesheet" href="animate.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400i,500,600,700,800" rel="stylesheet">
   <!-- inject:js -->
   <!-- endinject -->
@@ -19,7 +20,11 @@
     <div ng-controller="MainCtrl">
       <nav class="navbar _navbar is-transparent" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <img class="navbar-item navlogo" ui-sref="eventsIndex" src="https://i.imgur.com/9UPXV7U.png">
+          <img class="navbar-item navlogo" ui-sref="eventsIndex" src="https://i.imgur.com/w9HNgr8.png">
+          <a class="navbar-item" ui-sref="eventsIndex">Choose gig</a>
+
+<!-- <img class="navbar-item navlogo" ui-sref="eventsIndex" src="https://i.imgur.com/9UPXV7U.png"> -->
+
           <button class="button navbar-burger" ng-click="main.toggle = !main.toggle" ng-class="{ 'is-active': main.toggle }">
             <span></span>
             <span></span>
