@@ -1,5 +1,5 @@
 
-<div class="showCard">
+<div class="showCardTemp">
 
   <div class="showHeader">
     <h1 id="showHeader">{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
@@ -55,7 +55,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
   </div>
   <div class="spotMap">
 
-    <div class="gMap">
+    <div class="gMapShow">
       <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
     </div>
     <aside class="spot">
