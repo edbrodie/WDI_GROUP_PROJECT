@@ -10,7 +10,11 @@
     <div class="showBlurb">
 
 
+  </div>
 
+  <div class="showImage">
+    <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+  </div>
 
       <p> <strong> Venue Info: </strong> {{ vm.event._embedded.venues[0].generalInfo.generalRule }} </p>
     </br>
