@@ -10,24 +10,22 @@
     <div class="showBlurb">
 
 
-  </div>
+    </div>
 
-  <div class="showImage">
-    <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-  </div>
+    <div class="showImage">
+      <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+    </div>
 
-      <p> <strong> Venue Info: </strong> {{ vm.event._embedded.venues[0].generalInfo.generalRule }} </p>
-    </br>
-    <p> <strong>  Parking Info: </strong> {{ vm.event._embedded.venues[0].parkingDetail }} </p>
+    <p> <strong> Venue Info: </strong> {{ vm.event._embedded.venues[0].generalInfo.generalRule }} </p>
   </br>
-  <p> <strong>  General Info: </strong>  {{ vm.event._embedded.venues[0].generalInfo }} </p>
+  <p> <strong>  Parking Info: </strong> {{ vm.event._embedded.venues[0].parkingDetail }} </p>
+</br>
+<p> <strong>  General Info: </strong>  {{ vm.event._embedded.venues[0].generalInfo }} </p>
 </div>
 
 
-</div>
-<div class="showImage">
-  <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-</div>
+
+
 
 
 <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
