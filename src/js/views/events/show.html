@@ -8,15 +8,17 @@
 <div class="">
   <div class="showBlurb">
 
-    <span> {{ vm.event.info }} {{ vm.event._embedded.venues[0].name }}
+    <span>
     </span>
+<p> <strong> Venue Info: </strong> {{ vm.event._embedded.venues[0].generalInfo.generalRule }} </p>
+</br>
+<p> <strong>  Parking Info: </strong> {{ vm.event._embedded.venues[0].parkingDetail }} </p>
+</br>
+<p> <strong>  General Info: </strong>  {{ vm.event._embedded.venues[0].generalInfo }} </p>
 
 
-{{ vm.event._embedded.venues[0].info }}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
   </div>
-
   <div class="showImage">
     <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
   </div>
