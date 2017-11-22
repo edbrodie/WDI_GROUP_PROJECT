@@ -108,11 +108,12 @@
 <!-- <div class="showCardTemp">
 
   <div class="showHeader">
+
     <h1 id="showHeader">{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 
   </div>
-<div class="">
-  <div class="showBlurb">
+  <div class="">
+    <div class="showBlurb">
 
     <span> {{ vm.event.info }} {{ vm.event._embedded.venues[0].name }}
     </span>
@@ -123,55 +124,44 @@
    <p> <strong>  General Info: </strong>  {{ vm.event._embedded.venues[0].generalInfo }} </p>
   </div>
 
-  <div class="showImage">
-    <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-  </div>
 
 
-  <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
-
-</div>
-  <div class="groupBar">
-
-<div class="groupImgs">
 
 
-    <div class="columns">
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-    <a class="groupImg"  ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-    </div>
+
+<img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
 
 </div>
-  </div>
-  <div class="spotMap">
+<div class="groupBar">
 
-    <div class="gMapShow">
-      <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+  <div class="groupImgs">
+    <div class="columns" id="showColumns">
+      <h2>Groups</h2>
+      <div class="grpTextList"class="column" ng-repeat="group in vm.groups">
+        <a ui-sref="groupsShow({ id: group._id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/E7aZoim.png">'{{ group.name }}'</a></li>
+      </div>
+      <div class="column">
+        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
+      </div>
+
     </div>
-    <aside class="spot">
+  </div>
 
-      <p ng-repeat="track in vm.tracks track by $index">
+</div>
+</div>
+<div class="spotMap">
+
+  <div class="gMapShow">
+    <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+  </div>
+  <aside class="spot">
+
+    <p ng-repeat="track in vm.tracks track by $index">
       <iframe ng-repeat="track in vm.tracks track by $index" ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
     </p>
 
-    </aside>
+  </aside>
 
-  </div>
+</div>
 
 </div> -->
