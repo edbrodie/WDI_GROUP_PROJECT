@@ -1,4 +1,25 @@
 
+.index-hero {
+  height: 100%;
+  width: 100%;
+}
+
+.icons {
+  height: 50px;
+  width: 50px;
+  margin: 30px auto;
+}
+
+.icon-text {
+  color: white;
+  font-weight: normal;
+  
+}
+
+.icon-col-height {
+  margin: 50px;
+}
+
 .eventheader {
   margin-top: 0px;
   color: black;
@@ -10,4 +31,8 @@
 
 .eventname {
   font-weight: bold;
+}
+
+.margin {
+  margin: 20px 0px
 }

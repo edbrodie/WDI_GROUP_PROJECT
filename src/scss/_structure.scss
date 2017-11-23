@@ -1,10 +1,12 @@
 html {
-  background: $black;
+  background: #0C0C0C;
   height: 100%;
+  // width: 50%;
 }
 
 body {
   margin-bottom: 2rem;
+  // width: 50%;
   height: 100%;
 
   &.top-image {

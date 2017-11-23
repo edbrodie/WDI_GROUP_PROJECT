@@ -114,9 +114,7 @@ height: 508px;
   background: $spotify-green;
 }
 
-.almost-black {
-  background-color: $almost-black;
-}
+
 
 .event-page-tracks {
   width: 100%;
@@ -128,6 +126,17 @@ height: 508px;
   height: 432px;
   padding: 0;
   margin: 0 auto;
+}
+
+.page-container {
+  // padding: 100px;
+  // background-color: #302e30;
+  // background-color: grey;
+
+  // width: 95%;
+  // margin-left: 2.5%;
+  // margin-right: 2.5%;
+
 }
 
 
