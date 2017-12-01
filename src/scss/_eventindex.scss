@@ -1,23 +1,40 @@
+.index-hero-section {
+  padding-bottom: 80px;
+}
 
 .index-hero {
   height: 100%;
   width: 100%;
+  background-image: url('../images/keys.jpg');
+  background-size: cover;
+  // background-attachment: fixed;
+  // height: 2000px;
 }
+
+.large-title {
+  font-size: 45px;
+}
+
+.title-container {
+  width: 100%;
+}
+
 
 .icons {
   height: 50px;
   width: 50px;
   margin: 30px auto;
+  color: white;
 }
 
 .icon-text {
   color: white;
   font-weight: normal;
-  
+  font-size: 19px;
 }
 
 .icon-col-height {
-  margin: 50px;
+  margin: 50px 0px;
 }
 
 .eventheader {

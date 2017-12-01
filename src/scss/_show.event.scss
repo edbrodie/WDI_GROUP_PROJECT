@@ -115,15 +115,17 @@ height: 508px;
 }
 
 
-
 .event-page-tracks {
   width: 100%;
 }
 
+.border {
+  border: 0;
+}
 
 .gMapShow {
   width: 100%;
-  height: 432px;
+  height: 440px;
   padding: 0;
   margin: 0 auto;
 }
@@ -133,10 +135,35 @@ height: 508px;
   // background-color: #302e30;
   // background-color: grey;
 
-  // width: 95%;
-  // margin-left: 2.5%;
-  // margin-right: 2.5%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 
+}
+
+.tile-height {
+  height: 200px;
+}
+
+.tile-padding {
+  padding: 12px;
+}
+
+.title {
+  color: white;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #979797;
+}
+
+#aside {
+  padding: 0px 0px 0px 10px;
+}
+
+#show-main {
+  padding: 0px 0px 0px 0px;
 }
 
 

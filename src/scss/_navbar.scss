@@ -1,7 +1,7 @@
 ._navbar {
-  background-color: transparent !important;
-  background-color: black;
-  border-bottom: 4px solid $spotify-green;
+  // background-color: transparent !important;
+  background-color: $almost-black;
+  border-top: 4px solid $spotify-green;
   // margin-bottom: 9rem;
 
   a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link.is-active,

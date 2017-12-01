@@ -1,12 +1,9 @@
-
-<section class="">
-<section class="hero is-large is-bold margin almost-black center-text">
-  <div class="hero-body ">
-    <figure class="image">
-      <img class"index-hero" src="">
-    </figure>
-    <div class="container">
-      <h1 class="title">
+<div class="page-container ">
+<section class="almost-black index-hero-section">
+<section class="hero is-large is-bold margin almost-black center-text index-hero">
+  <div class="hero-body">
+    <div class="container" id="title-container">
+      <h1 class="title large-title">
         Latest music events: London
       </h1>
       <h2 class="subtitle">
@@ -27,6 +24,7 @@
         See your favourite artists live
       </h1>
     </div>
+
     <div class="column center-text">
       <figure class="image icons">
       <img class"icons" src="../images/spotify.png">
@@ -78,10 +76,10 @@ Copy -->
 </section> -->
 
 <div class="columns is-multiline">
-  <div class="column is-one-third" ui-sref="eventsShow({ id: event.id })" ng-repeat="event in vm.events track by $index">
+  <div class="column is-one-third reduce-padding" ui-sref="eventsShow({ id: event.id })" ng-repeat="event in vm.events track by $index">
     <div class="card _card animated zoomIn">
       <div class="card-content">
-        <div class="media">
+        <div class="media is-marginless">
           <div class="media-content">
             <p class="title is-4">{{ event.name | limitTo : 28 : begin}}</p>
             <p class="subtitle is-6">@{{ event._embedded.venues[0].name }}</p>
@@ -90,3 +88,5 @@ Copy -->
       </div>
     </div>
   </div>
+</div>
+</div>
