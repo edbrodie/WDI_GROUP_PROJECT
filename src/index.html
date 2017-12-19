@@ -15,14 +15,15 @@
   <!-- inject:css -->
   <!-- endinject -->
 </head>
-<body id="heroimage" ng-class="{ 'top-image': main.eventsIndex }" ng-controller="MainCtrl as main">
-    <div ng-controller="MainCtrl">
-      <nav class="navbar _navbar is-transparent" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <img class="navbar-item navlogo" ui-sref="eventsIndex" src="https://i.imgur.com/w9HNgr8.png">
-          <a class="navbar-item" ui-sref="eventsIndex">Choose gig</a>
 
-<!-- <img class="navbar-item navlogo" ui-sref="eventsIndex" src="https://i.imgur.com/9UPXV7U.png"> -->
+<!-- <body id="heroimage" ng-class="{ 'top-image': main.eventsIndex }" ng-controller="MainCtrl as main"> -->
+
+  <body ng-controller="MainCtrl as main">
+    <div ng-controller="MainCtrl">
+      <nav class="navbar _navbar ng-if="!user" is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <img class="navbar-item navlogo logo-color" ui-sref="eventsIndex" src="../images/black_logo.png">
+          <a class="navbar-item" ui-sref="eventsIndex">Choose gig</a>
 
           <button class="button navbar-burger" ng-click="main.toggle = !main.toggle" ng-class="{ 'is-active': main.toggle }">
             <span></span>
@@ -42,4 +43,6 @@
     </div>
     <main class="container" ui-view></main>
   </body>
+
+
   </html>
