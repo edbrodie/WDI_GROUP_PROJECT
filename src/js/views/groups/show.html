@@ -1,15 +1,15 @@
 <div class="showpage">
   <!-- <h1 class="show-header">Group show page</h1> -->
 
-<!-- <div class="columns">
-  <hr class="hr"> -->
+
+  <hr class="hr">
 
   <div class="columns">
     <!-- <div class="leftColmn" class="column is-half"> -->
     <div class="column is-half inner-left-colmn">
       <h1>{{ vm.event.name }} </h1>
       <h2>@ {{ vm.event._embedded.venues[0].name }}</h2>
-      <div class="showCard">
+      <div class="showCard-group">
         <div ng-show="vm.event">
           <!-- <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3> -->
           <img class="event-image" ng-height="290px" width="100%" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
@@ -18,18 +18,15 @@
 
         <!-- <img height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image"> -->
 
-        <div>
-          <ul>
+        <div class="tracks">
+          <ul class="tracks-ul">
             <li ng-repeat="track in vm.tracks track by $index">
               <iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
             </li>
           </ul>
-
-
-
         </div>
 
-        <div class="gMap">
+        <div class="googleMap" id="gmap-group">
           <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
         </div>
       </div>
@@ -40,7 +37,7 @@
 
   <!-- SECOND COLMN -->
   <!-- /////////////////////////////////////////////////////////////// -->
-  <div class="column is-half">
+  <div class="column is-half column-right">
     <!-- <div class="comments-section"> -->
 
       <div class="container is-fullhd container-all comments-section">
@@ -55,7 +52,7 @@
           <ul>
             <li ng-repeat="members in vm.group.attendees">
               <img src="https://i.imgur.com/9UPXV7U.png" alt="MEMBER ICON" class="member-icon">
-              <p class="member-names"> {{ members.name }} </p>
+              <p class="member-names"> {{ members.username }} </p>
             </li>
           </ul>
         </div>

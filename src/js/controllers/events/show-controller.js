@@ -51,4 +51,8 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
       vm.groups = data;
     }
   );
+  Event.getTicketmasterEvents().$promise.then(data => {
+    console.log(data);
+    vm.events = data;
+  });
 }

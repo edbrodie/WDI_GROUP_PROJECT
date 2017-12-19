@@ -1,276 +1,167 @@
 
-<div class="showCard">
+<section class="hero is-primary event-show-title">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Event Info
+      </h1>
+      <!-- <h2 class="subtitle">
+        Create a group
+      </h2> -->
+
+    </div>
+  </div>
+</section>
+
+<div class="tile is-ancestor">
+  <!-- /////////TILE WITH IMAGE/////// -->
+  <div class="tile is-parent is-8">
+    <article class="tile is-child almost-black">
+      <p class="title">{{ vm.event.name }}</p>
+      <figure class="image is-4by3">
+        <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[3].url }}" alt="{{ vm.event.name }}'s image">
+      </figure>
+    </article>
+  </div>
+
+  <!-- ////TILE WITH INFO////// -->
+  <div class="tile is-parent is-4">
+    <article class="tile is-child almost-black">
+      <p class="subtitle">Date: {{ vm.event.dates.start.localDate }}</p>
+      <p class="subtitle">Time: {{ vm.event.dates.start.localTime }}</p>
+      <p class="subtitle">Venue: {{ vm.event._embedded.venues[0].name }}</p>
+      <div>
+      <p class="subtitle">General Info: {{     vm.event._embedded.venues[0].generalInfo.generalRule }}</p>
+      <a href="{{ vm.event._embedded.venues[0].url }}" target="_blank"><p class="subtitle">Buy tickets: {{ vm.event._embedded.venues[0].url }}</p></a>
+
+        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
+      </div>
+
+
+      <div class="grpTextList"class="column" ng-repeat="group in vm.groups">
+        <a ui-sref="groupsShow({ id: group._id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/E7aZoim.png">'{{ group.name }}'</a></li>
+      </div>
+
+
+
+      <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+    </div>
+    </article>
+  </div>
+</div>
+
+
+
+<div class="tile is-ancestor event-show-tiles ">
+  <!-- ////TILE WITH MAP/// -->
+  <div class="tile is-vertical">
+    <div class="tile is-radiusless is-marginless">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child almost-black is-primary">
+          <iframe ng-repeat="track in vm.tracks track by $index" ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true" class="event-page-tracks"></iframe>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="tile is-parent is-4">
+    <article class="tile is-child is-success almost-black">
+      <div class="content">
+        <div class="gMapShow">
+          <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+
+
+<!-- <div class="showCardTemp">
+  <div class="showHeader">
+    <h1 id="showHeader">{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+    </div>
+      <div class="">
+        <div class="showBlurb">
+          <span> {{ vm.event.info | limitTo : 3}} {{    vm.event._embedded.venues[0].name }}
+            </span>
+              <p> <strong> Venue Info: </strong> {{     vm.event._embedded.venues[0].generalInfo.generalRule }} </p>
+              </br>
+              <p> <strong>  Parking Info: </strong> {{  vm.event._embedded.venues[0].parkingDetail }} </p>
+            </br>
+            <p> <strong>  General Info: </strong>  {{ vm.event._embedded.venues[0].generalInfo }} </p>
+        </div>
+
+      <!-- <div class="showImage">
+      <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+      </div> -->
+
+      <!-- <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+    </div> -->
+<!-- </div> -->
+
+
+
+
+<!-- ///////////////////////////////////////////////////////////////////// -->
+
+<!-- <div class="showCardTemp">
 
   <div class="showHeader">
+
     <h1 id="showHeader">{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
 
   </div>
-<div class="">
-  <div class="showBlurb">
+  <div class="">
+    <div class="showBlurb">
 
     <span> {{ vm.event.info }} {{ vm.event._embedded.venues[0].name }}
     </span>
-
-
-{{ vm.event._embedded.venues[0].info }}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-  </div>
-
-  <div class="showImage">
-    <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+    <p> <strong> Venue Info: </strong> {{ vm.event._embedded.venues[0].generalInfo.generalRule }} </p>
+     </br>
+     <p> <strong>  Parking Info: </strong> {{ vm.event._embedded.venues[0].parkingDetail }} </p>
+   </br>
+   <p> <strong>  General Info: </strong>  {{ vm.event._embedded.venues[0].generalInfo }} </p>
   </div>
 
 
-  <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
-
-</div>
-  <div class="groupBar">
-
-<div class="groupImgs">
-
-
-    <div class="columns">
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-      <div class="column">
-    <a class="groupImg"  ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-    </div>
-
-</div>
-  </div>
-  <div class="spotMap">
-
-    <div class="gMap">
-      <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
-    </div>
-    <aside class="spot">
-
-      <p ng-repeat="track in vm.tracks track by $index">
-      <iframe ng-repeat="track in vm.tracks track by $index" ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-    </p>
-
-    </aside>
-
-  </div>
-
-</div>
 
 
 
-
-<!--
-<div class="showCard">
-<div class="container">
-
-
-<h1 class="showText">{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
-<div class="" ng-show="vm.event">
-<img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-</div>
-
-  <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
-
-
-
-<ul>
-<li ng-repeat="track in vm.tracks track by $index">
-<iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-</li>
-</ul>
-
-<p>{{ vm.event.description}}</p>
-
-
-<div class="">
-
-
-<google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
-</div>
-
-<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
-
-<h2>Groups</h2>
-<ul ng-repeat="group in vm.groups">
-<li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
-</ul>
-
-<h2>Comments</h2>
-<form ng-submit="vm.createComment()">
-<div class="form-group">
-<label for="comment">Comment</label>
-<input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
-</div>
-<button class="btn btn-success">POST</button>
-</form>
-
-<h2>Comments</h2>
-<form ng-submit="vm.createComment()">
-<div class="form-group">
-<label for="comment">Comment</label>
-<input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
-</div>
-<button class="btn btn-success">POST</button>
-</form>
-
-<ul>
-<li ng-repeat="comment in vm.group.comments | orderBy:'-'">
-<p>{{ comment.content }}</p>
-<p>Comment by {{ comment.createdBy.username }}</p>
-<button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
-</li>
-</ul>
-</div>
-<h1 class="headers">Events</h1>
-
-<div class="cardFloat" ng-repeat="event in vm.events track by $index">
-
-
-
-<div class="card">
-<div class="card-image">
-<figure>
-<img class="cardImage" ng-src="{{ event.images[0].url }}"  alt="Placeholder image">
-</figure>
-</div>
-<div class="card-content cardContent">
-<div class="media">
-<div class="media-content cardText">
-<a class="subtitle is-5" ui-sref="eventsShow({ id: event.id })">{{ event.name | limitTo : 28 : begin}}... @ {{ event._embedded.venues[0].name }}</a>
-<div class="media">
-<p class="padMe subtitle is-6"> &#128197; {{ event.dates.start.localDate }}</p>
-<p class="padMe subtitle is-6">&#128336; {{ event.dates.start.localTime }}</p>
-</div>
-</div>
-</div>
-
-<div class="subtitle is-6">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-<a href="#">#css</a> <a href="#">#responsive</a>
-</br>
-</div>
-<div class="like">
-
-
-<button type="button" ng-click="count = count + 1" ng-init="count=0">  <img src="https://i.imgur.com/B8dzn6U.png" width="20px" height="20px"  alt="Placeholder image"></button>
-<span>{{count}}</span>
-</div>
-
-</div>
-</div>
-</div> -->
-
-
-<!--
-
-<div class="showCard">
-<div class="container">
-
-
-<h1 class="showText">{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
-<div class="" ng-show="vm.event">
-<img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
-</div>
 
 <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
 
-
-
-<ul>
-<li ng-repeat="track in vm.tracks track by $index">
-<iframe ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-</li>
-</ul>
-
-<p>{{ vm.event.description}}</p>
-
-
-<div class="">
-
-
-<google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
 </div>
+<div class="groupBar">
 
-<button ui-sref="groupsNew({ id: vm.event.id })" class="btn btn-success">Create group for {{ vm.event.name }}</button>
+  <div class="groupImgs">
+    <div class="columns" id="showColumns">
+      <h2>Groups</h2>
+      <div class="grpTextList"class="column" ng-repeat="group in vm.groups">
+        <a ui-sref="groupsShow({ id: group._id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/E7aZoim.png">'{{ group.name }}'</a></li>
+      </div>
+      <div class="column">
+        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
+      </div>
 
-<h2>Groups</h2>
-<ul ng-repeat="group in vm.groups">
-<li>{{ group.name }}  <button ui-sref="groupsShow({ id: group._id })">View group</button></li>
-</ul>
+    </div>
+  </div>
 
-<h2>Comments</h2>
-<form ng-submit="vm.createComment()">
-<div class="form-group">
-<label for="comment">Comment</label>
-<input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
-</div>
-<button class="btn btn-success">POST</button>
-</form>
-
-<h2>Comments</h2>
-<form ng-submit="vm.createComment()">
-<div class="form-group">
-<label for="comment">Comment</label>
-<input ng-model="vm.comment.content" type="text" class="form-control" name="comment" id="comment">
-</div>
-<button class="btn btn-success">POST</button>
-</form>
-
-<ul>
-<li ng-repeat="comment in vm.group.comments | orderBy:'-'">
-<p>{{ comment.content }}</p>
-<p>Comment by {{ comment.createdBy.username }}</p>
-<button ng-click="vm.delete(comment)" class="btn btn-danger" name="delete">DELETE</button>
-</li>
-</ul>
-</div>
-<h1 class="headers">Events</h1>
-
-<div class="cardFloat" ng-repeat="event in vm.events track by $index">
-
-<div class="card">
-<div class="card-image">
-<figure>
-<img class="cardImage" ng-src="{{ event.images[0].url }}"  alt="Placeholder image">
-</figure>
-</div>
-<div class="card-content cardContent">
-<div class="media">
-<div class="media-content cardText">
-<a class="subtitle is-5" ui-sref="eventsShow({ id: event.id })">{{ event.name | limitTo : 28 : begin}}... @ {{ event._embedded.venues[0].name }}</a>
-<div class="media">
-<p class="padMe subtitle is-6"> &#128197; {{ event.dates.start.localDate }}</p>
-<p class="padMe subtitle is-6">&#128336; {{ event.dates.start.localTime }}</p>
 </div>
 </div>
-</div>
+<div class="spotMap">
 
-<div class="subtitle is-6">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-<a href="#">#css</a> <a href="#">#responsive</a>
-</br>
-</div>
-<div class="like">
+  <div class="gMapShow">
+    <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+  </div>
+  <aside class="spot">
 
+    <p ng-repeat="track in vm.tracks track by $index">
+      <iframe ng-repeat="track in vm.tracks track by $index" ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </p>
 
-<button type="button" ng-click="count = count + 1" ng-init="count=0">  <img src="https://i.imgur.com/B8dzn6U.png" width="20px" height="20px"  alt="Placeholder image"></button>
-<span>{{count}}</span>
-</div>
+  </aside>
 
 </div>
+
 </div> -->

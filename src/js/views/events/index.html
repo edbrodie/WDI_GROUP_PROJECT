@@ -1,6 +1,20 @@
+
+<section class="hero is-medium is-primary is-bold no-margin ">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Latest music events: London
+      </h1>
+      <h2 class="subtitle">
+        Never miss your favourite artists live, check out their top tracks and add  your friends.
+      </h2>
+    </div>
+  </div>
+</section>
+
 <div class="columns is-multiline">
   <div class="column is-one-third" ui-sref="eventsShow({ id: event.id })" ng-repeat="event in vm.events track by $index">
-    <div class="card _card">
+    <div class="card _card animated zoomIn">
       <div class="card-content">
         <div class="media">
           <div class="media-content">
@@ -8,10 +22,6 @@
             <p class="subtitle is-6">@{{ event._embedded.venues[0].name }}</p>
           </div>
         </div>
-        <div class="content">
-          <time datetime="{{ event.dates.start.localDate }}">{{ event.dates.start.localDate }} - {{ event.dates.start.localTime }}</time>
-        </div>
       </div>
     </div>
   </div>
-</div>

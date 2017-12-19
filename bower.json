@@ -15,7 +15,8 @@
     "ngmap": "^1.18.4",
     "angular-spotify": "^1.5.1",
     "angular-bulma": "^0.5.2",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "animate.css": "^3.5.2"
   },
   "resolutions": {
     "angular": "~1.6"

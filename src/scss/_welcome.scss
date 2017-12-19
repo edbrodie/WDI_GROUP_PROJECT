@@ -1,12 +1,19 @@
 .welcome {
   h1 {
-    font-size: 200px;
+    font-size: 180px;
+    color: black;
+    margin-top: 4rem;
+    text-shadow: 5px 5px 9px rgba(255, 255, 255, 0.25);
   }
 }
 
-#heroimage {
-  background: url('https://i.imgur.com/h4XDvVc.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100%;
+// #heroimage {
+//   background: url('../images/background.jpg') no-repeat center center fixed;
+//   background-size: cover;
+//   background-attachment: fixed;
+//
+// }
+
+#register-page {
+  background-color: blue;
 }
