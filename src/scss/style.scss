@@ -9,10 +9,34 @@
 @import "eventindex";
 @import "welcome";
 
+
+.logo-color {
+  background-color: $spotify-green;
+}
+
+.almost-black {
+  background-color: $almost-black;
+}
+
+.white {
+  background-color: white;
+}
+
+.almost-black-text {
+  color: $almost-black;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.reduce-padding {
+  padding: 10px;
+}
+
 body {
-  // font-family: 'Asap Condensed', sans-serif;
   font-family: 'Montserrat', sans-serif;
-  //  background-image: linear-gradient(#cc2b5e, #cc2b5e);
+   // background-image: linear-gradient(#cc2b5e, #cc2b5e);
 }
 
 button, input {
@@ -32,12 +56,10 @@ h1 {
 }
 
 .google-map {
-  height: 80%;
-  width: 80%;
-  margin: 40px auto;
+  height: 250px;
+  width: 100%;
+  // margin: 40px auto;
 }
-
-
 
 .box {
   .spotify-button {

@@ -1,14 +1,14 @@
 .welcome {
   h1 {
-    font-size: 200px;
+    font-size: 180px;
     color: black;
-    text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.25);
+    margin-top: 4rem;
+    text-shadow: 5px 5px 9px rgba(255, 255, 255, 0.25);
   }
 }
 
 #heroimage {
-  background: url('https://i.imgur.com/sAMyBXh.jpg') no-repeat center center fixed;
+  // background: url('../images/kegan2.png') no-repeat center center fixed;
   background-size: cover;
   background-attachment: fixed;
-
 }

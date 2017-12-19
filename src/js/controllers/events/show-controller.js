@@ -31,7 +31,7 @@ function EventsShowCtrl(Event, $stateParams, Group, $http) {
         }
       }).then(
         response => {
-          vm.tracks = response.data.tracks.items.slice(0, 5);
+          vm.tracks = response.data.tracks.items.slice(0, 3);
         },
         err => {
           console.error(err);
