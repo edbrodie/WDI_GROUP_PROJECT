@@ -100,6 +100,7 @@
             <p> <strong>  General Info: </strong>  {{ vm.event._embedded.venues[0].generalInfo }} </p>
         </div>
 
+<<<<<<< HEAD
       <!-- <div class="showImage">
       <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
       </div> -->
@@ -107,9 +108,19 @@
       <!-- <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
     </div> -->
 <!-- </div> -->
+=======
+<h1>{{ vm.event.name }} @ {{ vm.event._embedded.venues[0].name }}</h1>
+<!-- <button ng-click="authenticate('spotify')">Sign in with Spotify</button> -->
+<div class="showCard">
+<div ng-show="vm.event">
+  <h3><a href="{{ vm.event.url }}" target="_blank" >{{ vm.event.name }}</a></h3>
+  <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[0].url }}" alt="{{ vm.event.name }}'s image">
+</div>
+>>>>>>> d67e2e9ee7f902ad9d267bcd9544f64c17a79fa5
 
 
 
+<<<<<<< HEAD
 
 <!-- ///////////////////////////////////////////////////////////////////// -->
 
@@ -131,6 +142,11 @@
    </br>
    <p> <strong>  General Info: </strong>  {{ vm.event._embedded.venues[0].generalInfo }} </p>
   </div>
+=======
+  <p>{{ vm.event.description}}</p>
+
+  <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+>>>>>>> d67e2e9ee7f902ad9d267bcd9544f64c17a79fa5
 
 
 
