@@ -17,7 +17,7 @@
 
 <div class="tile is-ancestor">
   <!-- /////////TILE WITH IMAGE/////// -->
-  <div class="tile is-parent is-8" id="no-padding">
+  <div class="tile is-parent is-8">
     <article class="tile is-child almost-black">
       <!-- <p class="title">{{ vm.event.name }}</p> -->
       <figure class="image is-4by3">
@@ -27,7 +27,7 @@
   </div>
 
   <!-- ////TILE WITH INFO////// -->
-  <div class="tile is-parent is-4 " id="no-padding">
+  <div class="tile is-parent is-4">
     <article class="tile is-child almost-black tile-padding">
       <p class="title">{{ vm.event.name }}</p>
       <br>
@@ -42,14 +42,14 @@
       </div>
 
 
-      <div class="grpTextList"class="column" ng-repeat="group in vm.groups">
-        <a ui-sref="groupsShow({ id: group._id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/E7aZoim.png">'{{ group.name }}'</a></li>
+      <div class="grpTextList column" ng-repeat="group in vm.groups">
+        <a ui-sref="groupsShow({ id: group._id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/E7aZoim.png">'{{ group.name }}'</a>
       </div>
 
 
 
       <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
-    </div>
+    <!-- </div> -->
     </article>
 
 
@@ -82,6 +82,7 @@
 </div>
 
 </container>
+<<<<<<< HEAD
 
 
 
@@ -169,3 +170,5 @@
 </div>
 
 </div> -->
+=======
+>>>>>>> bbf2853470921affb9ce072f769e713d822dbc62
