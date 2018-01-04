@@ -16,6 +16,7 @@ function loginController($auth, $state, $window, currentUserService) {
     $auth
       .authenticate(provider)
       .then(response => {
+        console.log(response.data.spotifyToken);
         $window.localStorage.setItem(
           'spotifyToken',
           response.data.spotifyToken

@@ -3,11 +3,11 @@ const bcrypt = require('bcrypt');
 const validator = require('validator');
 
 const memberSchema = mongoose.Schema({
-  name: { type: String, trim: true, unique: true, required: true },
-  email: { type: String, trim: true, unique: true, required: true },
-  username: { type: String, trim: true, unique: true, required: true },
-  passwordHash: { type: String, trim: true, unique: true, required: true },
-  spotify: { type: String, trim: true, unique: true }
+  name: { type: String, trim: true, unique: true },
+  email: { type: String, trim: true, unique: true },
+  username: { type: String, trim: true, unique: true },
+  passwordHash: { type: String, trim: true, unique: true },
+  spotify: { type: String, trim: true }
 });
 
 memberSchema.virtual('password').set(setPassword);
