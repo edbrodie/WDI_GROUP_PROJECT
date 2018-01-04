@@ -57,11 +57,11 @@
 
 
 
-<div class="tile is-ancestor event-show-tiles ">
+  <div class="tile is-ancestor event-show-tiles ">
   <!-- ////TILE WITH MAP/// -->
   <div class="tile is-vertical">
     <div class="tile is-radiusless is-marginless">
-      <div class="tile is-parent is-vertical tile-height" id="padding-top">
+      <div class="tile is-parent is-vertical tile-height">
         <article class="tile is-child almost-black is-primary tile-height">
           <iframe ng-repeat="track in vm.tracks track by $index" ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true" class="event-page-tracks"></iframe>
         </article>
@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <div class="tile is-parent is-4 tile-height">
+  <div class="tile is-parent is-4 tile-height" id="padding-top">
     <article class="tile is-child is-success almost-black tile-height">
       <div class="content tile-height">
         <div class="gMapShow">
@@ -78,7 +78,10 @@
       </div>
     </article>
   </div>
+
+
 </div>
 
 </div>
+
 </container>
