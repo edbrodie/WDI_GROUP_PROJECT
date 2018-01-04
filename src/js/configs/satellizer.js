@@ -7,6 +7,6 @@ function Auth($authProvider) {
 
   $authProvider.spotify({
     url: '/api/oauth/spotify',
-    clientId: 'bc3e6c52974e4b61af90f8fd41a6726c'
+    clientId: '05542d6343b941b78ee07c47e3dc0793'
   });
 }
