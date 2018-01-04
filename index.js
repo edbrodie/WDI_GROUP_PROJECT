@@ -14,10 +14,8 @@ const cors = require('cors');
 mongoose.Promise = require('bluebird');
 mongoose.connect(db[environment], { useMongoClient: true });
 
-if (app.get('env') !== 'production') app.use(cors());
-
-app.use(morgan('dev'));
 app.use(cors());
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
