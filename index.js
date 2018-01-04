@@ -16,6 +16,8 @@ mongoose.connect(db[environment], { useMongoClient: true });
 
 if (app.get('env') !== 'production') app.use(cors());
 
+app.use(cors());
+
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
