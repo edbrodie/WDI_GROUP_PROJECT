@@ -1,87 +1,81 @@
-<container class="column page-container">
-<section class="hero event-show-title">
-  <div class="hero-body">
+<div class="column page-container">
+
+  <section>
     <div class="container">
       <h1 class="title large-title">
         Event Info
       </h1>
+    </div>
+  </section>
 
-      <!-- <h2 class="subtitle">
-        Create a group
-      </h2> -->
+  <div class="tile is-ancestor">
+    <!-- /////////TILE WITH IMAGE/////// -->
+    <div class="tile is-parent is-8">
+      <article class="tile is-child">
+        <!-- <p class="title">{{ vm.event.name }}</p> -->
+        <figure class="image is-4by3">
+          <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[3].url }}" alt="{{ vm.event.name }}'s image">
+        </figure>
+      </article>
+    </div>
+
+    <!-- ////TILE WITH INFO////// -->
+    <div class="tile is-parent is-4">
+      <article class="tile is-child almost-black tile-padding">
+        <p class="title">{{ vm.event.name }}</p>
+        <br>
+        <p class="subtitle">Date: {{ vm.event.dates.start.localDate }}</p>
+        <p class="subtitle">Doors open: {{ vm.event.dates.start.localTime }}</p>
+        <p class="subtitle">Venue: {{ vm.event._embedded.venues[0].name }}</p>
+        <div>
+        <p class="subtitle">General Info: {{     vm.event._embedded.venues[0].generalInfo.generalRule }}</p>
+        <a href="{{ vm.event._embedded.venues[0].url }}" target="_blank"><p class="subtitle">Buy tickets: {{ vm.event._embedded.venues[0].url }}</p></a>
+
+          <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
+        </div>
+
+
+        <div class="grpTextList column" ng-repeat="group in vm.groups">
+          <a ui-sref="groupsShow({ id: group._id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/E7aZoim.png">'{{ group.name }}'</a>
+        </div>
+
+
+
+        <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
+      <!-- </div> -->
+      </article>
+
 
     </div>
-  </div>
-</section>
-
-<div class="tile is-ancestor">
-  <!-- /////////TILE WITH IMAGE/////// -->
-  <div class="tile is-parent is-8">
-    <article class="tile is-child almost-black">
-      <!-- <p class="title">{{ vm.event.name }}</p> -->
-      <figure class="image is-4by3">
-        <img ng-height="290px" width="500px" ng-src="{{ vm.event.images[3].url }}" alt="{{ vm.event.name }}'s image">
-      </figure>
-    </article>
-  </div>
-
-  <!-- ////TILE WITH INFO////// -->
-  <div class="tile is-parent is-4">
-    <article class="tile is-child almost-black tile-padding">
-      <p class="title">{{ vm.event.name }}</p>
-      <br>
-      <p class="subtitle">Date: {{ vm.event.dates.start.localDate }}</p>
-      <p class="subtitle">Doors open: {{ vm.event.dates.start.localTime }}</p>
-      <p class="subtitle">Venue: {{ vm.event._embedded.venues[0].name }}</p>
-      <div>
-      <p class="subtitle">General Info: {{     vm.event._embedded.venues[0].generalInfo.generalRule }}</p>
-      <a href="{{ vm.event._embedded.venues[0].url }}" target="_blank"><p class="subtitle">Buy tickets: {{ vm.event._embedded.venues[0].url }}</p></a>
-
-        <a class="groupImg" ui-sref="groupsNew({ id: vm.event.id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/rRDKGUX.png"></a>
-      </div>
-
-
-      <div class="grpTextList column" ng-repeat="group in vm.groups">
-        <a ui-sref="groupsShow({ id: group._id })"><img ng-height="45px" width="45px" src="https://i.imgur.com/E7aZoim.png">'{{ group.name }}'</a>
-      </div>
+  <!-- </div> -->
 
 
 
-      <img ng-hide="vm.event" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="">
-    <!-- </div> -->
-    </article>
-
-
-  </div>
-<!-- </div> -->
-
-
-
-  <div class="tile is-ancestor event-show-tiles ">
-  <!-- ////TILE WITH MAP/// -->
-  <div class="tile is-vertical">
-    <div class="tile is-radiusless is-marginless">
-      <div class="tile is-parent is-vertical tile-height">
-        <article class="tile is-child almost-black is-primary tile-height">
-          <iframe ng-repeat="track in vm.tracks track by $index" ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true" class="event-page-tracks"></iframe>
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <div class="tile is-parent is-4 tile-height" id="padding-top">
-    <article class="tile is-child is-success almost-black tile-height">
-      <div class="content tile-height">
-        <div class="gMapShow">
-          <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+    <div class="tile is-ancestor event-show-tiles ">
+    <!-- ////TILE WITH MAP/// -->
+    <div class="tile is-vertical">
+      <div class="tile is-radiusless is-marginless">
+        <div class="tile is-parent is-vertical tile-height">
+          <article class="tile is-child almost-black is-primary tile-height">
+            <iframe ng-repeat="track in vm.tracks track by $index" ng-src="{{ vm.getTrackSrc(track.uri)}}" width="300" height="80" frameborder="0" allowtransparency="true" class="event-page-tracks"></iframe>
+          </article>
         </div>
       </div>
-    </article>
+    </div>
+
+    <div class="tile is-parent is-4 tile-height" id="padding-top">
+      <article class="tile is-child is-success almost-black tile-height">
+        <div class="content tile-height">
+          <div class="gMapShow">
+            <google-map center="{lat: vm.event._embedded.venues[0].location.latitude, lng: vm.event._embedded.venues[0].location.longitude}"></google-map>
+          </div>
+        </div>
+      </article>
+    </div>
+
+
   </div>
 
+  </div>
 
 </div>
-
-</div>
-
-</container>

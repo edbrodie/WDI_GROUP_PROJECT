@@ -21,8 +21,14 @@ function spotifyLogin(req, res, next) {
   };
 
   var headers = {
-    Authorization: 'Basic ' + new Buffer(req.body.clientId + ':' + oauth.SPOTIFY_SECRET).toString('base64')
+    Authorization:
+      'Basic ' +
+      new Buffer(req.body.clientId + ':' + oauth.SPOTIFY_SECRET).toString(
+        'base64'
+      )
   };
+
+  console.log('reqbody', req.body);
 
   return new Promise((resolve, reject) => {
     rp({
@@ -46,14 +52,14 @@ function spotifyLogin(req, res, next) {
       })
       .then(profile => {
         req.profile = profile;
-        return Member
-          .findOne({ spotify: profile.id })
-          .exec();
+        return Member.findOne({ spotify: profile.id }).exec();
       })
       .then(member => {
         // If you have already registered... Then log the person in.
         if (member) {
-          const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr' });
+          const token = jwt.sign({ userId: member.id }, secret, {
+            expiresIn: '1hr'
+          });
 
           return resolve({
             message: 'Welcome back.',
@@ -63,11 +69,9 @@ function spotifyLogin(req, res, next) {
           });
         }
 
-        return Member
-          .findOne({
-            email: req.profile.email
-          })
-          .exec();
+        return Member.findOne({
+          email: req.profile.email
+        }).exec();
       })
       .then(member => {
         if (!member) {
@@ -83,7 +87,9 @@ function spotifyLogin(req, res, next) {
         return member.save();
       })
       .then(member => {
-        const token = jwt.sign({ userId: member.id }, secret, { expiresIn: '1hr' });
+        const token = jwt.sign({ userId: member.id }, secret, {
+          expiresIn: '1hr'
+        });
 
         return resolve({
           message: 'Welcome back.',
