@@ -1,26 +1,26 @@
 .welcome {
-  // display: block;
-  // margin-left: 25%;
+  display: block;
+  margin-left: 35%;
 
-  // h1 {
-  //   font-size: 180px;
-  //   color: black;
-  //   margin-top: 4rem;
-  //   // padding: 500px;
-  //   // text-shadow: 5px 5px 9px rgba(255, 255, 255, 0.25);
-  // }
-  .heading {
+  h1 {
     font-size: 180px;
-    font-weight: bold;
     color: black;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    #cover-title {
-      font-size: 180px;
-      font-weight: bold;
-    }
+    margin-top: 4rem;
+    // padding: 500px;
+    // text-shadow: 5px 5px 9px rgba(255, 255, 255, 0.25);
+  }
+  // .heading {
+  //   font-size: 180px;
+  //   font-weight: bold;
+  //   color: black;
+  //   position: absolute;
+  //   left: 50%;
+  //   top: 50%;
+  //   transform: translate(-50%,-50%);
+  //   #cover-title {
+  //     font-size: 180px;
+  //     font-weight: bold;
+  //   }
   }
 }
 
@@ -42,6 +42,6 @@ div.home-image-wallpaper {
   height: 100%;
 }
 
-div.buttons {
-  margin-left: 10%;
-}
+// div.buttons {
+//   margin-left: 10%;
+// }
